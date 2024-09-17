@@ -1,0 +1,64 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #333;
+  --foreground: #171717;
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.flex-container {
+  display: flex;
+  padding: 5px 0 5px 0px;
+  gap: 5px;
+}
+
+.flex-item {
+  background-color: rgb(212, 212, 212);
+  border-radius: 5px;
+}
+
+h1 {
+  text-decoration: underline;
+  text-align: center;
+}
+
+.map-controls {
+  height: 600px;
+  text-align: center;
+  flex: 1em;
+  border: 1px solid rgb(0, 0, 0);
+}
+
+.map-controls input {
+  padding: 2px;
+  width: 25%;
+}
+
+.map-div {
+  height: 600px;
+  width: 50%;
+}
+
+.weather-history {
+  height: 600px;
+  flex: 1em;
+  text-align: center;
+  border: 1px solid rgb(0, 0, 0);
+}
+
+.data-section {
+  margin: auto;
+  text-align: center;
+  padding: 1em;
+  border: 1px solid rgb(0, 0, 0);
+  height: 200px;
+  text-decoration: underline;
+}
+
