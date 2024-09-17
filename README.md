@@ -19,6 +19,7 @@ After installing node.js and setting up Next.js project, run the development ser
 
 ```bash
 npm run dev
+```
 
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
