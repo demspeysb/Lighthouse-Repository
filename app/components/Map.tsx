@@ -4,33 +4,49 @@ import Script from 'next/script';
 interface MapProps {
   center: google.maps.LatLngLiteral;
   zoom: number;
+  mapId: string;
 }
 
-const Map: React.FC<MapProps> = ({ center, zoom }) => {
-  const mapRef = useRef<HTMLDivElement>(null);
-  const [isLoaded, setIsLoaded] = useState(false); // Track if the script is loaded
+let map: google.maps.Map;
+
+export function addMarker(lat: number, lon: number) {
+  if (map) {
+    new google.maps.marker.AdvancedMarkerElement({
+      position: { lat, lng: lon }, 
+      map: map,
+    });
+  } else {
+    console.error('Map instance not available');
+  }
+};
+
+const Map: React.FC<MapProps> = ({ center, zoom, mapId }) => {
 
   useEffect(() => {
-    if (isLoaded && mapRef.current && window.google) {
-      const map = new google.maps.Map(mapRef.current, {
-        center,
-        zoom,
-        mapTypeId: google.maps.MapTypeId.TERRAIN,
-      });
+    async function initMap(): Promise<void> {
+      if (!map) {
+        const { Map } = await google.maps.importLibrary('maps') as google.maps.MapsLibrary;
+        map = new Map(document.getElementById('map') as HTMLElement, {
+          center: center,
+          zoom: zoom,
+          mapId: mapId
+        });
+      }
     }
-  }, [isLoaded, center, zoom]);
+
+    initMap();
+  }, [center, zoom, mapId]);
+
 
   return (
-    <>
-      {/* Load the Google Maps script dynamically */}
-      <Script
-        src={`https://maps.googleapis.com/maps/api/js?key=AIzaSyDDx3QCrdoOowfXLJfeoReFkDFV4ZeKZgw`}
-        strategy="afterInteractive"
-        onLoad={() => setIsLoaded(true)}
-      />
-      {/* The map container */}
-      <div ref={mapRef} style={{ height: '600px', width: '100%' }} />
-    </>
+      <>
+        {/* The map container */}
+        <div id="map" style={{ height: '600px', width: '100%' }} />
+
+        <script
+          src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDDx3QCrdoOowfXLJfeoReFkDFV4ZeKZgw&loading=async&libraries=maps,marker&v=beta" defer>
+        </script>
+      </>
   );
 };
 
