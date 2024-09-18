@@ -1,5 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
-import Script from 'next/script';
+import { useEffect, useState } from 'react';
 
 interface MapProps {
   center: google.maps.LatLngLiteral;
