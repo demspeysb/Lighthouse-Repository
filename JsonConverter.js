@@ -78,4 +78,4 @@ async function csvToJson(csvString) {
 }
 
 //Work on way to get data to search from front end
-getFile('1950-2023_actual_tornadoes.csv');
+//getFile('1950-2023_actual_tornadoes.csv');
