@@ -1,36 +1,156 @@
-import { useEffect, useRef, useState } from 'react';
-import Script from 'next/script';
+import { useEffect, useState } from 'react';
+import landingZones from '../dataFiles/landingZones.json';
 
 interface MapProps {
   center: google.maps.LatLngLiteral;
   zoom: number;
+  mapId: string;
 }
 
-const Map: React.FC<MapProps> = ({ center, zoom }) => {
-  const mapRef = useRef<HTMLDivElement>(null);
-  const [isLoaded, setIsLoaded] = useState(false); // Track if the script is loaded
+let map: google.maps.Map;
+
+export function addMarker(lat: number, lon: number) {
+
+  const pin = new google.maps.marker.PinElement({
+    scale: 1,
+    background: '#000FFF',
+    borderColor: '#000FFE',
+    glyphColor: 'white',
+  });
+
+  if (map) {
+    let marker = new google.maps.marker.AdvancedMarkerElement({
+      position: { lat, lng: lon }, 
+      map: map,
+      content: pin.element,
+      title: "Title text for the test marker",
+      gmpClickable: true,
+    });
+  } else {
+    console.error('Map instance not available');
+  }
+};
+
+const Map: React.FC<MapProps> = ({ center, zoom, mapId }) => {
 
   useEffect(() => {
-    if (isLoaded && mapRef.current && window.google) {
-      const map = new google.maps.Map(mapRef.current, {
-        center,
-        zoom,
-        mapTypeId: google.maps.MapTypeId.TERRAIN,
+    async function initMap(): Promise<void> {
+      //Api library imports
+      const { Map, InfoWindow } = await google.maps.importLibrary("maps") as google.maps.MapsLibrary;
+      const { AdvancedMarkerElement, PinElement } = await google.maps.importLibrary("marker") as google.maps.MarkerLibrary;
+
+      //Instantiates the map
+      if (!map) {
+        const { Map } = await google.maps.importLibrary('maps') as google.maps.MapsLibrary;
+        map = new Map(document.getElementById('map') as HTMLElement, {
+          center: center,
+          zoom: zoom,
+          mapId: mapId,
+          mapTypeId: google.maps.MapTypeId.TERRAIN,
+        });
+      }
+
+      // Create an info window to share between markers.
+      const infoWindow = new InfoWindow();
+
+      // Create the markers manually for each.
+      landingZones.forEach(({position, title}, i) => {
+
+        // A switch case to determine the background color based on surface type
+        let backgroundColor;
+        switch (true) {
+          case title.includes('Grass'):
+            backgroundColor = '#27d836';
+            break;
+          case title.includes('Concrete'):
+            backgroundColor = '#a9a8ac';
+            break;
+          case title.includes('Gravel'):
+            backgroundColor = '#5d5c61';
+            break;
+          default:
+            backgroundColor = '#1979e6'; // Default color if no specific surface is found
+        }
+
+        // Custom styling for the Pins
+        const pin = new PinElement({
+            glyph: `${i + 1}`,
+            glyphColor: '#FFFFFF',
+            background: backgroundColor,
+            borderColor: 'black',
+            scale: 1.5,
+        });
+
+        // Marker creation
+        const marker = new AdvancedMarkerElement({
+            position,
+            map,
+            title: `${i + 1}. ${title}`,
+            content: pin.element,
+            gmpClickable: true,
+        });
+
+        // Click listener for each marker, and set up the info window.
+        marker.addListener('gmp-click', (event: google.maps.MapMouseEvent) => {
+          const latLng = event.latLng;
+          infoWindow.close();
+          infoWindow.setContent(marker.title);
+          infoWindow.open(marker.map, marker);
+        });
       });
+
+      //--------below is test code to represent using overlays and data layers-------|
+
+      // Define the data layer for markers
+      let markersLayer = new google.maps.Data();
+
+      // Add test markers to the data layer
+      markersLayer.addGeoJson({
+        "type": "FeatureCollection",
+        "features": [
+          {
+            "type": "Feature",
+            "geometry": {
+              "type": "Point",
+              "coordinates": [150.644, -34.397]
+            },
+            "properties": {
+              "name": "Marker 1"
+            }
+          },
+        ]
+      });
+
+    // Creates a button on the map interface if it doesn't exist
+      const toggleButton = document.createElement("button");
+      toggleButton.textContent = "Toggle";
+      toggleButton.classList.add("toggleMarkers");
+      
+      // Toggle button to show/hide markers
+      toggleButton.addEventListener('click', () => {
+        if (markersLayer.getMap()) {
+          markersLayer.setMap(null);  // Remove the layer
+        } else {
+          markersLayer.setMap(map);  // Add the layer back
+          console.log("layer added");
+        }
+      });
+
+      map.controls[google.maps.ControlPosition.TOP_RIGHT].push(toggleButton);
     }
-  }, [isLoaded, center, zoom]);
+
+    initMap();
+  }, [center, zoom, mapId]);
 
   return (
-    <>
-      {/* Load the Google Maps script dynamically */}
-      <Script
-        src={`https://maps.googleapis.com/maps/api/js?key=AIzaSyDDx3QCrdoOowfXLJfeoReFkDFV4ZeKZgw`}
-        strategy="afterInteractive"
-        onLoad={() => setIsLoaded(true)}
-      />
-      {/* The map container */}
-      <div ref={mapRef} style={{ height: '600px', width: '100%' }} />
-    </>
+      <>
+        {/* The map container */}
+        <div id="map" style={{ height: '600px', width: '100%' }} />
+
+        <script
+          src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDDx3QCrdoOowfXLJfeoReFkDFV4ZeKZgw&loading=async&libraries=maps,marker&v=beta" defer>
+        </script>
+      </>
   );
 };
 

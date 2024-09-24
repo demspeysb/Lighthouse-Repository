@@ -1,10 +1,12 @@
 "use client";
 import Map from "./components/Map";
+import {addMarker} from "./components/Map";
 import Navbar from './components/Navbar';
 
 export default function PrivatePage(event: any) {
   let  center = { lat: 38.3853, lng: -91.9099 };
   const zoom = 10;
+  const mapId = "a9c7951e16e3f5b1";
 
   function changeCoords(): void {
     const latInput = document.getElementById("lat") as HTMLInputElement;
@@ -23,7 +25,7 @@ export default function PrivatePage(event: any) {
 
         <div className="map-controls flex-item">
           <h1>Map Controls</h1>
-            <form>
+            {/* <form>  TODO: Form for adding custom marker
               <label>Latitude: </label>
               <input id="lat" type="number" placeholder="000.0000"></input>
               <br/><br/>
@@ -31,11 +33,12 @@ export default function PrivatePage(event: any) {
               <input  id="lat" type="number" placeholder="000.0000"></input>
               <br/><br/>
               <button type="button" onClick={() => {changeCoords()}}>Submit</button>
-            </form>
+            </form> */}
+            <button className="button-1" type="button" onClick={() => {addMarker(38.3853, -91.9099)}}>Add Test Marker</button>
         </div>
 
         <div className="map-div">
-          {<Map center={center} zoom={zoom} />}
+          {<Map center={center} zoom={zoom} mapId={mapId}/>}
         </div>
 
         <div className="weather-history flex-item"><h1>Weather History Section</h1></div>
