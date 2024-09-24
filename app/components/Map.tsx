@@ -51,9 +51,9 @@ const Map: React.FC<MapProps> = ({ center, zoom, mapId }) => {
       }
 
       // Create an info window to share between markers.
-    const infoWindow = new InfoWindow();
+      const infoWindow = new InfoWindow();
 
-    // Create the markers.
+      // Create the markers manually for each.
       landingZones.forEach(({position, title}, i) => {
 
         // A switch case to determine the background color based on surface type
@@ -98,6 +98,45 @@ const Map: React.FC<MapProps> = ({ center, zoom, mapId }) => {
           infoWindow.open(marker.map, marker);
         });
       });
+
+      //--------below is test code to represent using overlays and data layers-------|
+
+      // Define the data layer for markers
+      let markersLayer = new google.maps.Data();
+
+      // Add test markers to the data layer
+      markersLayer.addGeoJson({
+        "type": "FeatureCollection",
+        "features": [
+          {
+            "type": "Feature",
+            "geometry": {
+              "type": "Point",
+              "coordinates": [150.644, -34.397]
+            },
+            "properties": {
+              "name": "Marker 1"
+            }
+          },
+        ]
+      });
+
+    // Creates a button on the map interface if it doesn't exist
+      const toggleButton = document.createElement("button");
+      toggleButton.textContent = "Toggle";
+      toggleButton.classList.add("toggleMarkers");
+      
+      // Toggle button to show/hide markers
+      toggleButton.addEventListener('click', () => {
+        if (markersLayer.getMap()) {
+          markersLayer.setMap(null);  // Remove the layer
+        } else {
+          markersLayer.setMap(map);  // Add the layer back
+          console.log("layer added");
+        }
+      });
+
+      map.controls[google.maps.ControlPosition.TOP_RIGHT].push(toggleButton);
     }
 
     initMap();
