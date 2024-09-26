@@ -41,7 +41,7 @@ export default function PrivatePage(event: any) {
           {<Map center={center} zoom={zoom} mapId={mapId}/>}
         </div>
 
-        <div className="weather-history flex-item"><h1>Weather History Section</h1></div>
+        {/* <div className="weather-history flex-item"><h1>Weather History Section</h1></div> */}
 
       </div>
       <div className="data-section flex-item">Charts, Data analysis Section</div>
