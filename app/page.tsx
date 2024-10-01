@@ -1,7 +1,7 @@
 "use client";
 import Map from "./components/Map";
 import {addMarker} from "./components/Map";
-import Navbar from './components/Navbar';
+import SideNavbar from "./components/sidebar";
 
 export default function PrivatePage(event: any) {
   let  center = { lat: 38.3853, lng: -91.9099 };
@@ -20,12 +20,12 @@ export default function PrivatePage(event: any) {
 
   return (
     <main>
-      <Navbar/>
+      <title>EMS Dashboard</title>
       <div className="flex-container">
 
         <div className="map-controls flex-item">
-          <h1>Map Controls</h1>
-            {/* <form>  TODO: Form for adding custom marker
+          <h1 className="sectionHeader">Map Controls</h1>
+            {/* { <form>  TODO: Form for adding custom marker
               <label>Latitude: </label>
               <input id="lat" type="number" placeholder="000.0000"></input>
               <br/><br/>
@@ -33,18 +33,18 @@ export default function PrivatePage(event: any) {
               <input  id="lat" type="number" placeholder="000.0000"></input>
               <br/><br/>
               <button type="button" onClick={() => {changeCoords()}}>Submit</button>
-            </form> */}
+            </form> } */}
             <button className="button-1" type="button" onClick={() => {addMarker(38.3853, -91.9099)}}>Add Test Marker</button>
         </div>
 
         <div className="map-div">
           {<Map center={center} zoom={zoom} mapId={mapId}/>}
         </div>
-
-        {/* <div className="weather-history flex-item"><h1>Weather History Section</h1></div> */}
-
       </div>
-      <div className="data-section flex-item">Charts, Data analysis Section</div>
+      <div className="data-section flex-item">
+        Charts, Data analysis Section
+      </div> 
+      <SideNavbar/>
     </main>
   );
 };

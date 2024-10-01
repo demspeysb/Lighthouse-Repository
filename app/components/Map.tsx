@@ -40,6 +40,7 @@ const Map: React.FC<MapProps> = ({ center, zoom, mapId }) => {
       //Api library imports
       const { Map, InfoWindow } = await google.maps.importLibrary("maps") as google.maps.MapsLibrary;
       const { AdvancedMarkerElement, PinElement } = await google.maps.importLibrary("marker") as google.maps.MarkerLibrary;
+      //await google.maps.importLibrary("weather&sensor") as google.maps.MapsLibrary;
 
       //Instantiates the map
       if (!map) {

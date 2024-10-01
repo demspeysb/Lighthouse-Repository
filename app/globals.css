@@ -24,7 +24,7 @@ body {
   border-radius: 5px;
 }
 
-h1 {
+.sectionHeader {
   text-decoration: underline;
   text-align: center;
 }
