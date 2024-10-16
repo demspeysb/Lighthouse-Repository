@@ -13,5 +13,5 @@ export function createDatalayerButton(map: google.maps.Map, layer: google.maps.D
       }
     });
   
-    return toggleButton;
-  }
+  return toggleButton;
+}

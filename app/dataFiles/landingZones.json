@@ -1,295 +1,324 @@
 {
-    "type": "FeatureCollection",
-    "features": [
-      {
-        "type": "Feature",
-        "geometry": {
-          "type": "Point",
-          "coordinates": [-92.0216, 38.2954]
-        },
-        "properties": {
-          "title": "Argyle - Argyle Ball Park - Grass/Dirt"
-        }
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-92.0216, 38.2954]
       },
-      {
-        "type": "Feature",
-        "geometry": {
-          "type": "Point",
-          "coordinates": [-92.0272, 38.2837]
-        },
-        "properties": {
-          "title": "Argyle - Argyle VFW Hall/Maries County - Grass/Dirt"
-        }
-      },
-      {
-        "type": "Feature",
-        "geometry": {
-          "type": "Point",
-          "coordinates": [-91.7363, 38.2805]
-        },
-        "properties": {
-          "title": "Belle - Belle City Park - Grass"
-        }
-      },
-      {
-        "type": "Feature",
-        "geometry": {
-          "type": "Point",
-          "coordinates": [-91.70455, 38.28961]
-        },
-        "properties": {
-          "title": "Belle - Belle/Bland Soccer Club - Grass/Dirt"
-        }
-      },
-      {
-        "type": "Feature",
-        "geometry": {
-          "type": "Point",
-          "coordinates": [-91.9614, 38.5001]
-        },
-        "properties": {
-          "title": "Bonnots Mill - St Louis Parish Hall/Bonnots Mill - Grass/Dirt"
-        }
-      },
-      {
-        "type": "Feature",
-        "geometry": {
-          "type": "Point",
-          "coordinates": [-91.7724, 38.6804]
-        },
-        "properties": {
-          "title": "Chamois - Chamois City Park - Gravel"
-        }
-      },
-      {
-        "type": "Feature",
-        "geometry": {
-          "type": "Point",
-          "coordinates": [-91.76204, 38.67913]
-        },
-        "properties": {
-          "title": "Chamois - Chamois Fire Station # 2 - Landing Pad"
-        }
-      },
-      {
-        "type": "Feature",
-        "geometry": {
-          "type": "Point",
-          "coordinates": [-91.7722, 38.6696]
-        },
-        "properties": {
-          "title": "Chamois - Chamois School - Concrete"
-        }
-      },
-      {
-        "type": "Feature",
-        "geometry": {
-          "type": "Point",
-          "coordinates": [-92.0806, 38.4157]
-        },
-        "properties": {
-          "title": "Folk - Folk Ball Park - Grass/Dirt"
-        }
-      },
-      {
-        "type": "Feature",
-        "geometry": {
-          "type": "Point",
-          "coordinates": [-92.1132, 38.398]
-        },
-        "properties": {
-          "title": "Folk - Painted Rock (Lake Side) - Gravel"
-        }
-      },
-      {
-        "type": "Feature",
-        "geometry": {
-          "type": "Point",
-          "coordinates": [-92.1087, 38.4117]
-        },
-        "properties": {
-          "title": "Folk - Painted Rock (North Side) - Gravel"
-        }
-      },
-      {
-        "type": "Feature",
-        "geometry": {
-          "type": "Point",
-          "coordinates": [-91.8684, 38.5792]
-        },
-        "properties": {
-          "title": "Frankenstein - Frankenstein Ball Park - Grass/Dirt"
-        }
-      },
-      {
-        "type": "Feature",
-        "geometry": {
-          "type": "Point",
-          "coordinates": [-91.9326, 38.3886]
-        },
-        "properties": {
-          "title": "Freeburg - Central Hog Market - Grass/Gravel"
-        }
-      },
-      {
-        "type": "Feature",
-        "geometry": {
-          "type": "Point",
-          "coordinates": [-91.9249, 38.3144]
-        },
-        "properties": {
-          "title": "Freeburg - Freeburg Church Park - Grass"
-        }
-      },
-      {
-        "type": "Feature",
-        "geometry": {
-          "type": "Point",
-          "coordinates": [-91.9219, 38.3045]
-        },
-        "properties": {
-          "title": "Freeburg - Freeburg all Park (Lions Club) - Grass/Dirt"
-        }
-      },
-      {
-        "type": "Feature",
-        "geometry": {
-          "type": "Point",
-          "coordinates": [-91.92184, 38.31319]
-        },
-        "properties": {
-          "title": "Freeburg - Fire Station 1 - Concrete"
-        }
-      },
-      {
-        "type": "Feature",
-        "geometry": {
-          "type": "Point",
-          "coordinates": [-92.0415, 38.3254]
-        },
-        "properties": {
-          "title": "Koeltztown - Koeltztown Church Ball Field - Grass/Dirt"
-        }
-      },
-      {
-        "type": "Feature",
-        "geometry": {
-          "type": "Point",
-          "coordinates": [-91.8403, 38.4756]
-        },
-        "properties": {
-          "title": "Linn - Linn City Park - Grass/Dirt"
-        }
-      },
-      {
-        "type": "Feature",
-        "geometry": {
-          "type": "Point",
-          "coordinates": [-91.8089, 38.4637]
-        },
-        "properties": {
-          "title": "Linn - Linn Field House/High School - Grass/Pavement"
-        }
-      },
-      {
-        "type": "Feature",
-        "geometry": {
-          "type": "Point",
-          "coordinates": [-91.8144, 38.4704]
-        },
-        "properties": {
-          "title": "Linn - Linn Tech Air Strip - Grass/Pavement"
-        }
-      },
-      {
-        "type": "Feature",
-        "geometry": {
-          "type": "Point",
-          "coordinates": [-91.8575, 38.4932]
-        },
-        "properties": {
-          "title": "Linn - Thriftway - Concrete"
-        }
-      },
-      {
-        "type": "Feature",
-        "geometry": {
-          "type": "Point",
-          "coordinates": [-91.9419, 38.5088]
-        },
-        "properties": {
-          "title": "Loose Creek - Loose Creek Ball park - Grass/Dirt/Gravel"
-        }
-      },
-      {
-        "type": "Feature",
-        "geometry": {
-          "type": "Point",
-          "coordinates": [-92.1662, 38.3092]
-        },
-        "properties": {
-          "title": "Meta - Meta Ball Park - Grass/Dirt"
-        }
-      },
-      {
-        "type": "Feature",
-        "geometry": {
-          "type": "Point",
-          "coordinates": [-92.00097, 38.44186]
-        },
-        "properties": {
-          "title": "Westphalia - Westphalia Fire Station on Hwy 63 - Concrete"
-        }
-      },
-      {
-        "type": "Feature",
-        "geometry": {
-          "type": "Point",
-          "coordinates": [-92.0098, 38.4544]
-        },
-        "properties": {
-          "title": "Westphalia - Commutor Parking Lot at hwy 63&133 - Gravel"
-        }
-      },
-      {
-        "type": "Feature",
-        "geometry": {
-          "type": "Point",
-          "coordinates": [-91.9934, 38.4393]
-        },
-        "properties": {
-          "title": "Westphalia - Fatima School - Concrete"
-        }
-      },
-      {
-        "type": "Feature",
-        "geometry": {
-          "type": "Point",
-          "coordinates": [-91.998, 38.4374]
-        },
-        "properties": {
-          "title": "Westphalia - Westphalia Lions Club (Ball Field) - Grass/Dirt/Gravel"
-        }
-      },
-      {
-        "type": "Feature",
-        "geometry": {
-          "type": "Point",
-          "coordinates": [-92.0032, 38.4694]
-        },
-        "properties": {
-          "title": "Westphalia - Westphalia Knights of Columbus/Soccer Fields - Grass/Gravel"
-        }
-      },
-      {
-        "type": "Feature",
-        "geometry": {
-          "type": "Point",
-          "coordinates": [-91.5316, 38.2397]
-        },
-        "properties": {
-          "title": "Rich Fountain - Rich Fountain Ball Park - Grass/Dirt"
-        }
+      "properties": {
+        "title": "Argyle - Argyle Ball Park - Grass/Dirt",
+        "color": "#27d836"
       }
-    ]
-  }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-92.0272, 38.2837]
+      },
+      "properties": {
+        "title": "Argyle - Argyle VFW Hall/Maries County - Grass/Dirt",
+        "color": "#27d836"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-91.7363, 38.2805]
+      },
+      "properties": {
+        "title": "Belle - Belle City Park - Grass",
+        "color": "#27d836"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-91.70455, 38.28961]
+      },
+      "properties": {
+        "title": "Belle - Belle/Bland Soccer Club - Grass/Dirt",
+        "color": "#27d836"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-91.9614, 38.5001]
+      },
+      "properties": {
+        "title": "Bonnots Mill - St Louis Parish Hall/Bonnots Mill - Grass/Dirt",
+        "color": "#27d836"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-91.7724, 38.6804]
+      },
+      "properties": {
+        "title": "Chamois - Chamois City Park - Gravel",
+        "color": "#5d5c61"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-91.76204, 38.67913]
+      },
+      "properties": {
+        "title": "Chamois - Chamois Fire Station # 2 - Landing Pad",
+        "color": "#a9a8ac"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-91.7722, 38.6696]
+      },
+      "properties": {
+        "title": "Chamois - Chamois School - Concrete",
+        "color": "#a9a8ac"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-92.0806, 38.4157]
+      },
+      "properties": {
+        "title": "Folk - Folk Ball Park - Grass/Dirt",
+        "color": "#27d836"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-92.1132, 38.398]
+      },
+      "properties": {
+        "title": "Folk - Painted Rock (Lake Side) - Gravel",
+        "color": "#5d5c61"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-92.1087, 38.4117]
+      },
+      "properties": {
+        "title": "Folk - Painted Rock (North Side) - Gravel",
+        "color": "#5d5c61"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-91.8684, 38.5792]
+      },
+      "properties": {
+        "title": "Frankenstein - Frankenstein Ball Park - Grass/Dirt",
+        "color": "#27d836"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-91.9326, 38.3886]
+      },
+      "properties": {
+        "title": "Freeburg - Central Hog Market - Grass/Gravel",
+        "color": "#5d5c61"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-91.9249, 38.3144]
+      },
+      "properties": {
+        "title": "Freeburg - Freeburg Church Park - Grass",
+        "color": "#27d836"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-91.9219, 38.3045]
+      },
+      "properties": {
+        "title": "Freeburg - Freeburg all Park (Lions Club) - Grass/Dirt",
+        "color": "#27d836"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-91.92184, 38.31319]
+      },
+      "properties": {
+        "title": "Freeburg - Fire Station 1 - Concrete",
+        "color": "#a9a8ac"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-92.0415, 38.3254]
+      },
+      "properties": {
+        "title": "Koeltztown - Koeltztown Church Ball Field - Grass/Dirt",
+        "color": "#27d836"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-91.8403, 38.4756]
+      },
+      "properties": {
+        "title": "Linn - Linn City Park - Grass/Dirt",
+        "color": "#27d836"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-91.8089, 38.4637]
+      },
+      "properties": {
+        "title": "Linn - Linn Field House/High School - Grass/Pavement",
+        "color": "#27d836"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-91.8144, 38.4704]
+      },
+      "properties": {
+        "title": "Linn - Linn Tech Air Strip - Grass/Pavement",
+        "color": "#27d836"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-91.8575, 38.4932]
+      },
+      "properties": {
+        "title": "Linn - Thriftway - Concrete",
+        "color": "#a9a8ac"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-91.9419, 38.5088]
+      },
+      "properties": {
+        "title": "Loose Creek - Loose Creek Ball park - Grass/Dirt/Gravel",
+        "color": "#27d836"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-92.1662, 38.3092]
+      },
+      "properties": {
+        "title": "Meta - Meta Ball Park - Grass/Dirt",
+        "color": "#27d836"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-92.00097, 38.44186]
+      },
+      "properties": {
+        "title": "Westphalia - Westphalia Fire Station on Hwy 63 - Concrete",
+        "color": "#a9a8ac"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-92.0098, 38.4544]
+      },
+      "properties": {
+        "title": "Westphalia - Commutor Parking Lot at hwy 63&133 - Gravel",
+        "color": "#5d5c61"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-91.9934, 38.4393]
+      },
+      "properties": {
+        "title": "Westphalia - Fatima School - Concrete",
+        "color": "#a9a8ac"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-91.998, 38.4374]
+      },
+      "properties": {
+        "title": "Westphalia - Westphalia Lions Club (Ball Field) - Grass/Dirt/Gravel",
+        "color": "#27d836"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-92.0032, 38.4694]
+      },
+      "properties": {
+        "title": "Westphalia - Westphalia Knights of Columbus/Soccer Fields - Grass/Gravel",
+        "color": "#5d5c61"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-91.5316, 38.2397]
+      },
+      "properties": {
+        "title": "Rich Fountain - Rich Fountain Ball Park - Grass/Dirt",
+        "color": "#27d836"
+      }
+    }
+  ]
+}
