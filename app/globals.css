@@ -30,7 +30,7 @@ body {
 }
 
 .map-controls {
-  height: 700px;
+  height: 900px;
   text-align: center;
   flex: 1em;
   border: 1px solid rgb(0, 0, 0);
@@ -42,7 +42,7 @@ body {
 }
 
 .map-div {
-  height: 700px;
+  height: 900px;
   width: 80%;
 }
 
