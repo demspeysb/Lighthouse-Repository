@@ -1,0 +1,1779 @@
+{
+    "type": "FeatureCollection",
+    "name": "Selected_Counties_Facilities",
+    "crs": {
+        "type": "name",
+        "properties": {
+            "name": "urn:ogc:def:crs:OGC:1.3:CRS84"
+        }
+    },
+    "features": [
+        {
+            "type": "Feature",
+            "properties": {
+                "FID": 41,
+                "FAC_ID": "01339",
+                "FACILITY": "STONEBRIDGE ADAMS STREET",
+                "ADDRESS": "1024 ADAMS ST",
+                "CITY": "JEFFERSON CITY",
+                "ZIP": "65101-3408",
+                "STATE": "MO",
+                "COUNTY": "COLE",
+                "CARE_LEVEL": "SNF",
+                "TOTAL_BEDS": 120,
+                "ALZHEIMERS": "No",
+                "PHONE": "(573) 635-1320",
+                "LTC_Region": 6,
+                "LATITUDE": 38.565997,
+                "LONGITUDE": -92.178824,
+                "LOC_CODE": "MAP",
+                "CARE_CODE": "A",
+                "ADMIN": "BETHANY EADS",
+                "COMMENT": " "
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -92.1788307339923,
+                    38.5660040250114
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "FID": 70,
+                "FAC_ID": "02690",
+                "FACILITY": "STONEBRIDGE HERMANN",
+                "ADDRESS": "1800 WEIN ST",
+                "CITY": "HERMANN",
+                "ZIP": "65041-1601",
+                "STATE": "MO",
+                "COUNTY": "GASCONADE",
+                "CARE_LEVEL": "SNF",
+                "TOTAL_BEDS": 118,
+                "ALZHEIMERS": "No",
+                "PHONE": "(573) 486-3155",
+                "LTC_Region": 6,
+                "LATITUDE": 38.691366,
+                "LONGITUDE": -91.45151,
+                "LOC_CODE": "MAP",
+                "CARE_CODE": "A",
+                "ADMIN": "THERESA WILLIMANN",
+                "COMMENT": " "
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -91.4515165435545,
+                    38.6913730868071
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "FID": 71,
+                "FAC_ID": "02690",
+                "FACILITY": "STONEBRIDGE HERMANN",
+                "ADDRESS": "1800 WEIN ST",
+                "CITY": "HERMANN",
+                "ZIP": "65041-1601",
+                "STATE": "MO",
+                "COUNTY": "GASCONADE",
+                "CARE_LEVEL": "ALF",
+                "TOTAL_BEDS": 18,
+                "ALZHEIMERS": "No",
+                "PHONE": "(573) 486-3155",
+                "LTC_Region": 6,
+                "LATITUDE": 38.691366,
+                "LONGITUDE": -91.45151,
+                "LOC_CODE": "MAP",
+                "CARE_CODE": "M",
+                "ADMIN": "THERESA WILLIMANN",
+                "COMMENT": " "
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -91.4515165435545,
+                    38.6913730868071
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "FID": 72,
+                "FAC_ID": "16964",
+                "FACILITY": "MAPLEWOOD, INC",
+                "ADDRESS": "1827 CRADER DR",
+                "CITY": "JEFFERSON CITY",
+                "ZIP": "65109-2005",
+                "STATE": "MO",
+                "COUNTY": "COLE",
+                "CARE_LEVEL": "ALF",
+                "TOTAL_BEDS": 13,
+                "ALZHEIMERS": "No",
+                "PHONE": "(573) 635-0023",
+                "LTC_Region": 6,
+                "LATITUDE": 38.555552,
+                "LONGITUDE": -92.202355,
+                "LOC_CODE": "MAP",
+                "CARE_CODE": "M",
+                "ADMIN": "EDWARD BOTHE",
+                "COMMENT": " "
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -92.2023617397373,
+                    38.5555590223439
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "FID": 90,
+                "FAC_ID": "02725",
+                "FACILITY": "FULTON MANOR CARE CENTER",
+                "ADDRESS": "520 MANOR DR",
+                "CITY": "FULTON",
+                "ZIP": "65251-2429",
+                "STATE": "MO",
+                "COUNTY": "CALLAWAY",
+                "CARE_LEVEL": "SNF",
+                "TOTAL_BEDS": 52,
+                "ALZHEIMERS": "No",
+                "PHONE": "(573) 642-6834",
+                "LTC_Region": 6,
+                "LATITUDE": 38.872295,
+                "LONGITUDE": -91.941437,
+                "LOC_CODE": "MAP",
+                "CARE_CODE": "A",
+                "ADMIN": "REBECCA BAKER-BEY",
+                "COMMENT": " "
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -91.9414436955863,
+                    38.8723020925023
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "FID": 91,
+                "FAC_ID": "02740",
+                "FACILITY": "ANEW HEALTHCARE AND REHAB-WELLSVILLE",
+                "ADDRESS": "250 E LOCUST",
+                "CITY": "WELLSVILLE",
+                "ZIP": "63384-1422",
+                "STATE": "MO",
+                "COUNTY": "MONTGOMERY",
+                "CARE_LEVEL": "SNF",
+                "TOTAL_BEDS": 112,
+                "ALZHEIMERS": "No",
+                "PHONE": "(573) 684-2002",
+                "LTC_Region": 6,
+                "LATITUDE": 39.071417,
+                "LONGITUDE": -91.560871,
+                "LOC_CODE": "MAP",
+                "CARE_CODE": "A",
+                "ADMIN": "BRITTANY ULRICH",
+                "COMMENT": " "
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -91.5608776076742,
+                    39.071424147876
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "FID": 106,
+                "FAC_ID": "03479",
+                "FACILITY": "HEISINGER BLUFFS REHAB AND HEALTHCARE CENTER",
+                "ADDRESS": "1002 WEST MAIN ST",
+                "CITY": "JEFFERSON CITY",
+                "ZIP": "65109-6901",
+                "STATE": "MO",
+                "COUNTY": "COLE",
+                "CARE_LEVEL": "SNF",
+                "TOTAL_BEDS": 60,
+                "ALZHEIMERS": "No",
+                "PHONE": "(573) 636-6288",
+                "LTC_Region": 6,
+                "LATITUDE": 38.587052,
+                "LONGITUDE": -92.184349,
+                "LOC_CODE": "MAP",
+                "CARE_CODE": "A",
+                "ADMIN": "ASHLEY DREWEL",
+                "COMMENT": " "
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -92.1843557371331,
+                    38.5870590288112
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "FID": 145,
+                "FAC_ID": "05422",
+                "FACILITY": "MILLER COUNTY CARE AND REHABILITATION CENTER",
+                "ADDRESS": "1157 HIGHWAY 17",
+                "CITY": "TUSCUMBIA",
+                "ZIP": "65082-2100",
+                "STATE": "MO",
+                "COUNTY": "MILLER",
+                "CARE_LEVEL": "SNF",
+                "TOTAL_BEDS": 86,
+                "ALZHEIMERS": "Yes",
+                "PHONE": "(573) 369-2318",
+                "LTC_Region": 6,
+                "LATITUDE": 38.207099,
+                "LONGITUDE": -92.430398,
+                "LOC_CODE": "MAP",
+                "CARE_CODE": "A",
+                "ADMIN": "TIFFANY SHOWER",
+                "COMMENT": " "
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -92.4304047713791,
+                    38.2071059479676
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "FID": 193,
+                "FAC_ID": "07523",
+                "FACILITY": "ST ELIZABETH CARE CENTER",
+                "ADDRESS": "649 SOUTH WALNUT ST",
+                "CITY": "SAINT ELIZABETH",
+                "ZIP": "65075-2440",
+                "STATE": "MO",
+                "COUNTY": "MILLER",
+                "CARE_LEVEL": "SNF",
+                "TOTAL_BEDS": 63,
+                "ALZHEIMERS": "No",
+                "PHONE": "(573) 493-2215",
+                "LTC_Region": 6,
+                "LATITUDE": 38.244264,
+                "LONGITUDE": -92.268428,
+                "LOC_CODE": "MAP",
+                "CARE_CODE": "A",
+                "ADMIN": "DEBRA CLONINGER",
+                "COMMENT": " "
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -92.2684347299469,
+                    38.2442709633106
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "FID": 194,
+                "FAC_ID": "07572",
+                "FACILITY": "HEISINGER BLUFFS HEALTHCARE WESTERN CAMPUS",
+                "ADDRESS": "1306 WEST MAIN ST",
+                "CITY": "JEFFERSON CITY",
+                "ZIP": "65109-1356",
+                "STATE": "MO",
+                "COUNTY": "COLE",
+                "CARE_LEVEL": "SNF",
+                "TOTAL_BEDS": 69,
+                "ALZHEIMERS": "No",
+                "PHONE": "(573) 635-0166",
+                "LTC_Region": 6,
+                "LATITUDE": 38.588596,
+                "LONGITUDE": -92.188513,
+                "LOC_CODE": "MAP",
+                "CARE_CODE": "A",
+                "ADMIN": "STACIE MCINTIRE",
+                "COMMENT": " "
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -92.1885197382289,
+                    38.5886030285857
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "FID": 254,
+                "FAC_ID": "13089",
+                "FACILITY": "LEE HOUSE SENIOR LIVING LLC",
+                "ADDRESS": "105 NORTH MILL ST",
+                "CITY": "ELDON",
+                "ZIP": "65026-1728",
+                "STATE": "MO",
+                "COUNTY": "MILLER",
+                "CARE_LEVEL": "RCF",
+                "TOTAL_BEDS": 53,
+                "ALZHEIMERS": "No",
+                "PHONE": "(573) 392-5558",
+                "LTC_Region": 6,
+                "LATITUDE": 38.350983,
+                "LONGITUDE": -92.578887,
+                "LOC_CODE": "MAP",
+                "CARE_CODE": "D",
+                "ADMIN": "DIANA JUNCKER",
+                "COMMENT": " "
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -92.5788938246303,
+                    38.3509899657453
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "FID": 259,
+                "FAC_ID": "13265",
+                "FACILITY": "ASPIRE SENIOR LIVING JONESBURG",
+                "ADDRESS": "308 CEDAR AVE",
+                "CITY": "JONESBURG",
+                "ZIP": "63351-1126",
+                "STATE": "MO",
+                "COUNTY": "MONTGOMERY",
+                "CARE_LEVEL": "SNF",
+                "TOTAL_BEDS": 90,
+                "ALZHEIMERS": "Yes",
+                "PHONE": "(636) 488-5400",
+                "LTC_Region": 6,
+                "LATITUDE": 38.854301,
+                "LONGITUDE": -91.299109,
+                "LOC_CODE": "MAP",
+                "CARE_CODE": "A",
+                "ADMIN": "TODD ANDERSON",
+                "COMMENT": " "
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -91.2991155161041,
+                    38.8543081238109
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "FID": 276,
+                "FAC_ID": "14376",
+                "FACILITY": "MELODY HOUSE",
+                "ADDRESS": "3031 SOUTH TEN MILE DR",
+                "CITY": "JEFFERSON CITY",
+                "ZIP": "65109-6816",
+                "STATE": "MO",
+                "COUNTY": "COLE",
+                "CARE_LEVEL": "RCF II",
+                "TOTAL_BEDS": 15,
+                "ALZHEIMERS": "No",
+                "PHONE": "(573) 893-7228",
+                "LTC_Region": 6,
+                "LATITUDE": 38.57920025,
+                "LONGITUDE": -92.23327523,
+                "LOC_CODE": "MAP",
+                "CARE_CODE": "C",
+                "ADMIN": "STACEY DISHMAN",
+                "COMMENT": " "
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -92.2332819834268,
+                    38.5792072726669
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "FID": 338,
+                "FAC_ID": "18653",
+                "FACILITY": "STONEBRIDGE WESTPHALIA",
+                "ADDRESS": "1899 HIGHWAY 63",
+                "CITY": "WESTPHALIA",
+                "ZIP": "65085-2215",
+                "STATE": "MO",
+                "COUNTY": "OSAGE",
+                "CARE_LEVEL": "RCF II",
+                "TOTAL_BEDS": 28,
+                "ALZHEIMERS": "No",
+                "PHONE": "(573) 455-2280",
+                "LTC_Region": 6,
+                "LATITUDE": 38.441898,
+                "LONGITUDE": -92.002864,
+                "LOC_CODE": "MAP",
+                "CARE_CODE": "C",
+                "ADMIN": "JULIE HECKMAN",
+                "COMMENT": " "
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -92.0028706749434,
+                    38.441905012807
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "FID": 342,
+                "FAC_ID": "27914",
+                "FACILITY": "ARBORS AT WESTBROOK TERRACE-ALZHEIMER'S ASSISTED LIVING BY AMERICARE",
+                "ADDRESS": "3409 NORTH 10 MILE DR",
+                "CITY": "JEFFERSON CITY",
+                "ZIP": "65109-0530",
+                "STATE": "MO",
+                "COUNTY": "COLE",
+                "CARE_LEVEL": "ALF II",
+                "TOTAL_BEDS": 26,
+                "ALZHEIMERS": "Yes",
+                "PHONE": "(573) 556-5648",
+                "LTC_Region": 6,
+                "LATITUDE": 38.59283796,
+                "LONGITUDE": -92.2456285,
+                "LOC_CODE": "MAP",
+                "CARE_CODE": "N",
+                "ADMIN": "LACI TAMBKE",
+                "COMMENT": " "
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -92.2456352517481,
+                    38.592844987729
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "FID": 360,
+                "FAC_ID": "29697",
+                "FACILITY": "PRIMROSE RETIREMENT COMMUNITY OF JEFFERSON CITY",
+                "ADDRESS": "1214 FREEDOM BLVD",
+                "CITY": "JEFFERSON CITY",
+                "ZIP": "65109-0082",
+                "STATE": "MO",
+                "COUNTY": "COLE",
+                "CARE_LEVEL": "ALF II",
+                "TOTAL_BEDS": 49,
+                "ALZHEIMERS": "No",
+                "PHONE": "(573) 634-5408",
+                "LTC_Region": 6,
+                "LATITUDE": 38.57008691,
+                "LONGITUDE": -92.29481212,
+                "LOC_CODE": "MAP",
+                "CARE_CODE": "N",
+                "ADMIN": "BRANDON MCINTIRE",
+                "COMMENT": " "
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -92.2948188858816,
+                    38.5700939292992
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "FID": 362,
+                "FAC_ID": "18735",
+                "FACILITY": "KINGDOM CARE SENIOR LIVING LLC",
+                "ADDRESS": "811 CENTER ST",
+                "CITY": "FULTON",
+                "ZIP": "65251-1922",
+                "STATE": "MO",
+                "COUNTY": "CALLAWAY",
+                "CARE_LEVEL": "SNF",
+                "TOTAL_BEDS": 36,
+                "ALZHEIMERS": "No",
+                "PHONE": "(573) 642-6646",
+                "LTC_Region": 6,
+                "LATITUDE": 38.85154588,
+                "LONGITUDE": -91.94665266,
+                "LOC_CODE": "MAP",
+                "CARE_CODE": "A",
+                "ADMIN": "CHANDA GERARD",
+                "COMMENT": " "
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -91.9466593527049,
+                    38.8515529677907
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "FID": 363,
+                "FAC_ID": "18735",
+                "FACILITY": "KINGDOM CARE SENIOR LIVING LLC",
+                "ADDRESS": "811 CENTER ST",
+                "CITY": "FULTON",
+                "ZIP": "65251-1922",
+                "STATE": "MO",
+                "COUNTY": "CALLAWAY",
+                "CARE_LEVEL": "ALF",
+                "TOTAL_BEDS": 41,
+                "ALZHEIMERS": "No",
+                "PHONE": "(573) 642-6646",
+                "LTC_Region": 6,
+                "LATITUDE": 38.8513093,
+                "LONGITUDE": -91.94659212,
+                "LOC_CODE": "MAP",
+                "CARE_CODE": "M",
+                "ADMIN": "CHANDA GERARD",
+                "COMMENT": " "
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -91.9465988117947,
+                    38.8513163834967
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "FID": 368,
+                "FAC_ID": "19051",
+                "FACILITY": "STONEBRIDGE OWENSVILLE",
+                "ADDRESS": "1016 W HIGHWAY 28",
+                "CITY": "OWENSVILLE",
+                "ZIP": "65066-1677",
+                "STATE": "MO",
+                "COUNTY": "GASCONADE",
+                "CARE_LEVEL": "SNF",
+                "TOTAL_BEDS": 131,
+                "ALZHEIMERS": "Yes",
+                "PHONE": "(573) 437-6877",
+                "LTC_Region": 6,
+                "LATITUDE": 38.338922,
+                "LONGITUDE": -91.514886,
+                "LOC_CODE": "MAP",
+                "CARE_CODE": "A",
+                "ADMIN": "ETHAN JOERS",
+                "COMMENT": " "
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -91.5148925309553,
+                    38.338929020065
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "FID": 384,
+                "FAC_ID": "20116",
+                "FACILITY": "BRISTOL MANOR OF JEFFERSON CITY",
+                "ADDRESS": "510 KENSINGTON PARK",
+                "CITY": "JEFFERSON CITY",
+                "ZIP": "65109-6247",
+                "STATE": "MO",
+                "COUNTY": "COLE",
+                "CARE_LEVEL": "RCF",
+                "TOTAL_BEDS": 12,
+                "ALZHEIMERS": "No",
+                "PHONE": "(573) 761-5772",
+                "LTC_Region": 6,
+                "LATITUDE": 38.583449,
+                "LONGITUDE": -92.27963,
+                "LOC_CODE": "MAP",
+                "CARE_CODE": "D",
+                "ADMIN": "CONNIE ELDRIDGE",
+                "COMMENT": " "
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -92.2796367627515,
+                    38.5834560230922
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "FID": 394,
+                "FAC_ID": "20440",
+                "FACILITY": "WESTBROOK TERRACE - ASSISTED LIVING BY AMERICARE",
+                "ADDRESS": "3335 NORTH TEN MILE DR",
+                "CITY": "JEFFERSON CITY",
+                "ZIP": "65109-0528",
+                "STATE": "MO",
+                "COUNTY": "COLE",
+                "CARE_LEVEL": "ALF II",
+                "TOTAL_BEDS": 36,
+                "ALZHEIMERS": "No",
+                "PHONE": "(573) 635-2600",
+                "LTC_Region": 6,
+                "LATITUDE": 38.592844,
+                "LONGITUDE": -92.244301,
+                "LOC_CODE": "MAP",
+                "CARE_CODE": "N",
+                "ADMIN": "FAWNA WHITE",
+                "COMMENT": " "
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -92.2443077546203,
+                    38.5928510268984
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "FID": 410,
+                "FAC_ID": "20926",
+                "FACILITY": "STONEBRIDGE LAKE OZARK",
+                "ADDRESS": "872 COLLEGE BLVD",
+                "CITY": "OSAGE BEACH",
+                "ZIP": "65065-8408",
+                "STATE": "MO",
+                "COUNTY": "MILLER",
+                "CARE_LEVEL": "RCF II",
+                "TOTAL_BEDS": 40,
+                "ALZHEIMERS": "No",
+                "PHONE": "(573) 302-0900",
+                "LTC_Region": 6,
+                "LATITUDE": 38.158798,
+                "LONGITUDE": -92.599697,
+                "LOC_CODE": "MAP",
+                "CARE_CODE": "C",
+                "ADMIN": "JOHN MCBRYANT",
+                "COMMENT": " "
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -92.599703814138,
+                    38.1588049305916
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "FID": 415,
+                "FAC_ID": "21318",
+                "FACILITY": "SUMMIT VILLA LIFECARE",
+                "ADDRESS": "229 KAREN DR",
+                "CITY": "HOLTS SUMMIT",
+                "ZIP": "65043-2522",
+                "STATE": "MO",
+                "COUNTY": "CALLAWAY",
+                "CARE_LEVEL": "ALF II",
+                "TOTAL_BEDS": 50,
+                "ALZHEIMERS": "Yes",
+                "PHONE": "(573) 896-8567",
+                "LTC_Region": 6,
+                "LATITUDE": 38.651437,
+                "LONGITUDE": -92.111966,
+                "LOC_CODE": "MAP",
+                "CARE_CODE": "N",
+                "ADMIN": "MICHELE FEDORCHALK",
+                "COMMENT": " "
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -92.1119727227237,
+                    38.6514440440266
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "FID": 444,
+                "FAC_ID": "23936",
+                "FACILITY": "ASHBURY HEIGHTS OF JEFFERSON CITY",
+                "ADDRESS": "834 WEATHERED ROCK COURT",
+                "CITY": "JEFFERSON CITY",
+                "ZIP": "65101-1824",
+                "STATE": "MO",
+                "COUNTY": "COLE",
+                "CARE_LEVEL": "RCF",
+                "TOTAL_BEDS": 12,
+                "ALZHEIMERS": "No",
+                "PHONE": "(573) 634-7402",
+                "LTC_Region": 6,
+                "LATITUDE": 38.505401,
+                "LONGITUDE": -92.281569,
+                "LOC_CODE": "MAP",
+                "CARE_CODE": "D",
+                "ADMIN": "TERRANCE BASON",
+                "COMMENT": " "
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -92.2815757562899,
+                    38.5054080092283
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "FID": 445,
+                "FAC_ID": "24133",
+                "FACILITY": "VICTORIAN PLACE OF OWENSVILLE, RESIDENTIAL CARE BY AMERICARE",
+                "ADDRESS": "301 NORTH 7TH ST",
+                "CITY": "OWENSVILLE",
+                "ZIP": "65066-1075",
+                "STATE": "MO",
+                "COUNTY": "GASCONADE",
+                "CARE_LEVEL": "RCF",
+                "TOTAL_BEDS": 48,
+                "ALZHEIMERS": "No",
+                "PHONE": "(573) 437-5396",
+                "LTC_Region": 6,
+                "LATITUDE": 38.34898106,
+                "LONGITUDE": -91.50794101,
+                "LOC_CODE": "MAP",
+                "CARE_CODE": "D",
+                "ADMIN": "CHRISTOPHER SHAUL",
+                "COMMENT": " "
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -91.5079475393337,
+                    38.348988082618
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "FID": 516,
+                "FAC_ID": "31116",
+                "FACILITY": "HARBOR PLACE - LINN",
+                "ADDRESS": "24 TRENSHAW TRAIL",
+                "CITY": "LINN",
+                "ZIP": "65051-2874",
+                "STATE": "MO",
+                "COUNTY": "OSAGE",
+                "CARE_LEVEL": "RCF",
+                "TOTAL_BEDS": 24,
+                "ALZHEIMERS": "NO",
+                "PHONE": "(573) 897-2100",
+                "LTC_Region": 6,
+                "LATITUDE": 38.466471,
+                "LONGITUDE": -91.82165862,
+                "LOC_CODE": "MAP",
+                "CARE_CODE": "D",
+                "ADMIN": "GINA HUCKSTEP",
+                "COMMENT": " "
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -91.8216652486858,
+                    38.466478029167
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "FID": 521,
+                "FAC_ID": "30865",
+                "FACILITY": "ROCK ISLAND VILLAGE",
+                "ADDRESS": "619 EAST 8TH STREET",
+                "CITY": "ELDON",
+                "ZIP": "65026-4740",
+                "STATE": "MO",
+                "COUNTY": "MILLER",
+                "CARE_LEVEL": "ALF II",
+                "TOTAL_BEDS": 70,
+                "ALZHEIMERS": "Yes",
+                "PHONE": "(573) 557-9545",
+                "LTC_Region": 6,
+                "LATITUDE": 38.34431684,
+                "LONGITUDE": -92.57489813,
+                "LOC_CODE": "MAP",
+                "CARE_CODE": "N",
+                "ADMIN": "PATTY HINEMAN",
+                "COMMENT": " "
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -92.5749049516249,
+                    38.3443238022277
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "FID": 569,
+                "FAC_ID": "01865",
+                "FACILITY": "JEFFERSON CITY NURSING AND REHABILITATION CENTER, LLC",
+                "ADDRESS": "1221 SOUTHGATE LN",
+                "CITY": "JEFFERSON CITY",
+                "ZIP": "65109-2465",
+                "STATE": "MO",
+                "COUNTY": "COLE",
+                "CARE_LEVEL": "SNF",
+                "TOTAL_BEDS": 120,
+                "ALZHEIMERS": "Yes",
+                "PHONE": "(573) 635-3131",
+                "LTC_Region": 6,
+                "LATITUDE": 38.564343,
+                "LONGITUDE": -92.190342,
+                "LOC_CODE": "MAP",
+                "CARE_CODE": "A",
+                "ADMIN": "VICTORIA GILBERT",
+                "COMMENT": " "
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -92.1903487367976,
+                    38.5643500239597
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "FID": 587,
+                "FAC_ID": "16964",
+                "FACILITY": "MAPLEWOOD, INC",
+                "ADDRESS": "1827 CRADER DR",
+                "CITY": "JEFFERSON CITY",
+                "ZIP": "65109-2005",
+                "STATE": "MO",
+                "COUNTY": "COLE",
+                "CARE_LEVEL": "ALF II",
+                "TOTAL_BEDS": 24,
+                "ALZHEIMERS": "No",
+                "PHONE": "(573) 635-0023",
+                "LTC_Region": 6,
+                "LATITUDE": 38.555552,
+                "LONGITUDE": -92.202355,
+                "LOC_CODE": "MAP",
+                "CARE_CODE": "N",
+                "ADMIN": "EDWARD BOTHE",
+                "COMMENT": " "
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -92.2023617397373,
+                    38.5555590223439
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "FID": 609,
+                "FAC_ID": "02804",
+                "FACILITY": "GASCONADE MANOR NURSING HOME",
+                "ADDRESS": "1910 NURSING HOME RD",
+                "CITY": "OWENSVILLE",
+                "ZIP": "65066-2844",
+                "STATE": "MO",
+                "COUNTY": "GASCONADE",
+                "CARE_LEVEL": "SNF",
+                "TOTAL_BEDS": 79,
+                "ALZHEIMERS": "No",
+                "PHONE": "(573) 437-4101",
+                "LTC_Region": 6,
+                "LATITUDE": 38.35856,
+                "LONGITUDE": -91.480499,
+                "LOC_CODE": "MAP",
+                "CARE_CODE": "A",
+                "ADMIN": "CRYSTAL RAY",
+                "COMMENT": " "
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -91.4805055237241,
+                    38.3585670258766
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "FID": 621,
+                "FAC_ID": "03479",
+                "FACILITY": "HEISINGER BLUFFS SENIOR LIVING",
+                "ADDRESS": "1002 WEST MAIN ST",
+                "CITY": "JEFFERSON CITY",
+                "ZIP": "65109-6901",
+                "STATE": "MO",
+                "COUNTY": "COLE",
+                "CARE_LEVEL": "ALF II",
+                "TOTAL_BEDS": 111,
+                "ALZHEIMERS": "Yes",
+                "PHONE": "(573) 636-6288",
+                "LTC_Region": 6,
+                "LATITUDE": 38.587052,
+                "LONGITUDE": -92.184349,
+                "LOC_CODE": "MAP",
+                "CARE_CODE": "N",
+                "ADMIN": "ASHLEY DREWEL",
+                "COMMENT": " "
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -92.1843557371331,
+                    38.5870590288112
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "FID": 622,
+                "FAC_ID": "03492",
+                "FACILITY": "FULTON NURSING & REHAB",
+                "ADDRESS": "1510 BLUFF ST",
+                "CITY": "FULTON",
+                "ZIP": "65251-2345",
+                "STATE": "MO",
+                "COUNTY": "CALLAWAY",
+                "CARE_LEVEL": "SNF",
+                "TOTAL_BEDS": 100,
+                "ALZHEIMERS": "Yes",
+                "PHONE": "(573) 642-0202",
+                "LTC_Region": 6,
+                "LATITUDE": 38.862643,
+                "LONGITUDE": -91.94237,
+                "LOC_CODE": "MAP",
+                "CARE_CODE": "A",
+                "ADMIN": "JEANNIE GUYTON",
+                "COMMENT": " "
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -91.9423766948764,
+                    38.8626500907227
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "FID": 628,
+                "FAC_ID": "03870",
+                "FACILITY": "JEFFERSON CITY MANOR CARE CENTER",
+                "ADDRESS": "1720 VIETH DR",
+                "CITY": "JEFFERSON CITY",
+                "ZIP": "65109-2522",
+                "STATE": "MO",
+                "COUNTY": "COLE",
+                "CARE_LEVEL": "SNF",
+                "TOTAL_BEDS": 102,
+                "ALZHEIMERS": "No",
+                "PHONE": "(573) 635-6193",
+                "LTC_Region": 6,
+                "LATITUDE": 38.557401,
+                "LONGITUDE": -92.211638,
+                "LOC_CODE": "MAP",
+                "CARE_CODE": "A",
+                "ADMIN": "RACHEL PATTERSON",
+                "COMMENT": " "
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -92.2116447419186,
+                    38.5574080219739
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "FID": 660,
+                "FAC_ID": "05723",
+                "FACILITY": "ST ANDREW'S AT NEW FLORENCE",
+                "ADDRESS": "515 PICNIC ST",
+                "CITY": "NEW FLORENCE",
+                "ZIP": "63363-2223",
+                "STATE": "MO",
+                "COUNTY": "MONTGOMERY",
+                "CARE_LEVEL": "SNF",
+                "TOTAL_BEDS": 87,
+                "ALZHEIMERS": "No",
+                "PHONE": "(573) 415-9333",
+                "LTC_Region": 6,
+                "LATITUDE": 38.913509,
+                "LONGITUDE": -91.459785,
+                "LOC_CODE": "MAP",
+                "CARE_CODE": "A",
+                "ADMIN": "AMY HILL",
+                "COMMENT": " "
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -91.4597915657192,
+                    38.9135161253795
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "FID": 670,
+                "FAC_ID": "06139",
+                "FACILITY": "ELDON NURSING & REHAB",
+                "ADDRESS": "1001 E NORTH ST",
+                "CITY": "ELDON",
+                "ZIP": "65026-2634",
+                "STATE": "MO",
+                "COUNTY": "MILLER",
+                "CARE_LEVEL": "SNF",
+                "TOTAL_BEDS": 90,
+                "ALZHEIMERS": "Yes",
+                "PHONE": "(573) 392-3164",
+                "LTC_Region": 6,
+                "LATITUDE": 38.35051337,
+                "LONGITUDE": -92.56589732,
+                "LOC_CODE": "MAP",
+                "CARE_CODE": "A",
+                "ADMIN": "TREVOR HAYES",
+                "COMMENT": " "
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -92.5659041420185,
+                    38.3505203379864
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "FID": 689,
+                "FAC_ID": "06730",
+                "FACILITY": "RIVERVIEW NURSING CENTER",
+                "ADDRESS": "10303 STATE RD C",
+                "CITY": "MOKANE",
+                "ZIP": "65059-1211",
+                "STATE": "MO",
+                "COUNTY": "CALLAWAY",
+                "CARE_LEVEL": "SNF",
+                "TOTAL_BEDS": 60,
+                "ALZHEIMERS": "No",
+                "PHONE": "(573) 676-3136",
+                "LTC_Region": 6,
+                "LATITUDE": 38.680565,
+                "LONGITUDE": -91.881917,
+                "LOC_CODE": "MAP",
+                "CARE_CODE": "A",
+                "ADMIN": "MANDY EDWARDS",
+                "COMMENT": " "
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -91.8819236616888,
+                    38.6805720619937
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "FID": 714,
+                "FAC_ID": "08282",
+                "FACILITY": "STONEBRIDGE VILLA MARIE",
+                "ADDRESS": "1030 EDMONDS ST",
+                "CITY": "JEFFERSON CITY",
+                "ZIP": "65109-5213",
+                "STATE": "MO",
+                "COUNTY": "COLE",
+                "CARE_LEVEL": "SNF",
+                "TOTAL_BEDS": 120,
+                "ALZHEIMERS": "Yes",
+                "PHONE": "(573) 635-3381",
+                "LTC_Region": 6,
+                "LATITUDE": 38.572877,
+                "LONGITUDE": -92.189605,
+                "LOC_CODE": "MAP",
+                "CARE_CODE": "A",
+                "ADMIN": "TRACY BERHORST",
+                "COMMENT": " "
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -92.1896117376202,
+                    38.5728840254702
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "FID": 728,
+                "FAC_ID": "10300",
+                "FACILITY": "STONEBRIDGE OAK TREE",
+                "ADDRESS": "3108 WEST TRUMAN BLVD",
+                "CITY": "JEFFERSON CITY",
+                "ZIP": "65109-4918",
+                "STATE": "MO",
+                "COUNTY": "COLE",
+                "CARE_LEVEL": "SNF",
+                "TOTAL_BEDS": 42,
+                "ALZHEIMERS": "No",
+                "PHONE": "(573) 893-3063",
+                "LTC_Region": 6,
+                "LATITUDE": 38.595057,
+                "LONGITUDE": -92.23555,
+                "LOC_CODE": "MAP",
+                "CARE_CODE": "A",
+                "ADMIN": "ROSE RIDNOUR",
+                "COMMENT": " "
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -92.2355567521812,
+                    38.5950640274972
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "FID": 729,
+                "FAC_ID": "10300",
+                "FACILITY": "STONEBRIDGE OAK TREE",
+                "ADDRESS": "3108 WEST TRUMAN BLVD",
+                "CITY": "JEFFERSON CITY",
+                "ZIP": "65109-4918",
+                "STATE": "MO",
+                "COUNTY": "COLE",
+                "CARE_LEVEL": "ALF",
+                "TOTAL_BEDS": 80,
+                "ALZHEIMERS": "No",
+                "PHONE": "(573) 893-3063",
+                "LTC_Region": 6,
+                "LATITUDE": 38.595057,
+                "LONGITUDE": -92.23555,
+                "LOC_CODE": "MAP",
+                "CARE_CODE": "M",
+                "ADMIN": "ROSE RIDNOUR",
+                "COMMENT": " "
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -92.2355567521812,
+                    38.5950640274972
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "FID": 734,
+                "FAC_ID": "10491",
+                "FACILITY": "MARIES MANOR",
+                "ADDRESS": "174 BALLPARK RD",
+                "CITY": "VIENNA",
+                "ZIP": "65582-8043",
+                "STATE": "MO",
+                "COUNTY": "MARIES",
+                "CARE_LEVEL": "SNF",
+                "TOTAL_BEDS": 98,
+                "ALZHEIMERS": "No",
+                "PHONE": "(573) 422-3177",
+                "LTC_Region": 6,
+                "LATITUDE": 38.190459,
+                "LONGITUDE": -91.952644,
+                "LOC_CODE": "MAP",
+                "CARE_CODE": "A",
+                "ADMIN": "JOSH CROSS",
+                "COMMENT": " "
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -91.9526506392846,
+                    38.190465970636
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "FID": 758,
+                "FAC_ID": "13522",
+                "FACILITY": "BRIDGEWAY RESIDENTIAL CARE FACILITY",
+                "ADDRESS": "828 JEFFERSON ST",
+                "CITY": "FULTON",
+                "ZIP": "65251-1877",
+                "STATE": "MO",
+                "COUNTY": "CALLAWAY",
+                "CARE_LEVEL": "RCF II",
+                "TOTAL_BEDS": 94,
+                "ALZHEIMERS": "No",
+                "PHONE": "(573) 642-7770",
+                "LTC_Region": 6,
+                "LATITUDE": 38.853645,
+                "LONGITUDE": -91.949104,
+                "LOC_CODE": "MAP",
+                "CARE_CODE": "C",
+                "ADMIN": "WILLIAM RUDROFF",
+                "COMMENT": " "
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -91.9491106962685,
+                    38.8536520885524
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "FID": 768,
+                "FAC_ID": "14130",
+                "FACILITY": "LINN OAK REHABILITATION CENTER",
+                "ADDRESS": "196 HIGHWAY CC",
+                "CITY": "LINN",
+                "ZIP": "65051-3500",
+                "STATE": "MO",
+                "COUNTY": "OSAGE",
+                "CARE_LEVEL": "SNF",
+                "TOTAL_BEDS": 132,
+                "ALZHEIMERS": "no",
+                "PHONE": "(573) 217-8669",
+                "LTC_Region": 6,
+                "LATITUDE": 38.461102,
+                "LONGITUDE": -91.810995,
+                "LOC_CODE": "MAP",
+                "CARE_CODE": "A",
+                "ADMIN": "NONE NONE",
+                "COMMENT": "TEMPORARY CLOSURE - STAFFING"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -91.8110016238494,
+                    38.4611090260849
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "FID": 769,
+                "FAC_ID": "14143",
+                "FACILITY": "GASCONADE TERRACE RETIREMENT CENTER",
+                "ADDRESS": "1930 NURSING HOME RD",
+                "CITY": "OWENSVILLE",
+                "ZIP": "65066-2844",
+                "STATE": "MO",
+                "COUNTY": "GASCONADE",
+                "CARE_LEVEL": "ALF",
+                "TOTAL_BEDS": 19,
+                "ALZHEIMERS": "No",
+                "PHONE": "(573) 437-4833",
+                "LTC_Region": 6,
+                "LATITUDE": 38.359097,
+                "LONGITUDE": -91.479795,
+                "LOC_CODE": "MAP",
+                "CARE_CODE": "M",
+                "ADMIN": "CRYSTAL RAY",
+                "COMMENT": " "
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -91.4798015231678,
+                    38.3591040257669
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "FID": 815,
+                "FAC_ID": "18653",
+                "FACILITY": "STONEBRIDGE WESTPHALIA",
+                "ADDRESS": "1899 HIGHWAY 63",
+                "CITY": "WESTPHALIA",
+                "ZIP": "65085-2215",
+                "STATE": "MO",
+                "COUNTY": "OSAGE",
+                "CARE_LEVEL": "SNF",
+                "TOTAL_BEDS": 64,
+                "ALZHEIMERS": "No",
+                "PHONE": "(573) 455-2280",
+                "LTC_Region": 6,
+                "LATITUDE": 38.441898,
+                "LONGITUDE": -92.002864,
+                "LOC_CODE": "MAP",
+                "CARE_CODE": "A",
+                "ADMIN": "JULIE HECKMAN",
+                "COMMENT": " "
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -92.0028706749434,
+                    38.441905012807
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "FID": 819,
+                "FAC_ID": "27986",
+                "FACILITY": "VALLEY PARK RETIREMENT CENTER",
+                "ADDRESS": "355 KAREN DR",
+                "CITY": "HOLTS SUMMIT",
+                "ZIP": "65043-2519",
+                "STATE": "MO",
+                "COUNTY": "CALLAWAY",
+                "CARE_LEVEL": "RCF",
+                "TOTAL_BEDS": 22,
+                "ALZHEIMERS": "No",
+                "PHONE": "(573) 896-0208",
+                "LTC_Region": 6,
+                "LATITUDE": 38.64644,
+                "LONGITUDE": -92.116602,
+                "LOC_CODE": "MAP",
+                "CARE_CODE": "D",
+                "ADMIN": "JENNIFER OTTO",
+                "COMMENT": " "
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -92.1166087238034,
+                    38.6464470431888
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "FID": 865,
+                "FAC_ID": "20783",
+                "FACILITY": "CHURCHILL TERRACE - ASSISTED LIVING BY AMERICARE",
+                "ADDRESS": "120 HOSPITAL DR",
+                "CITY": "FULTON",
+                "ZIP": "65251-2511",
+                "STATE": "MO",
+                "COUNTY": "CALLAWAY",
+                "CARE_LEVEL": "ALF II",
+                "TOTAL_BEDS": 57,
+                "ALZHEIMERS": "No",
+                "PHONE": "(573) 642-5222",
+                "LTC_Region": 6,
+                "LATITUDE": 38.84539803,
+                "LONGITUDE": -91.96403668,
+                "LOC_CODE": "MAP",
+                "CARE_CODE": "N",
+                "ADMIN": "MACHELLE LANDER",
+                "COMMENT": " "
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -91.9640433746415,
+                    38.8454051165286
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "FID": 896,
+                "FAC_ID": "23923",
+                "FACILITY": "ASHBURY HEIGHTS OF FULTON",
+                "ADDRESS": "704 WEST CHESTNUT",
+                "CITY": "FULTON",
+                "ZIP": "65251-1254",
+                "STATE": "MO",
+                "COUNTY": "CALLAWAY",
+                "CARE_LEVEL": "RCF",
+                "TOTAL_BEDS": 12,
+                "ALZHEIMERS": "No",
+                "PHONE": "(573) 642-2015",
+                "LTC_Region": 6,
+                "LATITUDE": 38.83946781,
+                "LONGITUDE": -91.96024602,
+                "LOC_CODE": "MAP",
+                "CARE_CODE": "D",
+                "ADMIN": "CATHY MILLER",
+                "COMMENT": " "
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -91.9602527168939,
+                    38.8394748921188
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "FID": 910,
+                "FAC_ID": "24982",
+                "FACILITY": "VICTORIAN PLACE OF HERMANN, RESIDENTIAL CARE BY AMERICARE",
+                "ADDRESS": "2120 VILLAGE LN",
+                "CITY": "HERMANN",
+                "ZIP": "65041-1600",
+                "STATE": "MO",
+                "COUNTY": "GASCONADE",
+                "CARE_LEVEL": "RCF",
+                "TOTAL_BEDS": 48,
+                "ALZHEIMERS": "No",
+                "PHONE": "(573) 486-5060",
+                "LTC_Region": 6,
+                "LATITUDE": 38.68161076,
+                "LONGITUDE": -91.45417929,
+                "LOC_CODE": "MAP",
+                "CARE_CODE": "D",
+                "ADMIN": "JANNA SCHULTE",
+                "COMMENT": " "
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -91.4541858386202,
+                    38.6816178476714
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "FID": 938,
+                "FAC_ID": "30384",
+                "FACILITY": "TIMBERS, THE",
+                "ADDRESS": "239 KAREN DRIVE",
+                "CITY": "HOLTS SUMMIT",
+                "ZIP": "65043-2522",
+                "STATE": "MO",
+                "COUNTY": "CALLAWAY",
+                "CARE_LEVEL": "ALF II",
+                "TOTAL_BEDS": 50,
+                "ALZHEIMERS": "No",
+                "PHONE": "(573) 415-0390",
+                "LTC_Region": 6,
+                "LATITUDE": 38.64613056,
+                "LONGITUDE": -92.11703673,
+                "LOC_CODE": "MAP",
+                "CARE_CODE": "N",
+                "ADMIN": "MICHELE FEDORCHALK",
+                "COMMENT": " "
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -92.117043450949,
+                    38.6461375988248
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "FID": 1039,
+                "FAC_ID": "17701",
+                "FACILITY": "BRISTOL MANOR OF ELDON",
+                "ADDRESS": "1201 EAST NORTH ST",
+                "CITY": "ELDON",
+                "ZIP": "65026-2651",
+                "STATE": "MO",
+                "COUNTY": "MILLER",
+                "CARE_LEVEL": "RCF",
+                "TOTAL_BEDS": 12,
+                "ALZHEIMERS": "No",
+                "PHONE": "(573) 392-1200",
+                "LTC_Region": 6,
+                "LATITUDE": 38.35020663,
+                "LONGITUDE": -92.56240366,
+                "LOC_CODE": "MAP",
+                "CARE_CODE": "D",
+                "ADMIN": "SAMANTHA DUSCHER",
+                "COMMENT": " "
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -92.562410477089,
+                    38.3502135929311
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "FID": 1065,
+                "FAC_ID": "29982",
+                "FACILITY": "VALLEY PARK NORTH",
+                "ADDRESS": "2631 FAIRWAY DR",
+                "CITY": "FULTON",
+                "ZIP": "65251-3936",
+                "STATE": "MO",
+                "COUNTY": "CALLAWAY",
+                "CARE_LEVEL": "RCF",
+                "TOTAL_BEDS": 19,
+                "ALZHEIMERS": "No",
+                "PHONE": "(573) 592-4995",
+                "LTC_Region": 6,
+                "LATITUDE": 38.8798669,
+                "LONGITUDE": -91.96489774,
+                "LOC_CODE": "MAP",
+                "CARE_CODE": "D",
+                "ADMIN": "STEPHANIE EASLEY",
+                "COMMENT": " "
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -91.9649044441532,
+                    38.8798739888719
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "FID": 1072,
+                "FAC_ID": "04826",
+                "FACILITY": "RIVER CITY LIVING COMMUNITY",
+                "ADDRESS": "3038 WEST TRUMAN BLVD",
+                "CITY": "JEFFERSON CITY",
+                "ZIP": "65109-0525",
+                "STATE": "MO",
+                "COUNTY": "COLE",
+                "CARE_LEVEL": "SNF",
+                "TOTAL_BEDS": 87,
+                "ALZHEIMERS": "Yes",
+                "PHONE": "(573) 893-3404",
+                "LTC_Region": 6,
+                "LATITUDE": 38.595396,
+                "LONGITUDE": -92.233971,
+                "LOC_CODE": "MAP",
+                "CARE_CODE": "A",
+                "ADMIN": "SHEILA BARKS-DISTLER",
+                "COMMENT": " "
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -92.2339777516914,
+                    38.5954030271213
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "FID": 1079,
+                "FAC_ID": "18575",
+                "FACILITY": "BRISTOL MANOR OF FULTON",
+                "ADDRESS": "750 SIGN PAINTER ROAD",
+                "CITY": "FULTON",
+                "ZIP": "65251-2514",
+                "STATE": "MO",
+                "COUNTY": "CALLAWAY",
+                "CARE_LEVEL": "RCF",
+                "TOTAL_BEDS": 12,
+                "ALZHEIMERS": "No",
+                "PHONE": "(573) 642-7557",
+                "LTC_Region": 6,
+                "LATITUDE": 38.84148217,
+                "LONGITUDE": -91.96286805,
+                "LOC_CODE": "MAP",
+                "CARE_CODE": "D",
+                "ADMIN": "FRIANDRA LOVING",
+                "COMMENT": " "
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -91.9628747506057,
+                    38.8414892580952
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "FID": 1109,
+                "FAC_ID": "05723",
+                "FACILITY": "ST ANDREW'S AT NEW FLORENCE",
+                "ADDRESS": "515 PICNIC ST",
+                "CITY": "NEW FLORENCE",
+                "ZIP": "63363-2223",
+                "STATE": "MO",
+                "COUNTY": "MONTGOMERY",
+                "CARE_LEVEL": "RCF II",
+                "TOTAL_BEDS": 33,
+                "ALZHEIMERS": "No",
+                "PHONE": "(573) 415-9333",
+                "LTC_Region": 6,
+                "LATITUDE": 38.913509,
+                "LONGITUDE": -91.459785,
+                "LOC_CODE": "MAP",
+                "CARE_CODE": "C",
+                "ADMIN": "AMY HILL",
+                "COMMENT": " "
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -91.4597915657192,
+                    38.9135161253795
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "FID": 1125,
+                "FAC_ID": "31832",
+                "FACILITY": "AUBURN RIDGE LIVING CENTER",
+                "ADDRESS": "1425 ASHBURY WAY",
+                "CITY": "WARDSVILLE",
+                "ZIP": "65101-1007",
+                "STATE": "MO",
+                "COUNTY": "COLE",
+                "CARE_LEVEL": "RCF",
+                "TOTAL_BEDS": 24,
+                "ALZHEIMERS": "No",
+                "PHONE": "(573) 634-2031",
+                "LTC_Region": 6,
+                "LATITUDE": 38.50205406,
+                "LONGITUDE": -92.18110715,
+                "LOC_CODE": "MAP",
+                "CARE_CODE": "D",
+                "ADMIN": "KARRIE BRUEMMER",
+                "COMMENT": " "
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -92.181113874879,
+                    38.502061075936
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "FID": 1132,
+                "FAC_ID": "20926",
+                "FACILITY": "STONEBRIDGE LAKE OZARK",
+                "ADDRESS": "872 COLLEGE BLVD",
+                "CITY": "OSAGE BEACH",
+                "ZIP": "65065-8408",
+                "STATE": "MO",
+                "COUNTY": "MILLER",
+                "CARE_LEVEL": "SNF",
+                "TOTAL_BEDS": 66,
+                "ALZHEIMERS": "No",
+                "PHONE": "(573) 302-0900",
+                "LTC_Region": 6,
+                "LATITUDE": 38.158798,
+                "LONGITUDE": -92.599697,
+                "LOC_CODE": "MAP",
+                "CARE_CODE": "A",
+                "ADMIN": "JOHN MCBRYANT",
+                "COMMENT": " "
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -92.599703814138,
+                    38.1588049305916
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "FID": 1142,
+                "FAC_ID": "20160",
+                "FACILITY": "ASHBURY HEIGHTS OF MONTGOMERY CITY",
+                "ADDRESS": "625 WEST 2ND ST",
+                "CITY": "MONTGOMERY CITY",
+                "ZIP": "63361-1762",
+                "STATE": "MO",
+                "COUNTY": "MONTGOMERY",
+                "CARE_LEVEL": "RCF",
+                "TOTAL_BEDS": 12,
+                "ALZHEIMERS": "No",
+                "PHONE": "(573) 564-3386",
+                "LTC_Region": 6,
+                "LATITUDE": 38.97550465,
+                "LONGITUDE": -91.51229105,
+                "LOC_CODE": "MAP",
+                "CARE_CODE": "D",
+                "ADMIN": "MIKE NELSON",
+                "COMMENT": " "
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -91.5122976403637,
+                    38.975511779345
+                ]
+            }
+        }
+    ]
+}
