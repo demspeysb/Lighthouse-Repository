@@ -7,12 +7,27 @@ import MoTornados from '../dataFiles/tornado_paths.json';
 import townships from '../dataFiles/MO_Townships_Boundaries.json';
 import drinkingDistricts from '../dataFiles/MO_Public_Drinking_Water_Districts.json';
 import primaryCare from '../dataFiles/Selected_Counties_Facilities.json';
+//import { accessSecretVersion } from '../api/getSecret/route.js';
 
 interface MapProps {
   center: google.maps.LatLngLiteral;
   zoom: number;
   mapId: string;
 }
+
+const mapApiKeyName: string = 'projects/489795191195/secrets/google-maps-api-key/versions/latest';
+let apiKey: string ="";
+
+// Fetch api key from google cloud
+fetch(`/api/getSecret?name=${encodeURIComponent(mapApiKeyName)}`)
+  .then((res) => res.json())
+  .then((data) => {
+    apiKey = data.secret; // Use the secret
+  })
+  .catch((error) => console.error(error));
+
+// Create map source string with apiKey to access google maps
+const mapSource: string = `https://maps.googleapis.com/maps/api/js?key=${apiKey}AIzaSyDDx3QCrdoOowfXLJfeoReFkDFV4ZeKZgw&loading=async&libraries=maps,marker&v=beta`
 
 export let map: google.maps.Map;
 let markerGroupOne: google.maps.marker.AdvancedMarkerElement[] = [];
@@ -270,7 +285,7 @@ export const Map: React.FC<MapProps> = ({ center, zoom, mapId }) => {
         <div id="map" style={{ height: '900px', width: '100%' }} />
 
         <script
-          src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDDx3QCrdoOowfXLJfeoReFkDFV4ZeKZgw&loading=async&libraries=maps,marker&v=beta" defer>
+          src={mapSource} defer>
         </script>
       </>
   );
