@@ -7,7 +7,7 @@ import MoTornados from '../dataFiles/tornado_paths.json';
 import townships from '../dataFiles/MO_Townships_Boundaries.json';
 import drinkingDistricts from '../dataFiles/MO_Public_Drinking_Water_Districts.json';
 import primaryCare from '../dataFiles/Selected_Counties_Facilities.json';
-//import { accessSecretVersion } from '../api/getSecret/route.js';
+import { dataLayer } from '../mapComponents/dataLayer';
 
 interface MapProps {
   center: google.maps.LatLngLiteral;
@@ -217,28 +217,16 @@ export const Map: React.FC<MapProps> = ({ center, zoom, mapId }) => {
       layers.push(countiesLayer);
       //----------------------------------------------------------------------------------------------------------------------------
       // Data layer for the Township zones
-      let townshipLayer = new google.maps.Data();
-      townshipLayer.addGeoJson(townships);
-      townshipLayer.setStyle({
-        fillOpacity: 0,
-        strokeWeight: 1,
-        strokeColor: 'red'
+      const townshipObject = new dataLayer(townships, {fillOpacity: 0, strokeWeight: 1, strokeColor: 'red'})
 
-      });
-      const townshipButton = createDatalayerButton(map, townshipLayer, "map-control-button", "Townships");
+      const townshipButton = createDatalayerButton(map, townshipObject.layer, "map-control-button", "Townships");
       LayersDiv.appendChild(townshipButton);
-      layers.push(townshipLayer);
+      layers.push(townshipObject.layer);
       //----------------------------------------------------------------------------------------------------------------------------
       // Data layer for the drinking water districts
-      let drinkingLayer = new google.maps.Data();
-      drinkingLayer.addGeoJson(drinkingDistricts);
-      drinkingLayer.setStyle({
-        fillOpacity: 0,
-        strokeWeight: 1,
-        strokeColor: 'blue'
+      const drinkingObject = new dataLayer(drinkingDistricts, {fillOpacity: 0,strokeWeight: 1,strokeColor: 'blue'})
 
-      });
-      drinkingLayer.addListener('click', (event: google.maps.Data.MouseEvent) => {
+      drinkingObject.layer.addListener('click', (event: google.maps.Data.MouseEvent) => {
         const contentString = `
           <div>
           <strong>Public Water Supply System: </strong>${event.feature.getProperty('PWSSNAME')}
@@ -248,9 +236,9 @@ export const Map: React.FC<MapProps> = ({ center, zoom, mapId }) => {
         infoWindow.setPosition(event.latLng);
         infoWindow.open(map);
       });
-      const drinkingButton = createDatalayerButton(map, drinkingLayer, "map-control-button", "Drinking Districts");
+      const drinkingButton = createDatalayerButton(map, drinkingObject.layer, "map-control-button", "Drinking Districts");
       LayersDiv.appendChild(drinkingButton);
-      layers.push(drinkingLayer);
+      layers.push(drinkingObject.layer);
       //----------------------------------------------------------------------------------------------------------------------------
       // Data layer for the primary care facilities
       let primaryCareLayer = new google.maps.Data();
