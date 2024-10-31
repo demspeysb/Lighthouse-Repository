@@ -1,15 +1,25 @@
-export class dataLayer {
-    dataFile: object;
-    style: google.maps.Data.StyleOptions;
-    layer: google.maps.Data;
+import { DataObject } from '../Interfaces/DataObject';
 
-    constructor(dataFile: object, style: google.maps.Data.StyleOptions) {
-      this.dataFile = dataFile;
-      this.style = style;
-      this.layer = new google.maps.Data();
-      this.layer.addGeoJson(this.dataFile);
-      this.layer.setStyle(this.style);
+export class DataLayer {
+    layer: google.maps.Data;
+    data: DataObject;
+
+    constructor(data: DataObject) {
+        this.layer = new google.maps.Data();
+        this.data = data;
+
+        this.addGeoJson(this.data.file);
+        this.setStyle(this.data.style);
     }
-  
-  }
-  
+
+    private addGeoJson(dataFile: object): void {
+        this.layer.addGeoJson(dataFile);
+    }
+
+    private setStyle(style: google.maps.Data.StyleOptions): void {
+        this.layer.setStyle(style);
+    }
+
+    
+
+}

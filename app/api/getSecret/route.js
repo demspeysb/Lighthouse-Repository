@@ -3,9 +3,8 @@ import { SecretManagerServiceClient } from '@google-cloud/secret-manager';
 
 const client = new SecretManagerServiceClient();
 
-export async function GET(request) {
-  const { searchParams } = new URL(request.url);
-  const name = searchParams.get('name');
+export async function POST(req) {
+  const name = req.body;
 
   if (!name) {
     return NextResponse.json({ error: 'Secret name is required' }, { status: 400 });

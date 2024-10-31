@@ -1,6 +1,6 @@
 "use client";
 import Map from "./components/Map";
-import {addMarker, toggleMarkerGroup, toggleLayer, getLayers } from "./components/Map";
+import { toggleMarkerGroup, toggleLayer } from "./components/Map";
 import SideNavbar from "./components/sidebar";
 
 export default function PrivatePage(event: any) {
