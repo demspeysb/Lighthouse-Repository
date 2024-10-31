@@ -19,7 +19,4 @@ export class DataLayer {
     private setStyle(style: google.maps.Data.StyleOptions): void {
         this.layer.setStyle(style);
     }
-
-    
-
 }
