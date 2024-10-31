@@ -1,13 +1,8 @@
 import { useEffect, useState } from 'react';
 import { createDatalayerButton } from '../mapComponents/mapControls';
-import landingZones from '../dataFiles/landingZones.json';
 import PlaneZones from '../dataFiles/PlaneZones.json';
-import MoCounties from '../dataFiles/MoCounties.json';
-import MoTornados from '../dataFiles/tornado_paths.json';
-import townships from '../dataFiles/MO_Townships_Boundaries.json';
-import drinkingDistricts from '../dataFiles/MO_Public_Drinking_Water_Districts.json';
 import primaryCare from '../dataFiles/Selected_Counties_Facilities.json';
-import { dataLayer } from '../mapComponents/dataLayer';
+import { getDataLayers } from '../dataFiles/getDataFiles';
 
 interface MapProps {
   center: google.maps.LatLngLiteral;
@@ -19,7 +14,11 @@ const mapApiKeyName: string = 'projects/489795191195/secrets/google-maps-api-key
 let apiKey: string ="";
 
 // Fetch api key from google cloud
-fetch(`/api/getSecret?name=${encodeURIComponent(mapApiKeyName)}`)
+fetch(`http://localhost:3000/api/getSecret`, {
+  method: "POST",          
+  headers: {"Content-Type": "text/plain" },
+  body: mapApiKeyName
+})
   .then((res) => res.json())
   .then((data) => {
     apiKey = data.secret; // Use the secret
@@ -29,31 +28,11 @@ fetch(`/api/getSecret?name=${encodeURIComponent(mapApiKeyName)}`)
 // Create map source string with apiKey to access google maps
 const mapSource: string = `https://maps.googleapis.com/maps/api/js?key=${apiKey}AIzaSyDDx3QCrdoOowfXLJfeoReFkDFV4ZeKZgw&loading=async&libraries=maps,marker&v=beta`
 
+// Export map allow allows for outside files to access map functions
 export let map: google.maps.Map;
+
+// Holds marker group for plane landing zones
 let markerGroupOne: google.maps.marker.AdvancedMarkerElement[] = [];
-let layers: google.maps.Data[] = [];
-
-export function addMarker(lat: number, lon: number) {
-
-  const pin = new google.maps.marker.PinElement({
-    scale: 1,
-    background: '#000FFF',
-    borderColor: '#000FFE',
-    glyphColor: 'white',
-  });
-
-  if (map) {
-    let marker = new google.maps.marker.AdvancedMarkerElement({
-      position: { lat, lng: lon }, 
-      map: map,
-      content: pin.element,
-      title: "Title text for the test marker",
-      gmpClickable: true,
-    });
-  } else {
-    console.error('Map instance not available');
-  }
-};
 
 export function toggleMarkerGroup() {
   if(markerGroupOne[0].map == map) {
@@ -73,10 +52,6 @@ export function showMarkerGroup() {
   });
 }
 
-export function getLayers() {
-  return layers;
-}
-
 export function toggleLayer(layer:google.maps.Data) {
     if (layer.getMap()) {
       layer.setMap(null);  // Remove the layer
@@ -84,7 +59,6 @@ export function toggleLayer(layer:google.maps.Data) {
       layer.setMap(map);  // Add the layer back
       console.log("layer added");
     }
-
 }
 
 export const Map: React.FC<MapProps> = ({ center, zoom, mapId }) => {
@@ -92,9 +66,8 @@ export const Map: React.FC<MapProps> = ({ center, zoom, mapId }) => {
   useEffect(() => {
     async function initMap(): Promise<void> {
       //Api library imports
-      const { Map, InfoWindow } = await google.maps.importLibrary("maps") as google.maps.MapsLibrary;
+      const { InfoWindow } = await google.maps.importLibrary("maps") as google.maps.MapsLibrary;
       const { AdvancedMarkerElement, PinElement } = await google.maps.importLibrary("marker") as google.maps.MarkerLibrary;
-      //await google.maps.importLibrary("weather&sensor") as google.maps.MapsLibrary;
 
       //Instantiates the map
       if (!map) {
@@ -109,6 +82,9 @@ export const Map: React.FC<MapProps> = ({ center, zoom, mapId }) => {
           }
         });
       }
+
+      // Create an info window to share between markers.
+      const infoWindow = new InfoWindow();
 
       PlaneZones.forEach(({position, title}, i) => {
 
@@ -157,89 +133,9 @@ export const Map: React.FC<MapProps> = ({ center, zoom, mapId }) => {
        markerGroupOne.push(marker);
      });
 
-      // Create an info window to share between markers.
-      const infoWindow = new InfoWindow();
-
       // Creates div that holds all the layer toggle buttons
       const LayersDiv = document.createElement("div");
 
-      //----------------------------------------------------------------------------------------------------------------------------
-      // Data layer for the Tornado paths
-      let tornadoLayer = new google.maps.Data();
-      tornadoLayer.addGeoJson(MoTornados);
-      tornadoLayer.setStyle({
-        strokeColor: "#BD2682",
-        strokeWeight: 6, 
-        clickable: true,
-      });
-
-      tornadoLayer.addListener('click', (event: google.maps.Data.MouseEvent) => {
-        const contentString = `
-          <div>
-            <strong>Date:</strong> ${event.feature.getProperty('date')}<br/>
-            <strong>Time:</strong> ${event.feature.getProperty('time')}<br/>
-            <strong>Magnitude:</strong> ${event.feature.getProperty('mag')}<br/>
-            <strong>Injuries:</strong> ${event.feature.getProperty('inj')}<br/>
-            <strong>Fatalities:</strong> ${event.feature.getProperty('fat')}<br/>
-            <strong>Length (miles):</strong> ${event.feature.getProperty('len')}<br/>
-            <strong>Width (yards):</strong> ${event.feature.getProperty('wid')}<br/>
-            <strong>Property Loss:</strong> ${event.feature.getProperty('loss')}<br/>
-          </div>
-        `;
-        infoWindow.setContent(contentString);
-        infoWindow.setPosition(event.latLng);
-        infoWindow.open(map);
-      });
-
-      const TornadosButton = createDatalayerButton(map, tornadoLayer, "map-control-button", "Missouri Tornados");
-      LayersDiv.appendChild(TornadosButton);
-      layers.push(tornadoLayer);
-      //----------------------------------------------------------------------------------------------------------------------------
-      // Data layer for the county zones
-      let countiesLayer = new google.maps.Data();
-      countiesLayer.addGeoJson(MoCounties);
-      countiesLayer.setStyle({
-        fillOpacity: 0,
-        strokeWeight: 4
-
-      });
-      countiesLayer.addListener('click', (event: google.maps.Data.MouseEvent) => {
-        const contentString = `
-          <div>
-          ${event.feature.getProperty('coty_name_long')}
-          </div>
-        `;
-        infoWindow.setContent(contentString);
-        infoWindow.setPosition(event.latLng);
-        infoWindow.open(map);
-      });
-      countiesLayer.setMap(map);
-      layers.push(countiesLayer);
-      //----------------------------------------------------------------------------------------------------------------------------
-      // Data layer for the Township zones
-      const townshipObject = new dataLayer(townships, {fillOpacity: 0, strokeWeight: 1, strokeColor: 'red'})
-
-      const townshipButton = createDatalayerButton(map, townshipObject.layer, "map-control-button", "Townships");
-      LayersDiv.appendChild(townshipButton);
-      layers.push(townshipObject.layer);
-      //----------------------------------------------------------------------------------------------------------------------------
-      // Data layer for the drinking water districts
-      const drinkingObject = new dataLayer(drinkingDistricts, {fillOpacity: 0,strokeWeight: 1,strokeColor: 'blue'})
-
-      drinkingObject.layer.addListener('click', (event: google.maps.Data.MouseEvent) => {
-        const contentString = `
-          <div>
-          <strong>Public Water Supply System: </strong>${event.feature.getProperty('PWSSNAME')}
-          </div>
-        `;
-        infoWindow.setContent(contentString);
-        infoWindow.setPosition(event.latLng);
-        infoWindow.open(map);
-      });
-      const drinkingButton = createDatalayerButton(map, drinkingObject.layer, "map-control-button", "Drinking Districts");
-      LayersDiv.appendChild(drinkingButton);
-      layers.push(drinkingObject.layer);
-      //----------------------------------------------------------------------------------------------------------------------------
       // Data layer for the primary care facilities
       let primaryCareLayer = new google.maps.Data();
       primaryCareLayer.addGeoJson(primaryCare);
@@ -257,8 +153,28 @@ export const Map: React.FC<MapProps> = ({ center, zoom, mapId }) => {
       });
       const primaryCareButton = createDatalayerButton(map, primaryCareLayer, "map-control-button", "Primary Care Providers");
       LayersDiv.appendChild(primaryCareButton);
-      layers.push(primaryCareLayer);
-      //----------------------------------------------------------------------------------------------------------------------------
+
+      //Dynamic data layers
+      getDataLayers().forEach((dataObject, i) => {
+        const metaData = dataObject.data.metaData;
+        if(metaData.items.length > 0) {
+          dataObject.layer.addListener('click', (event: google.maps.Data.MouseEvent) => {
+              let contentString = "<div>";
+
+              metaData.items.forEach((item) => {
+                contentString += `<strong>${item.title}: </strong> ${event.feature.getProperty(item.property)}<br/>`
+              });
+
+              contentString += "</div>";
+              infoWindow.setContent(contentString);
+              infoWindow.setPosition(event.latLng);
+              infoWindow.open(map);
+            });
+        }
+        let layerButton = createDatalayerButton(map, dataObject.layer, "map-control-button", `${metaData.name}`);
+        LayersDiv.appendChild(layerButton);
+      });
+
       // Add the layer control div to the map UI
       map.controls[google.maps.ControlPosition.TOP_RIGHT].push(LayersDiv);
 
