@@ -47,3 +47,7 @@ timeout: '1200s'  # 20 minutes
 
 options:
   logging: CLOUD_LOGGING_ONLY
+ 
+  serviceAccount: projects/the-lighthouse-collective/serviceAccounts/489795191195-compute@developer.gserviceaccount.com
+
+
