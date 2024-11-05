@@ -48,6 +48,6 @@ timeout: '1200s'  # 20 minutes
 options:
   logging: CLOUD_LOGGING_ONLY
  
-  service_account: projects/the-lighthouse-collective/serviceaccount/lighthouse@the-lighthouse-collective.iam.gserviceaccount.com
+  
 
 
