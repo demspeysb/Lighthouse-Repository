@@ -44,3 +44,6 @@ substitutions:
 
 # Timeouts, notifications, or other optional configurations
 timeout: '1200s'  # 20 minutes
+
+options:
+  logging: CLOUD_LOGGING_ONLY
