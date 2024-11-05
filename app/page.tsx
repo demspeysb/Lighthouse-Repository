@@ -1,10 +1,10 @@
 "use client";
 import Map from "./components/Map";
-import { toggleMarkerGroup, toggleLayer } from "./components/Map";
+import { toggleMarkerGroup } from "./components/Map";
 import SideNavbar from "./components/sidebar";
 
-export default function PrivatePage(event: any) {
-  let  center = { lat: 38.3853, lng: -91.9099 };
+export default function PrivatePage() {
+  const  center = { lat: 38.3853, lng: -91.9099 };
   const zoom = 10;
   const mapId = "a9c7951e16e3f5b1";
 

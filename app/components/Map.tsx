@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { createDatalayerButton } from '../mapComponents/mapControls';
 import PlaneZones from '../dataFiles/PlaneZones.json';
 import primaryCare from '../dataFiles/Selected_Counties_Facilities.json';
@@ -32,7 +32,7 @@ const mapSource: string = `https://maps.googleapis.com/maps/api/js?key=${apiKey}
 export let map: google.maps.Map;
 
 // Holds marker group for plane landing zones
-let markerGroupOne: google.maps.marker.AdvancedMarkerElement[] = [];
+const markerGroupOne: google.maps.marker.AdvancedMarkerElement[] = [];
 
 export function toggleMarkerGroup() {
   if(markerGroupOne[0].map == map) {
@@ -125,6 +125,7 @@ export const Map: React.FC<MapProps> = ({ center, zoom, mapId }) => {
        // Click listener for each marker, and set up the info window.
        marker.addListener('gmp-click', (event: google.maps.MapMouseEvent) => {
          const latLng = event.latLng;
+         console.log(latLng);
          infoWindow.close();
          infoWindow.setContent(marker.title);
          infoWindow.open(marker.map, marker);
@@ -137,7 +138,7 @@ export const Map: React.FC<MapProps> = ({ center, zoom, mapId }) => {
       const LayersDiv = document.createElement("div");
 
       // Data layer for the primary care facilities
-      let primaryCareLayer = new google.maps.Data();
+      const primaryCareLayer = new google.maps.Data();
       primaryCareLayer.addGeoJson(primaryCare);
       primaryCareLayer.addListener('click', (event: google.maps.Data.MouseEvent) => {
         const contentString = `
@@ -155,7 +156,7 @@ export const Map: React.FC<MapProps> = ({ center, zoom, mapId }) => {
       LayersDiv.appendChild(primaryCareButton);
 
       //Dynamic data layers
-      getDataLayers().forEach((dataObject, i) => {
+      getDataLayers().forEach((dataObject) => {
         const metaData = dataObject.data.metaData;
         if(metaData.items.length > 0) {
           dataObject.layer.addListener('click', (event: google.maps.Data.MouseEvent) => {
@@ -171,7 +172,7 @@ export const Map: React.FC<MapProps> = ({ center, zoom, mapId }) => {
               infoWindow.open(map);
             });
         }
-        let layerButton = createDatalayerButton(map, dataObject.layer, "map-control-button", `${metaData.name}`);
+        const layerButton = createDatalayerButton(map, dataObject.layer, "map-control-button", `${metaData.name}`);
         LayersDiv.appendChild(layerButton);
       });
 
