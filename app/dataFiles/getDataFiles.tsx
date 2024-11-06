@@ -2,7 +2,7 @@ import MoCounties from '../dataFiles/MoCounties.json';
 import MoTornados from '../dataFiles/tornado_paths.json';
 import townships from '../dataFiles/MO_Townships_Boundaries.json';
 import drinkingDistricts from '../dataFiles/MO_Public_Drinking_Water_Districts.json';
-import { DataLayer } from '../mapComponents/DataLayer';
+import { DataLayer } from '../mapComponents/dataLayer';
 import { DataObject } from '../Interfaces/DataObject';
 
 // Eventually, the files and styles will be stored on the GCP and called in
