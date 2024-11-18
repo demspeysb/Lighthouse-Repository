@@ -3,6 +3,7 @@ import { createDatalayerButton } from '../mapComponents/mapControls';
 import PlaneZones from '../dataFiles/PlaneZones.json';
 import primaryCare from '../dataFiles/Selected_Counties_Facilities.json';
 import { getDataLayers } from '../dataFiles/getDataFiles';
+import { createDataLayerCheckbox } from '../mapComponents/mapControls';
 
 interface MapProps {
   center: google.maps.LatLngLiteral;
@@ -155,6 +156,8 @@ export const Map: React.FC<MapProps> = ({ center, zoom, mapId }) => {
       const primaryCareButton = createDatalayerButton(map, primaryCareLayer, "map-control-button", "Primary Care Providers");
       LayersDiv.appendChild(primaryCareButton);
 
+      const controlsDiv = document.getElementById("mapControls")
+
       //Dynamic data layers
       getDataLayers().forEach((dataObject) => {
         const metaData = dataObject.data.metaData;
@@ -172,8 +175,12 @@ export const Map: React.FC<MapProps> = ({ center, zoom, mapId }) => {
               infoWindow.open(map);
             });
         }
-        const layerButton = createDatalayerButton(map, dataObject.layer, "map-control-button", `${metaData.name}`);
-        LayersDiv.appendChild(layerButton);
+        
+        const checkboxId = `layerCheckbox${metaData.name}`;
+        if (!document.getElementById(checkboxId)) {
+          const checkbox = createDataLayerCheckbox(dataObject);
+          controlsDiv?.appendChild(checkbox);
+        }
       });
 
       // Add the layer control div to the map UI

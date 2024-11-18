@@ -8,19 +8,6 @@ export default function PrivatePage() {
   const zoom = 10;
   const mapId = "a9c7951e16e3f5b1";
 
-  // const controlsDiv = document.getElementById("mapControls") as HTMLDivElement;
-  // const dataLayers = getLayers();
-
-  // for(let i=0; i < dataLayers.length; i++){
-  //   const layerCheckbox = `
-  //     <div class="checkbox-wrapper-13">
-  //         <input type="checkbox" id="layerCheckbox${i}" name="layerCheckbox${i}" onchange="toggleLayer(${dataLayers[i]})">
-  //         <label for="layerCheckbox${i}">Data Layer</label>
-  //     </div>
-  //   `;
-  //   controlsDiv.innerHTML += layerCheckbox;
-  // };
-
   return (
     <main>
       <title>EMS Dashboard</title>
@@ -33,10 +20,6 @@ export default function PrivatePage() {
               <input type="checkbox" id="myCheckbox" name="myCheckbox" onChange={() => toggleMarkerGroup()}></input>
               <label htmlFor="myCheckbox">Plane Landing Zones</label>
             </div>
-            {/* <div className="checkbox-wrapper-13">
-              <input type="checkbox" id="layerCheckbox" name="layerCheckbox" onChange={() => toggleLayers()}></input>
-              <label htmlFor="layerCheckbox">Data Layers</label>
-            </div> */}
         </div>
 
         <div className="map-div">
