@@ -31,9 +31,15 @@ body {
 
 .map-controls {
   height: 900px;
-  text-align: center;
+  text-align: left;
   flex: 1em;
   border: 1px solid rgb(0, 0, 0);
+}
+
+.map-controls label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem; /* Space between checkbox and label text */
 }
 
 .map-controls input {
@@ -41,25 +47,13 @@ body {
   width: 25%;
 }
 
+input[type="checkbox"] {
+  margin-left: 10%; /* Remove default margins */
+}
+
 .map-div {
   height: 900px;
   width: 80%;
-}
-
-.weather-history {
-  height: 600px;
-  flex: 1em;
-  text-align: center;
-  border: 1px solid rgb(0, 0, 0);
-}
-
-.data-section {
-  margin: auto;
-  text-align: center;
-  padding: 1em;
-  border: 1px solid rgb(0, 0, 0);
-  height: 200px;
-  text-decoration: underline;
 }
 
 .button-1 {
@@ -108,7 +102,7 @@ body {
 }
 
 @supports (-webkit-appearance: none) or (-moz-appearance: none) {
-  .checkbox-wrapper-13 input[type=checkbox] {
+  .checkbox-container input[type=checkbox] {
     --active: #275EFE;
     --active-inner: #fff;
     --focus: 2px rgba(39, 94, 254, .3);
@@ -130,7 +124,7 @@ body {
     background: var(--b, var(--background));
     transition: background 0.3s, border-color 0.3s, box-shadow 0.2s;
   }
-  .checkbox-wrapper-13 input[type=checkbox]:after {
+  .checkbox-container input[type=checkbox]:after {
     content: "";
     display: block;
     left: 0;
@@ -138,51 +132,51 @@ body {
     position: absolute;
     transition: transform var(--d-t, 0.3s) var(--d-t-e, ease), opacity var(--d-o, 0.2s);
   }
-  .checkbox-wrapper-13 input[type=checkbox]:checked {
+  .checkbox-container input[type=checkbox]:checked {
     --b: var(--active);
     --bc: var(--active);
     --d-o: .3s;
     --d-t: .6s;
     --d-t-e: cubic-bezier(.2, .85, .32, 1.2);
   }
-  .checkbox-wrapper-13 input[type=checkbox]:disabled {
+  .checkbox-container input[type=checkbox]:disabled {
     --b: var(--disabled);
     cursor: not-allowed;
     opacity: 0.9;
   }
-  .checkbox-wrapper-13 input[type=checkbox]:disabled:checked {
+  .checkbox-container input[type=checkbox]:disabled:checked {
     --b: var(--disabled-inner);
     --bc: var(--border);
   }
-  .checkbox-wrapper-13 input[type=checkbox]:disabled + label {
+  .checkbox-container input[type=checkbox]:disabled + label {
     cursor: not-allowed;
   }
-  .checkbox-wrapper-13 input[type=checkbox]:hover:not(:checked):not(:disabled) {
+  .checkbox-container input[type=checkbox]:hover:not(:checked):not(:disabled) {
     --bc: var(--border-hover);
   }
-  .checkbox-wrapper-13 input[type=checkbox]:focus {
+  .checkbox-container input[type=checkbox]:focus {
     box-shadow: 0 0 0 var(--focus);
   }
-  .checkbox-wrapper-13 input[type=checkbox]:not(.switch) {
+  .checkbox-container input[type=checkbox]:not(.switch) {
     width: 21px;
   }
-  .checkbox-wrapper-13 input[type=checkbox]:not(.switch):after {
+  .checkbox-container input[type=checkbox]:not(.switch):after {
     opacity: var(--o, 0);
   }
-  .checkbox-wrapper-13 input[type=checkbox]:not(.switch):checked {
+  .checkbox-container input[type=checkbox]:not(.switch):checked {
     --o: 1;
   }
-  .checkbox-wrapper-13 input[type=checkbox] + label {
+  .checkbox-container input[type=checkbox] + label {
     display: inline-block;
     vertical-align: middle;
     cursor: pointer;
     margin-left: 4px;
   }
 
-  .checkbox-wrapper-13 input[type=checkbox]:not(.switch) {
+  .checkbox-container input[type=checkbox]:not(.switch) {
     border-radius: 7px;
   }
-  .checkbox-wrapper-13 input[type=checkbox]:not(.switch):after {
+  .checkbox-container input[type=checkbox]:not(.switch):after {
     width: 5px;
     height: 9px;
     border: 2px solid var(--active-inner);
@@ -192,15 +186,16 @@ body {
     top: 4px;
     transform: rotate(var(--r, 20deg));
   }
-  .checkbox-wrapper-13 input[type=checkbox]:not(.switch):checked {
+  .checkbox-container input[type=checkbox]:not(.switch):checked {
     --r: 43deg;
   }
 }
 
-.checkbox-wrapper-13 * {
+.checkbox-container {
   box-sizing: inherit;
+  margin-left: 25%;
 }
-.checkbox-wrapper-13 *:before,
-.checkbox-wrapper-13 *:after {
+.checkbox-container *:before,
+.checkbox-container *:after {
   box-sizing: inherit;
 }

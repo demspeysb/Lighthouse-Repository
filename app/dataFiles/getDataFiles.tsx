@@ -1,6 +1,7 @@
 import MoCounties from '../dataFiles/MoCounties.json';
 import MoTornados from '../dataFiles/tornado_paths.json';
 import townships from '../dataFiles/MO_Townships_Boundaries.json';
+import primaryCare from '../dataFiles/Selected_Counties_Facilities.json';
 import drinkingDistricts from '../dataFiles/MO_Public_Drinking_Water_Districts.json';
 import { DataLayer } from '../mapComponents/dataLayer';
 import { DataObject } from '../Interfaces/DataObject';
@@ -85,7 +86,29 @@ const dataObjects: DataObject[] =
                     }
                 ]
             }
-        }
+        }, 
+        {
+            file: primaryCare,
+            style: {},
+            metaData: {
+                name: "Primary Care Facilities",
+                items: 
+                [
+                    {
+                        title: "Facility", 
+                        property: "FACILITY"
+                    },
+                    {
+                        title: "Address", 
+                        property: "ADDRESS"
+                    },
+                    {
+                        title: "City", 
+                        property: "CITY"
+                    },
+                ]
+            }
+        },
     ];
 
 export function getDataLayers(): DataLayer[]  {
