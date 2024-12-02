@@ -1,7 +1,5 @@
 import { useEffect } from 'react';
-import { createDatalayerButton } from '../mapComponents/mapControls';
 import PlaneZones from '../dataFiles/PlaneZones.json';
-import primaryCare from '../dataFiles/Selected_Counties_Facilities.json';
 import { getDataLayers } from '../dataFiles/getDataFiles';
 import { createDataLayerCheckbox } from '../mapComponents/mapControls';
 
@@ -13,18 +11,6 @@ interface MapProps {
 
 const mapApiKeyName: string = 'projects/489795191195/secrets/google-maps-api-key/versions/latest';
 let apiKey: string ="";
-
-// Fetch api key from google cloud
-fetch(`http://localhost:3000/api/getSecret`, {
-  method: "POST",          
-  headers: {"Content-Type": "text/plain" },
-  body: mapApiKeyName
-})
-  .then((res) => res.json())
-  .then((data) => {
-    apiKey = data.secret; // Use the secret
-  })
-  .catch((error) => console.error(error));
 
 // Create map source string with apiKey to access google maps
 const mapSource: string = `https://maps.googleapis.com/maps/api/js?key=${apiKey}AIzaSyDDx3QCrdoOowfXLJfeoReFkDFV4ZeKZgw&loading=async&libraries=maps,marker&v=beta`
@@ -69,6 +55,18 @@ export const Map: React.FC<MapProps> = ({ center, zoom, mapId }) => {
       //Api library imports
       const { InfoWindow } = await google.maps.importLibrary("maps") as google.maps.MapsLibrary;
       const { AdvancedMarkerElement, PinElement } = await google.maps.importLibrary("marker") as google.maps.MarkerLibrary;
+
+      // Fetch api key from google cloud
+      fetch(`../api/getSecret`, {
+        method: "POST",          
+        headers: {"Content-Type": "text/plain" },
+        body: mapApiKeyName
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          apiKey = data.secret; // Use the secret
+        })
+        .catch((error) => console.error(error));
 
       //Instantiates the map
       if (!map) {
@@ -135,28 +133,7 @@ export const Map: React.FC<MapProps> = ({ center, zoom, mapId }) => {
        markerGroupOne.push(marker);
      });
 
-      // Creates div that holds all the layer toggle buttons
-      const LayersDiv = document.createElement("div");
-
-      // Data layer for the primary care facilities
-      const primaryCareLayer = new google.maps.Data();
-      primaryCareLayer.addGeoJson(primaryCare);
-      primaryCareLayer.addListener('click', (event: google.maps.Data.MouseEvent) => {
-        const contentString = `
-          <div>
-            <strong>Facility:</strong> ${event.feature.getProperty('FACILITY')}<br/>
-            <strong>Address:</strong> ${event.feature.getProperty('ADDRESS')}<br/>
-            <strong>City:</strong> ${event.feature.getProperty('CITY')}<br/>
-          </div>
-        `;
-        infoWindow.setContent(contentString);
-        infoWindow.setPosition(event.latLng);
-        infoWindow.open(map);
-      });
-      const primaryCareButton = createDatalayerButton(map, primaryCareLayer, "map-control-button", "Primary Care Providers");
-      LayersDiv.appendChild(primaryCareButton);
-
-      const controlsDiv = document.getElementById("mapControls")
+      const controlsDiv = document.getElementById("checkbox-container")
 
       //Dynamic data layers
       getDataLayers().forEach((dataObject) => {
@@ -182,9 +159,6 @@ export const Map: React.FC<MapProps> = ({ center, zoom, mapId }) => {
           controlsDiv?.appendChild(checkbox);
         }
       });
-
-      // Add the layer control div to the map UI
-      map.controls[google.maps.ControlPosition.TOP_RIGHT].push(LayersDiv);
 
     }
 
