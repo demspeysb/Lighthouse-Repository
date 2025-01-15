@@ -5,7 +5,7 @@ import json
 rev: slice = slice(4, -1, None)
 
 
-os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = 'LighthouseCollectiveAPIKey.json'
+os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = 'app/dataFiles/LighthouseCollectiveAPIKey.json'
 
 
 client = bigquery.Client()
