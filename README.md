@@ -23,7 +23,10 @@ https://nextjs.org/docs/getting-started/installation
 4. Open a new window in VS Code.
 5. Click "Clone Git Repository" and paste the link at the top.
 6. Select the file location for the repository.
-7. After installing Node.js at https://nodejs.org/en/download, type "npm install" in the VSCode terminal to install the required dependancies.
+7. After installing Node.js at https://nodejs.org/en/download, type this command in the VSCode terminal to install the required dependancies:
+     ```sh
+     npm install
+     ```
 
 **Use this command to run the code on localhost:3000 and display it as a website**
    ```sh
