@@ -22,10 +22,17 @@ https://nextjs.org/docs/getting-started/installation
 3. Copy the link.
 4. Open a new window in VS Code.
 5. Click "Clone Git Repository" and paste the link at the top.
-##### If there are cloning problems:
-* Try installing Git; it should be automatically installed in VS Code, but if not, it needs to be installed manually.
+6. Select the file location for the repository.
+7. After installing Node.js at https://nodejs.org/en/download, type "npm install" in the VSCode terminal to install the required dependancies.
 
-These are the commands that we used to create the project:
+**Use this command to run the code on localhost:3000 and display it as a website**
+   ```sh
+   npm run dev
+   ```
+
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+**These commands can be used to create a new next.js project, which can be helpful for testing features and learning the enviorment:**
 1. We entered this command into the terminal:
    ```sh
    npx create-next-app@latest
@@ -42,13 +49,12 @@ These are the commands that we used to create the project:
    Would you like to use Turbopack for `next dev`?  No
    Would you like to customize the default import alias (@/*)? No
    ```
+   
 **Use this command to run the code on localhost:3000 and display it as a website**
    ```sh
    npm run dev
    ```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
+   
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
 ## Learn More
