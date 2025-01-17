@@ -15,12 +15,37 @@ https://nodejs.org/en/download
 Follow instructions listed here: 
 https://nextjs.org/docs/getting-started/installation
 
-After installing node.js and setting up Next.js project, run the development server with:
+## Set Up
+### Cloning the Lighthouse-Repository Project
+1. Go to the repository page on GitHub.
+2. Click the "<> Code" button at the top right of the screen.
+3. Copy the link.
+4. Open a new window in VS Code.
+5. Click "Clone Git Repository" and paste the link at the top.
+##### If there are cloning problems:
+* Try installing Git; it should be automatically installed in VS Code, but if not, it needs to be installed manually.
 
-```bash
-npm run dev
-```
+These are the commands that we used to create the project:
+1. We entered this command into the terminal:
+   ```sh
+   npx create-next-app@latest
+   ```
 
+2. We entered these answers when prompted to create our project:
+   ```sh
+   What is your project named? Lighthouse-Repository 
+   Would you like to use TypeScript? Yes
+   Would you like to use ESLint? Yes
+   Would you like to use Tailwind CSS? Yes
+   Would you like to use `src/` directory? No
+   Would you like to use App Router? (recommended) Yes
+   Would you like to use Turbopack for `next dev`?  No
+   Would you like to customize the default import alias (@/*)? No
+   ```
+**Use this command to run the code on localhost:3000 and display it as a website**
+   ```sh
+   npm run dev
+   ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
