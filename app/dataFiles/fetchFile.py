@@ -5,8 +5,11 @@ os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = 'app/dataFiles/LighthouseCollecti
 
 client = storage.Client()
 
-bucket = client.get_bucket("docviewertestbucket")
 
-blob = bucket.blob("testdocviewer.docx")
 
-blob.download_to_filename("app/dataFiles/test.docx")
+def dowload_file(filename, bucketname, pathToSave):
+    bucket = client.get_bucket(bucketname)
+
+    blob = bucket.blob(filename)
+
+    blob.download_to_filename(pathToSave)
