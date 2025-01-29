@@ -22,4 +22,19 @@ def list_files(bucketName, client):
         blobs[i]=blobs[i].name
         i = i+1
     print(blobs)
-list_files("docviewertestbucket", client)
+    return(blobs)
+list_files("lighthouse_dashboard_data", client)
+def downloadAll(fileNameArray, bucketname, pathToSave, client):
+    bucket = client.get_bucket(bucketname)
+    i=0
+    while i< len(fileNameArray):
+        blob = bucket.blob(fileNameArray[i])
+        blob.download_to_filename(pathToSave +"/"+fileNameArray[i])
+        i+=1
+#Download all test
+#downloadAll(list_files("lighthouse_dashboard_data", client),"lighthouse_dashboard_data","./app/dataFiles/fileDump", client)
+
+
+
+
+#Think of a list to store folder and file objects
