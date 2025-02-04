@@ -5,6 +5,13 @@ os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = 'app/dataFiles/LighthouseCollecti
 
 client = storage.Client()
 
+class folder():
+    def __init__(self, folderName, contents):
+       self.folderName = folderName
+       self.contents = contents
+    def download():
+        print('Test')
+
 
 
 def download_file(filename, bucketname, pathToSave, client):
@@ -21,18 +28,35 @@ def list_files(bucketName, client):
     for blob in blobs:
         blobs[i]=blobs[i].name
         i = i+1
-    print(blobs)
+    #print(blobs)
     return(blobs)
-list_files("lighthouse_dashboard_data", client)
+#list_files("lighthouse_dashboard_data", client)
 def downloadAll(fileNameArray, bucketname, pathToSave, client):
     bucket = client.get_bucket(bucketname)
+
+    curFolder = bucketname
+
     i=0
     while i< len(fileNameArray):
-        blob = bucket.blob(fileNameArray[i])
-        blob.download_to_filename(pathToSave +"/"+fileNameArray[i])
+        try:
+            blob = bucket.blob(fileNameArray[i])
+            blob.download_to_filename(pathToSave +"/"+fileNameArray[i])
+        except:
+            try:
+                if fileNameArray[i].rfind("/"):
+                    blob = bucket.blob(fileNameArray[i])
+                    curFolder = fileNameArray[i][:fileNameArray[i].rfind("/")]
+                    blob.download_to_filename(pathToSave +"/"+fileNameArray[i][fileNameArray[i].rfind("/"):])
+                else:
+                    print("An error has occurred")
+                    print(curFolder)
+            except:
+                print("Folder name")
+        #print("An error has occurred")
         i+=1
 #Download all test
-#downloadAll(list_files("lighthouse_dashboard_data", client),"lighthouse_dashboard_data","./app/dataFiles/fileDump", client)
+
+downloadAll(list_files("lighthouse_dashboard_data", client),"lighthouse_dashboard_data","./app/dataFiles/fileDump", client)
 
 
 
