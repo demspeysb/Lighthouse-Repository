@@ -6,7 +6,7 @@ import { pdfjs, Document, Page } from 'react-pdf';
 import 'react-pdf/dist/esm/Page/AnnotationLayer.css';
 import 'react-pdf/dist/esm/Page/TextLayer.css';
 import SideNavbar from "../sidebar";
-import './docViewer.css';
+import './pdfViewer.css';
 //import type { PDFDocumentProxy } from 'pdfjs-dist';
 
 // PDF Worker
@@ -23,7 +23,7 @@ const options = {
   
   type PDFFile = string | File | null;
   
-  export default function docViewer() {
+  export default function PdfViewer() {
     const [file, setFile] = useState<PDFFile>('/testdoc.pdf');
     const [numPages, setNumPages] = useState<number>(2);
     const [containerRef, setContainerRef] = useState<HTMLElement | null>(null);
