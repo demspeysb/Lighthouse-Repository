@@ -15,6 +15,7 @@
     "@wojtekmaj/react-hooks": "^1.21.0",
     "csv-parser": "^3.0.0",
     "next": "14.2.9",
+    "pdf-parse": "^1.1.1",
     "pdfjs-dist": "^4.9.124",
     "react": "^18",
     "react-dom": "^18",
@@ -25,6 +26,7 @@
   "devDependencies": {
     "@types/google.maps": "^3.58.0",
     "@types/node": "^20",
+    "@types/pdf-parse": "^1.1.4",
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "autoprefixer": "^10.4.4",

@@ -114,7 +114,10 @@ export default function FileManager() {
             .filter((item) => "filename" in item) // Only files
             .map((file) => (
               <div className="card" key={(file as fileCard).filename}>
-                <Link href="/pdfViewer" onClick={() => console.log("Opening file:", (file as fileCard).filename)}>
+                <Link href={{
+                        pathname: "/pdfViewer",
+                        query: { filename: (file as fileCard).filename },}} 
+                      onClick={() => console.log("Opening file:", (file as fileCard).filename)}>
                   {(file as fileCard).filename}
                 </Link>
               </div>
