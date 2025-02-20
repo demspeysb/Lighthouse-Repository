@@ -15,8 +15,6 @@ body {
 
 .flex-container {
   display: flex;
-  padding: 5px 0 5px 0px;
-  gap: 5px;
 }
 
 .flex-item {

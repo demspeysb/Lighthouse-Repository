@@ -2,6 +2,7 @@
 import Map from "./components/Map";
 import { toggleMarkerGroup } from "./components/Map";
 import SideNavbar from "./components/sidebar";
+import Sidebar from "./components/sidebarComponent";
 
 export default function PrivatePage() {
   const  center = { lat: 38.3853, lng: -91.9099 };
@@ -12,7 +13,7 @@ export default function PrivatePage() {
     <main>
       <title>EMS Dashboard</title>
       <div className="flex-container">
-
+        <Sidebar/>
         <div id="mapControls" className="map-controls flex-item">
           <h1 className="sectionHeader">Advanced Map Controls</h1>
             <br/>
@@ -26,7 +27,6 @@ export default function PrivatePage() {
           {<Map center={center} zoom={zoom} mapId={mapId}/>}
         </div>
       </div>
-      <SideNavbar/>
     </main>
   );
 };

@@ -40,7 +40,7 @@ export function buildFileStructure(bucketArray: string[]): fileFolder {
 
 
 // Example usage
-let bucketArray: string[] = [
+/*let bucketArray: string[] = [
     '1955-2023_hail.csv', 
     'MO_Long_Term_Care_Facilities.geojson', 
     'MO_Primary_Care_Providers.csv', 
@@ -59,4 +59,4 @@ let bucketArray: string[] = [
 ];
 
 const fileStructure = buildFileStructure(bucketArray);
-//console.log(JSON.stringify(fileStructure, null, 2));
+console.log(JSON.stringify(fileStructure, null, 2));*/
