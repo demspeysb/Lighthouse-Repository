@@ -5,6 +5,7 @@ os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = 'app/dataFiles/LighthouseCollecti
 
 client = storage.Client()
 
+'''
 class folder():
     def __init__(self, folderName, contents):
        self.folderName = folderName
@@ -18,7 +19,7 @@ class folder():
        self.contents = contents
     def download():
         print('Test')
-
+'''
 
 
 def download_file(filename, bucketname, pathToSave, client):
