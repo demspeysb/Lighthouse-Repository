@@ -1,0 +1,53 @@
+steps:
+  # 1. Clone the repository
+  - name: 'gcr.io/cloud-builders/git'  # Pulls the code using Git
+    entrypoint: 'bash'
+    args:
+      - '-c'
+      - |
+        git clone https://github.com/demspeysb/lighthouse-repository.git .
+  
+  # 2. Set up dependencies (assuming a Node.js environment for this example)
+  - name: 'gcr.io/cloud-builders/npm'
+    args: ['install']
+  
+  # 3. Run tests (optional, for Node.js projects with tests)
+  - name: 'gcr.io/cloud-builders/npm'
+    args: ['run', 'test']
+  
+  # 4. Build the application (containerize it)
+  - name: 'gcr.io/cloud-builders/docker'
+    args: [
+      'build', '-t', 'gcr.io/the-lighthouse-collective/lighthouse-repository:$SHORT_SHA', '.'
+    ]
+  
+  # 5. Push the Docker image to Google Container Registry (GCR)
+  - name: 'gcr.io/cloud-builders/docker'
+    args: [
+      'push', 'gcr.io/the-lighthouse-collective/lighthouse-repository:$SHORT_SHA'
+    ]
+  
+  # 6. Deploy the image to Cloud Run
+  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'  # Uses Google SDK
+    entrypoint: 'gcloud'
+    args: [
+      'run', 'deploy', 'RunInstance',  # Your Cloud Run service name
+      '--image', 'gcr.io/the-lighthouse-collective/lighthouse-repository:$SHORT_SHA',
+      '--region', 'us-central1',        # Specify your region
+      '--platform', 'managed',
+      '--allow-unauthenticated'
+    ]
+
+# Define substitutions if needed (optional)
+substitutions:
+  _CUSTOM_VAR: 'custom-value'
+
+# Timeouts, notifications, or other optional configurations
+timeout: '1200s'  # 20 minutes
+
+options:
+  logging: CLOUD_LOGGING_ONLY
+ 
+  
+
+
