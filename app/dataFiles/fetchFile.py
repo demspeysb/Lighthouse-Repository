@@ -12,6 +12,13 @@ class folder():
     def download():
         print('Test')
 
+class folder():
+    def __init__(self, folderName, contents):
+       self.folderName = folderName
+       self.contents = contents
+    def download():
+        print('Test')
+
 
 
 def download_file(filename, bucketname, pathToSave, client):
@@ -35,6 +42,7 @@ def downloadAll(fileNameArray, bucketname, pathToSave, client):
     bucket = client.get_bucket(bucketname)
 
     curFolder = bucketname
+    folderList = []
 
     i=0
     while i< len(fileNameArray):
@@ -48,17 +56,22 @@ def downloadAll(fileNameArray, bucketname, pathToSave, client):
                     curFolder = fileNameArray[i][:fileNameArray[i].rfind("/")]
                     blob.download_to_filename(pathToSave +"/"+fileNameArray[i][fileNameArray[i].rfind("/"):])
                 else:
-                    print("An error has occurred")
-                    print(curFolder)
+                    print("An error has occurred in " + curFolder)
+                    #print(curFolder)
             except:
-                print("Folder name")
+                print(curFolder)
+                folderList.append(curFolder)
+                #print(folderList)
         #print("An error has occurred")
         i+=1
+    print(folderList)
+    return(folderList)
 #Download all test
 
-downloadAll(list_files("lighthouse_dashboard_data", client),"lighthouse_dashboard_data","./app/dataFiles/fileDump", client)
-
+#downloadAll(list_files("lighthouse_dashboard_data", client),"lighthouse_dashboard_data","./app/dataFiles/fileDump", client)
+list_files("lighthouse_dashboard_data", client)
 
 
 
 #Think of a list to store folder and file objects
+
