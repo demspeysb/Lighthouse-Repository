@@ -1,14 +1,20 @@
 import { fileCard } from "./fileCard";
 import { fileFolder } from "./fileFolder";
 
+/**
+ * Constructs a hierarchical file and folder structure from a list of file paths.
+ *
+ * @param {string[]} bucketArray - An array of file paths representing files and folders.
+ * @returns {fileFolder} - The root folder containing the constructed file structure.
+ */
 export function buildFileStructure(bucketArray: string[]): fileFolder {
-    const root = new fileFolder("root", []);
-    const folderMap = new Map<string, fileFolder>(); // Track folders
+    const root = new fileFolder("root", []); // Root directory
+    const folderMap = new Map<string, fileFolder>(); // Maps folder paths to their corresponding objects
 
-    folderMap.set("", root); // Root folder as the base case
+    folderMap.set("", root); // Initialize root folder in the map
 
     for (const path of bucketArray) {
-        const parts = path.split("/");
+        const parts = path.split("/"); // Split the path into components
         let currentFolder = root;
         let currentPath = "";
 
@@ -17,46 +23,23 @@ export function buildFileStructure(bucketArray: string[]): fileFolder {
             currentPath = currentPath ? `${currentPath}/${part}` : part;
 
             const isLast = i === parts.length - 1;
-            const isFile = !path.endsWith("/");
+            const isFile = !path.endsWith("/"); // Determines if the path represents a file
 
             if (isFile && isLast) {
-                // If it's the last part and is a file, add a fileCard
+                // If the last part is a file, add it to the current folder
                 currentFolder.contents.push(new fileCard(part));
             } else {
-                // If it's a folder, check if it already exists
+                // If it's a folder, ensure it exists in the structure
                 if (!folderMap.has(currentPath)) {
-                    if (part.trim() === "") continue; // Avoid empty folder names
+                    if (part.trim() === "") continue; // Skip empty folder names
                     const newFolder = new fileFolder(part, []);
                     currentFolder.contents.push(newFolder);
                     folderMap.set(currentPath, newFolder);
                 }
-                currentFolder = folderMap.get(currentPath)!;
+                currentFolder = folderMap.get(currentPath)!; // Move into the folder
             }
         }
     }
 
     return root;
 }
-
-
-// Example usage
-/*let bucketArray: string[] = [
-    '1955-2023_hail.csv', 
-    'MO_Long_Term_Care_Facilities.geojson', 
-    'MO_Primary_Care_Providers.csv', 
-    'MO_Public_Drinking_Water_Districts.geojson',
-    'MO_Rural_Health_Clinics.csv', 
-    'MO_Townships_Boundaries.geojson', 
-    'fire_data/_variable_descriptions.csv', 
-    'fire_data/data.csv', 
-    'testfolder/', 
-    'testfolder/testNestedFolder/', 
-    'testfolder/testNestedFolder/Example.txt', 
-    'testfolder/testdocviewer.docx', 
-    'tornado/', 
-    'tornado/1950-2023_actual_tornadoes.csv', 
-    'tornado/tornadoCsvInJson.txt'
-];
-
-const fileStructure = buildFileStructure(bucketArray);
-console.log(JSON.stringify(fileStructure, null, 2));*/

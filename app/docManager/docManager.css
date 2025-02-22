@@ -1,8 +1,17 @@
+/*
+  Document Manager CSS Stylesheet
+  ------------------------------
+  This stylesheet defines the styling for the Document Manager application.
+  It includes theme variables, layout styles, and component-specific styles
+  such as cards, headers, search forms, and breadcrumbs.
+*/
+
+/* Theme Variables */
 :root {
   --background: #ffffff;
   --foreground: #ffffff;
 }
-  
+
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #ffffff;
@@ -10,12 +19,7 @@
   }
 }
 
-main {
-  display: flex;
-  flex-direction: column; /* Stacks children vertically */
-  gap: 30px; /* Adds spacing */
-}
-
+/* Global Styles */
 body {
   color: var(--foreground);
   background: #ffffff;
@@ -23,6 +27,13 @@ body {
   color: black;
 }
 
+main {
+  display: flex;
+  flex-direction: column; /* Stacks children vertically */
+  gap: 30px; /* Adds spacing between elements */
+}
+
+/* Document Manager Layout */
 .docManager {
   display: flex;
   flex-direction: column;
@@ -38,6 +49,7 @@ body {
   font-size: 250%;
 }
 
+/* File Path & Breadcrumb Navigation */
 .filePath {
   display: flex;
   flex-direction: row;
@@ -47,18 +59,18 @@ body {
 }
 
 .breadcrumb {
-  padding: 2px 15px 2px 15px;
+  padding: 2px 15px;
 }
 
 .breadcrumb:hover {
   background-color: #e7e7e7;
-  transition: 0.0001s;
+  transition: 0.1s;
   border-radius: 15px;
 }
 
+/* Headers and Buttons */
 h2 {
   margin-left: 5%;
-  font-weight: 550;
   font-weight: 550;
   font-size: 90%;
 }
@@ -67,29 +79,26 @@ h2 {
   margin-left: 5%;
 }
 
-
+/* Card Component */
 .card {
-  display:flexbox;
+  display: flexbox;
   position: relative;
   background-color: #d3d3d3;
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   transition: 0.3s;
   width: 15%;
   border-radius: 16px;
-  padding: 1% 1%;
-  float:inline-start;
-  margin-right: .25%;
-  margin-left: 5%;
-  margin-top: 1%;
+  padding: 1%;
+  float: inline-start;
+  margin: 1% 0.25% 1% 5%;
   font-weight: 600;
   font-size: 90%;
-  overflow-wrap: break-word; /* Ensures wrapping */
-  word-wrap: break-word; /* Ensures long words break */
-  flex-wrap: wrap; /* Allows text to wrap inside the flex container */
+  overflow-wrap: break-word; /* Ensures text wrapping */
+  flex-wrap: wrap;
 }
 
 .folder-icon {
-  display:inline;
+  display: inline;
   font-size: 18px;
   color: #000000;
   margin-right: 10px;
@@ -99,24 +108,24 @@ h2 {
 .card a::before {
   content: "";
   position: absolute;
-  top: 0px;
-  right: 0px;
-  bottom: 0px;
-  left: 0px;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
 }
 
 .card:hover {
   box-shadow: 0 4px 8px 0 #084c3c;
-  color:#194206;
-  transition: 0.0001s;
+  color: #194206;
+  transition: 0.1s;
 }
 
+/* Search Form */
 .search-form {
   display: flex;
   align-items: center;
   position: relative;
   margin-top: 3%;
-  top: 50%;
   left: 15%;
   width: 350px;
   height: 40px;
@@ -125,7 +134,7 @@ h2 {
   transform: translate(-50%, -50%);
   background: #f0eeee;
   transition: all 0.3s ease;
-  padding-left: 15px; /* Add padding to accommodate the icon */
+  padding-left: 15px;
 }
 
 .search-form.focus {
@@ -135,7 +144,7 @@ h2 {
 .search-form:hover {
   box-shadow: 0 4px 8px 0 #084c3c;
   color: #194206;
-  transition: 0.0001s;
+  transition: 0.1s;
 }
 
 .search-icon {
