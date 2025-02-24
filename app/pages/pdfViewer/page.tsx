@@ -5,7 +5,7 @@ import { useResizeObserver } from '@wojtekmaj/react-hooks';
 import { pdfjs, Document, Page } from 'react-pdf';
 import 'react-pdf/dist/esm/Page/AnnotationLayer.css';
 import 'react-pdf/dist/esm/Page/TextLayer.css';
-import SideNavbar from "../sidebar";
+import Sidebar from "../../components/sidebarComponent";
 import './pdfViewer.css';
 import { useSearchParams } from "next/navigation";
 import { getDocument, PDFDocumentProxy } from 'pdfjs-dist';
@@ -58,26 +58,26 @@ export default function PdfViewer() {
 
   return (
       <main>
-          <div className="Example">
-              <header>
-              <h1>{filename}</h1>
-              </header>
-              <div className="Example__container">
-              <div className="Example__container__document" ref={setContainerRef}>
-                  <Document file={file} options={options}>
-                  {Array.from(new Array(numPages), (el, index) => (
-                      <Page
-                      key={`page_${index + 1}`}
-                      pageNumber={index + 1}
-                      width={containerWidth ? Math.min(containerWidth, maxWidth) : maxWidth}
-                      />
-                  ))}
-                  </Document>
+        <Sidebar />
+        <div className="Example">
+            <header>
+            <h1>{filename}</h1>
+            </header>
+            <div className="Example__container">
+            <div className="Example__container__document" ref={setContainerRef}>
+                <Document file={file} options={options}>
+                {Array.from(new Array(numPages), (el, index) => (
+                    <Page
+                    key={`page_${index + 1}`}
+                    pageNumber={index + 1}
+                    width={containerWidth ? Math.min(containerWidth, maxWidth) : maxWidth}
+                    />
+                ))}
+                </Document>
 
-              </div>
-              </div>
-          </div>
-          <SideNavbar/>
+            </div>
+            </div>
+        </div>
       </main>
   );
 }

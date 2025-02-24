@@ -1,4 +1,4 @@
-import { DataObject } from '../Interfaces/DataObject';
+import { DataObject } from '../../Interfaces/DataObject';
 
 /**
  * Represents a data layer for a Google Map, including GeoJSON data and styling.

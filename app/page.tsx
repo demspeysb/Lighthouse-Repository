@@ -1,7 +1,7 @@
 "use client"; // Enables client-side rendering in Next.js
 
-import Map from "./mapComponent/Map";
-import { toggleMarkerGroup } from "./mapComponent/Map";
+import Map from "./pages/mapComponent/Map";
+import { toggleMarkerGroup } from "./pages/mapComponent/Map";
 import Sidebar from "./components/sidebarComponent";
 
 /**

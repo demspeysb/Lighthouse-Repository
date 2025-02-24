@@ -1,4 +1,4 @@
-import { markerGroup } from '../Interfaces/markerGroup';
+import { markerGroup } from '../../Interfaces/markerGroup';
 
 /**
  * Represents a data layer that holds a collection of markers.

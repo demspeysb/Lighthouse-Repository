@@ -18,8 +18,7 @@ import Link from "next/link";
 import { fileCard } from "./fileCard";
 import { fileFolder } from "./fileFolder";
 import "./docManager.css";
-import SideNavbar from "../components/sidebar";
-import Sidebar from "../components/sidebarComponent";
+import Sidebar from "../../components/sidebarComponent";
 import { useEffect, useState } from "react";
 import { buildFileStructure } from "./createFileStructure";
 import { HiDocumentSearch } from "react-icons/hi";
@@ -121,6 +120,7 @@ export default function FileManager() {
 
   return (
     <main>
+      <Sidebar />
       <div className="docManager">
         {/* Search Bar */}
         <form className="search-form" onSubmit={(e) => e.preventDefault()}>
@@ -169,7 +169,7 @@ export default function FileManager() {
           <h2>Files</h2>
           {filteredContents?.filter((item) => "filename" in item).map((file) => (
             <div className="card" key={(file as fileCard).filename}>
-              <Link href={{ pathname: "/pdfViewer", query: { filename: (file as fileCard).filename } }}>
+              <Link href={{ pathname: "pdfViewer", query: { filename: (file as fileCard).filename } }}>
                 {(file as fileCard).filename}
               </Link>
             </div>

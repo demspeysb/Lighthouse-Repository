@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
-import PlaneZones from '../dataFiles/PlaneZones.json';
-import { getDataLayers } from '../dataFiles/getDataFiles';
+import PlaneZones from '../../dataFiles/PlaneZones.json';
+import { getDataLayers } from '../../dataFiles/getDataFiles';
 import { createDataLayerCheckbox } from './mapControls';
 
 /**
