@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import PlaneZones from '../../dataFiles/PlaneZones.json';
 import { getDataLayers } from '../../dataFiles/getDataFiles';
 import { createDataLayerCheckbox } from './mapControls';
@@ -17,7 +17,7 @@ const mapApiKeyName: string = 'projects/489795191195/secrets/google-maps-api-key
 let apiKey: string ="";
 
 // Create map source string with API key to access Google Maps
-const mapSource: string = `https://maps.googleapis.com/maps/api/js?key=${apiKey}AIzaSyDDx3QCrdoOowfXLJfeoReFkDFV4ZeKZgw&loading=async&libraries=maps,marker&v=beta`
+const mapSource: string = `https://maps.googleapis.com/maps/api/js?key=${apiKey}&loading=async&libraries=maps,marker&v=beta`
 
 // Exported map instance for external access
 export let map: google.maps.Map;
@@ -68,126 +68,158 @@ export function toggleLayer(layer: google.maps.Data) {
  * @returns {JSX.Element} - The rendered map component.
  */
 export const Map: React.FC<MapProps> = ({ center, zoom, mapId }) => {
-  useEffect(() => {
-    async function initMap(): Promise<void> {
-      // Import necessary API libraries
-      const { InfoWindow } = await google.maps.importLibrary("maps") as google.maps.MapsLibrary;
-      const { AdvancedMarkerElement, PinElement } = await google.maps.importLibrary("marker") as google.maps.MarkerLibrary;
+  const [apiKey, setApiKey] = useState<string | null>(null);
 
-      // Fetch API key from Google Cloud
-      fetch(`../api/getSecret`, {
-        method: "POST",          
-        headers: {"Content-Type": "text/plain" },
-        body: mapApiKeyName
-      })
-      .then((res) => res.json())
-      .then((data) => {
-        apiKey = data.secret; // Use the secret
-      })
-      .catch((error) => console.error(error));
+  async function initMap(): Promise<void> {
+    if (!window.google || !window.google.maps) return; // Ensure Maps API is loaded
 
-      // Instantiate the map if not already created
-      if (!map) {
-        const { Map } = await google.maps.importLibrary('maps') as google.maps.MapsLibrary;
-        map = new Map(document.getElementById('map') as HTMLElement, {
-          center: center,
-          zoom: zoom,
-          mapId: mapId,
-          mapTypeId: google.maps.MapTypeId.TERRAIN,
-          fullscreenControlOptions: {
-            position: google.maps.ControlPosition.LEFT_BOTTOM // Position of the fullscreen button
-          }
-        });
-      }
+    // Import necessary API libraries
+    const { InfoWindow } = await google.maps.importLibrary("maps") as google.maps.MapsLibrary;
+    const { AdvancedMarkerElement, PinElement } = await google.maps.importLibrary("marker") as google.maps.MarkerLibrary;
 
-      // Create an info window for markers
-      const infoWindow = new InfoWindow();
-
-      // Loop through plane zones and add markers to the map
-      PlaneZones.forEach(({ position, title }, i) => {
-        // Determine background color based on surface type
-        let backgroundColor;
-        switch (true) {
-          case title.includes('Grass'):
-            backgroundColor = '#27d836';
-            break;
-          case title.includes('Concrete'):
-            backgroundColor = '#a9a8ac';
-            break;
-          case title.includes('Gravel'):
-            backgroundColor = '#5d5c61';
-            break;
-          default:
-            backgroundColor = '#1979e6';  // Default color
-        }
-
-        // Create custom styled pin for the marker
-        const pin = new PinElement({
-          glyph: `${i + 1}`,
-          glyphColor: '#FFFFFF',
-          background: backgroundColor,
-          borderColor: 'black',
-          scale: 1,
-        });
-
-        // Create marker with custom pin styling
-        const marker = new AdvancedMarkerElement({
-          position,
-          map: null,
-          title: `${i + 1}. ${title}`,
-          content: pin.element,
-          gmpClickable: true,
-        });
-
-        // Add click listener for each marker to display info window
-        marker.addListener('gmp-click', (event: google.maps.MapMouseEvent) => {
-          const latLng = event.latLng;
-          console.log(latLng);
-          infoWindow.close();
-          infoWindow.setContent(marker.title);
-          infoWindow.open(marker.map, marker);
-        });
-
-        markerGroupOne.push(marker);
-      });
-
-      const controlsDiv = document.getElementById("checkbox-container");
-
-      // Dynamically add data layers with checkboxes
-      getDataLayers().forEach((dataObject) => {
-        const metaData = dataObject.data.metaData;
-        if (metaData.items.length > 0) {
-          dataObject.layer.addListener('click', (event: google.maps.Data.MouseEvent) => {
-            let contentString = "<div>";
-            metaData.items.forEach((item) => {
-              contentString += `<strong>${item.title}: </strong> ${event.feature.getProperty(item.property)}<br/>`
-            });
-            contentString += "</div>";
-            infoWindow.setContent(contentString);
-            infoWindow.setPosition(event.latLng);
-            infoWindow.open(map);
-          });
-        }
-        
-        const checkboxId = `layerCheckbox${metaData.name}`;
-        if (!document.getElementById(checkboxId)) {
-          const checkbox = createDataLayerCheckbox(dataObject);
-          controlsDiv?.appendChild(checkbox);
+    // Instantiate the map if not already created
+    if (!map) {
+      const { Map } = await google.maps.importLibrary('maps') as google.maps.MapsLibrary;
+      map = new Map(document.getElementById('map') as HTMLElement, {
+        center: center,
+        zoom: zoom,
+        mapId: mapId,
+        mapTypeId: google.maps.MapTypeId.TERRAIN,
+        fullscreenControlOptions: {
+          position: google.maps.ControlPosition.LEFT_BOTTOM // Position of the fullscreen button
         }
       });
+      map = new google.maps.Map(document.getElementById('map') as HTMLElement, {
+        center: center,
+        zoom: zoom,
+        mapId: mapId,
+        mapTypeId: google.maps.MapTypeId.TERRAIN,
+        fullscreenControlOptions: {
+          position: google.maps.ControlPosition.LEFT_BOTTOM // Position of the fullscreen button
+        }
+      });
+      
     }
 
-    initMap();
-  }, [center, zoom, mapId]);
+    // Create an info window for markers
+    const infoWindow = new InfoWindow();
+
+    // Loop through plane zones and add markers to the map
+    PlaneZones.forEach(({ position, title }, i) => {
+      // Determine background color based on surface type
+      let backgroundColor;
+      switch (true) {
+        case title.includes('Grass'):
+          backgroundColor = '#27d836';
+          break;
+        case title.includes('Concrete'):
+          backgroundColor = '#a9a8ac';
+          break;
+        case title.includes('Gravel'):
+          backgroundColor = '#5d5c61';
+          break;
+        default:
+          backgroundColor = '#1979e6';  // Default color
+      }
+
+      // Create custom styled pin for the marker
+      const pin = new PinElement({
+        glyph: `${i + 1}`,
+        glyphColor: '#FFFFFF',
+        background: backgroundColor,
+        borderColor: 'black',
+        scale: 1,
+      });
+
+      // Create marker with custom pin styling
+      const marker = new AdvancedMarkerElement({
+        position,
+        map: null,
+        title: `${i + 1}. ${title}`,
+        content: pin.element,
+        gmpClickable: true,
+      });
+
+      // Add click listener for each marker to display info window
+      marker.addListener('gmp-click', (event: google.maps.MapMouseEvent) => {
+        const latLng = event.latLng;
+        console.log(latLng);
+        infoWindow.close();
+        infoWindow.setContent(marker.title);
+        infoWindow.open(marker.map, marker);
+      });
+
+      markerGroupOne.push(marker);
+    });
+
+    const controlsDiv = document.getElementById("checkbox-container");
+
+    // Dynamically add data layers with checkboxes
+    getDataLayers().forEach((dataObject) => {
+      const metaData = dataObject.data.metaData;
+      if (metaData.items.length > 0) {
+        dataObject.layer.addListener('click', (event: google.maps.Data.MouseEvent) => {
+          let contentString = "<div>";
+          metaData.items.forEach((item) => {
+            contentString += `<strong>${item.title}: </strong> ${event.feature.getProperty(item.property)}<br/>`
+          });
+          contentString += "</div>";
+          infoWindow.setContent(contentString);
+          infoWindow.setPosition(event.latLng);
+          infoWindow.open(map);
+        });
+      }
+      
+      const checkboxId = `layerCheckbox${metaData.name}`;
+      if (!document.getElementById(checkboxId)) {
+        const checkbox = createDataLayerCheckbox(dataObject);
+        controlsDiv?.appendChild(checkbox);
+      }
+    });
+  }
+
+  useEffect(() => {
+    async function fetchApiKey() {
+      try {
+        const response = await fetch("../api/getSecret", {
+          method: "POST",
+          headers: { "Content-Type": "text/plain" },
+          body: mapApiKeyName,
+        });
+        const data = await response.json();
+        setApiKey(data.secret);
+        console.log("API key fetched:", data.secret);
+      } catch (error) {
+        console.error("Error fetching API key:", error);
+      }
+    }
+
+    fetchApiKey();
+  }, []);
+
+  useEffect(() => {
+    if (!apiKey) return; // Wait until the key is available
+
+    const script = document.createElement("script");
+    script.src = `https://maps.googleapis.com/maps/api/js?key=${apiKey}&loading=async&libraries=maps&v=weekly&callback=${initMap},marker&v=beta`;
+    script.async = true;
+    script.defer = true;
+    document.body.appendChild(script);
+
+    script.onload = () => {
+      initMap();
+    };
+
+    return () => {
+      document.body.removeChild(script);
+    };
+  }, [apiKey]); // Runs when apiKey updates
 
   return (
     <>
       {/* The map container */}
       <div id="map" style={{ height: '900px', width: '100%' }} />
 
-      <script
-        src={mapSource} defer>
-      </script>
     </>
   );
 };
