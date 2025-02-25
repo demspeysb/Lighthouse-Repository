@@ -71,7 +71,10 @@ export const Map: React.FC<MapProps> = ({ center, zoom, mapId }) => {
   const [apiKey, setApiKey] = useState<string | null>(null);
 
   async function initMap(): Promise<void> {
+    console.log("initMap called");
     if (!window.google || !window.google.maps) return; // Ensure Maps API is loaded
+
+    console.log("we got past the google window check");
 
     // Import necessary API libraries
     const { InfoWindow } = await google.maps.importLibrary("maps") as google.maps.MapsLibrary;
@@ -89,15 +92,15 @@ export const Map: React.FC<MapProps> = ({ center, zoom, mapId }) => {
           position: google.maps.ControlPosition.LEFT_BOTTOM // Position of the fullscreen button
         }
       });
-      map = new google.maps.Map(document.getElementById('map') as HTMLElement, {
-        center: center,
-        zoom: zoom,
-        mapId: mapId,
-        mapTypeId: google.maps.MapTypeId.TERRAIN,
-        fullscreenControlOptions: {
-          position: google.maps.ControlPosition.LEFT_BOTTOM // Position of the fullscreen button
-        }
-      });
+      // map = new google.maps.Map(document.getElementById('map') as HTMLElement, {
+      //   center: center,
+      //   zoom: zoom,
+      //   mapId: mapId,
+      //   mapTypeId: google.maps.MapTypeId.TERRAIN,
+      //   fullscreenControlOptions: {
+      //     position: google.maps.ControlPosition.LEFT_BOTTOM // Position of the fullscreen button
+      //   }
+      // });
       
     }
 
@@ -178,7 +181,6 @@ export const Map: React.FC<MapProps> = ({ center, zoom, mapId }) => {
     });
   }
 
-  useEffect(() => {
     async function fetchApiKey() {
       try {
         const response = await fetch("../api/getSecret", {
@@ -199,7 +201,7 @@ export const Map: React.FC<MapProps> = ({ center, zoom, mapId }) => {
 
   useEffect(() => {
     if (!apiKey) return; // Wait until the key is available
-
+    console.log("we got past the apiKey check, yay!")
     const script = document.createElement("script");
     script.src = `https://maps.googleapis.com/maps/api/js?key=${apiKey}&loading=async&libraries=maps&v=weekly&callback=${initMap},marker&v=beta`;
     script.async = true;
