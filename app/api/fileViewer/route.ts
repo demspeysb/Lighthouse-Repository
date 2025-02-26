@@ -13,7 +13,8 @@ app.use(express.json());
 
 //Enable cors
 app.use(cors({
-    //origin: 'http://localhost:3000', // Allow only this origin
+    methods:['GET', 'POST'],
+    origin: 'http://localhost:3000', // Allow only this origin
 }));
 
 
