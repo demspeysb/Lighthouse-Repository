@@ -5,12 +5,6 @@ os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = 'app/dataFiles/LighthouseCollecti
 
 client = storage.Client()
 
-class folder():
-    def __init__(self, folderName, contents):
-       self.folderName = folderName
-       self.contents = contents
-    def download():
-        print('Test')
 
 
 
@@ -51,7 +45,7 @@ def downloadAll(fileNameArray, bucketname, pathToSave, client):
                     print("An error has occurred")
                     print(curFolder)
             except:
-                print("Folder name")
+                print(fileNameArray[i])
         #print("An error has occurred")
         i+=1
 #Download all test

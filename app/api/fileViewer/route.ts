@@ -35,16 +35,16 @@ export async function GET(req: Request, res: Response) {
 }
 
 
-const app = express();
-app.use(cors()); // Enable CORS if frontend and backend run on different domains
-app.use(express.json()); // Parse JSON request body
+// const app = express();
+// app.use(cors()); // Enable CORS if frontend and backend run on different domains
+// app.use(express.json()); // Parse JSON request body
 
-app.post("/api/send-string", (req, res) => {
-    const receivedString = req.body.data;
-    console.log("Received string:", receivedString);
+// app.post("/api/send-string", (req, res) => {
+//     const receivedString = req.body.data;
+//     console.log("Received string:", receivedString);
 
-    res.json({ message: "String received successfully", receivedString });
-});
+//     res.json({ message: "String received successfully", receivedString });
+// });
 
-//const PORT = 5000;
-app.listen(3000, () => console.log(`Server running on port ${PORT}`));
+// const PORT = 5000;
+// app.listen(5000, () => console.log(`Server running on port ${PORT}`));
