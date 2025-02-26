@@ -33,17 +33,17 @@ export default function PrivatePage() {
               }}>
               ConnectionTest
               </button>
-              {/*<!--
+              {
               <button onClick={async () => {
                 try {
-                  sendStringToBackend();
+                  sendDataToBackend();
                 } catch (error) {
                   await console.error('Error fetching data:', error);
                 }
               }}>
               ConnectionTestPOST
               </button>
-              -->*/}
+              }
             </div>
         </div>
 
@@ -73,3 +73,19 @@ const sendStringToBackend = async () => {
       console.error("Error sending string:", error);
   }
 };*/
+const sendDataToBackend = async () => {
+  const response = await fetch('http://localhost:3001/api/fileViewer', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json', // specify JSON format
+    },
+    body: JSON.stringify({ data: 'Hello from Front end' }), // pass the input data as JSON
+  });
+  console.log('Hi')
+  if (response.ok) {
+    const result = await response.json(); // handle backend response if needed
+    console.log('Backend response:', result);
+  } else {
+    console.error('Error sending data to backend');
+  }
+};

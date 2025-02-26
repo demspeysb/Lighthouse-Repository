@@ -38,3 +38,15 @@ next-env.d.ts
 
 
 app/dataFiles/LighthouseCollectiveAPIKey.json
+app/dataFiles/fileDump/_variable_descriptions.csv
+app/dataFiles/fileDump/1950-2023_actual_tornadoes.csv
+app/dataFiles/fileDump/1955-2023_hail.csv
+app/dataFiles/fileDump/data.csv
+app/dataFiles/fileDump/Example.txt
+app/dataFiles/fileDump/MO_Long_Term_Care_Facilities.geojson
+app/dataFiles/fileDump/MO_Primary_Care_Providers.csv
+app/dataFiles/fileDump/MO_Public_Drinking_Water_Districts.geojson
+app/dataFiles/fileDump/MO_Rural_Health_Clinics.csv
+app/dataFiles/fileDump/MO_Townships_Boundaries.geojson
+app/dataFiles/fileDump/testdocviewer.docx
+app/dataFiles/fileDump/tornadoCsvInJson.txt
