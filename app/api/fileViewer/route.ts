@@ -3,37 +3,47 @@ import { exec } from "child_process";
 import path from "path";
 import express, { Request, Response } from 'express';
 
-const cors = require('cors');
-//const express = require('express');
-const app = express();
-const port = 3001;
+// const cors = require('cors');
+// //const express = require('express');
+// const app = express();
+// const port = 3001;
 
-// Middleware to parse JSON request body
-app.use(express.json());
+// // Middleware to parse JSON request body
+// app.use(express.json());
 
-//Enable cors
-app.use(cors({
-    methods:['GET', 'POST'],
-    origin: 'http://localhost:3000', // Allow only this origin
-}));
+// //Enable cors
+// app.use(cors({
+//     methods:['GET', 'POST'],
+//     origin: 'http://localhost:3000', // Allow only this origin
+// }));
 
-
-// Endpoint to receive the data
-app.post('/api/fileViewer', (req: Request, res: Response) => {
-  console.log('Received data:', req.body);
+// // Endpoint to receive the data
+// app.post('/api/fileViewer', (req: Request, res: Response) => {
+//   console.log('Received data:', req.body);
   
-  // Respond with a success message or any relevant response
-  res.json({ message: 'Data received successfully' });
-});
+//   // Respond with a success message or any relevant response
+//   res.json({ message: 'Data received successfully' });
+// });
 
-app.listen(port, () => {
-  console.log(`Server running at http://localhost:${port}`);
-});
+// app.listen(port, () => {
+//   console.log(`Server running at http://localhost:${port}`);
+// });
 
-
-
-
-
+export async function POST(req: Request, res: Response) {
+    try {
+      const body = await req.text(); // Ensure request body is properly read
+  
+      if (!body) {
+        return NextResponse.json({ error: 'Filename required' }, { status: 400 });
+      }
+      console.log(body);
+      return NextResponse.json({ message: 'Data received successfully' });
+      
+    } catch (error) {
+      console.error('Error retrieving filename:', error);
+      return NextResponse.json({ error: 'Failed to retrieve filename' }, { status: 500 });
+    }
+  }
 
 export async function GET(req: Request, res: Response) {
     try {

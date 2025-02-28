@@ -74,18 +74,20 @@ const sendStringToBackend = async () => {
   }
 };*/
 const sendDataToBackend = async () => {
-  const response = await fetch('http://localhost:3001/api/fileViewer', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json', // specify JSON format
-    },
-    body: JSON.stringify({ data: 'Hello from Front end' }), // pass the input data as JSON
-  });
-  console.log('Hi')
-  if (response.ok) {
+  try {
+    const response = await fetch('../api/fileViewer', {
+      method: 'POST',
+      headers: {
+        'Content-Type': "text/plain", // specify JSON format
+      },
+      //body: JSON.stringify({ data: 'Hello from Front end' }), // pass the input data as JSON
+      body: 'Hello from Front end', // pass the input data as JSON
+    });
+    console.log('We attempt the frontend post')
     const result = await response.json(); // handle backend response if needed
     console.log('Backend response:', result);
-  } else {
-    console.error('Error sending data to backend');
+    
+  } catch (error) {
+    console.error('Error sending data to backend:', error);
   }
 };
