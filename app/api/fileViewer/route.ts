@@ -1,7 +1,7 @@
 import {NextResponse} from "next/server";
 import { exec } from "child_process";
 import path from "path";
-import express, { Request, Response } from 'express';
+//import express, { Request, Response } from 'express';
 
 
 export async function POST(req: Request, res: Response) {
@@ -11,14 +11,29 @@ export async function POST(req: Request, res: Response) {
       if (!body) {
         return NextResponse.json({ error: 'Filename required' }, { status: 400 });
       }
-      console.log(body);
+      console.log(body)
+      //await new Promise((resolve, reject) =>{
+      /*  exec('py ./app/dataFiles/fetchFile.py', (error, stdout, stderr) => {
+          if (error) {
+            console.log(`error: ${error.message}`);
+          }
+          else if (stderr) {
+            console.log(`stderr: ${stderr}`);
+          }
+          else {
+            console.log(stdout);
+          }
+        })*/
+      //  console.log("resolve: " + resolve)
+      //  console.log("reject: " + reject)
+      //})
       return NextResponse.json({ message: 'Data received successfully' });
       
     } catch (error) {
       console.error('Error retrieving filename:', error);
       return NextResponse.json({ error: 'Failed to retrieve filename' }, { status: 500 });
     }
-  }
+}
 
 export async function GET(req: Request, res: Response) {
     try {
@@ -47,17 +62,3 @@ export async function GET(req: Request, res: Response) {
     }
 }
 
-
-// const app = express();
-// app.use(cors()); // Enable CORS if frontend and backend run on different domains
-// app.use(express.json()); // Parse JSON request body
-
-// app.post("/api/send-string", (req, res) => {
-//     const receivedString = req.body.data;
-//     console.log("Received string:", receivedString);
-
-//     res.json({ message: "String received successfully", receivedString });
-// });
-
-// const PORT = 5000;
-// app.listen(5000, () => console.log(`Server running on port ${PORT}`));
