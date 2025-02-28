@@ -14,7 +14,7 @@ export async function POST(req: Request, res: Response) {
         return NextResponse.json({ error: 'Filename required' }, { status: 400 });
       }
       console.log(body)
-      /*return new Promise((resolve) => {
+      return await new Promise((resolve) => {
         exec(`python "${scriptPath}"`, (error, stdout, stderr) => {
             if (error) {
                 console.error("Error executing Python script:", error);
@@ -28,8 +28,8 @@ export async function POST(req: Request, res: Response) {
             console.log("Python script output:", stdout);
             resolve(NextResponse.json({ message: "Python script executed", output: stdout }));
         });
-    });*/
-      return NextResponse.json({ message: 'Data received successfully' });
+    });
+    //return NextResponse.json({ message: 'Data received successfully' });
       
     } catch (error) {
       console.error('Error retrieving filename:', error);
