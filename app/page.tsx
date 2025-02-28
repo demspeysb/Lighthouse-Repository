@@ -34,7 +34,7 @@ export default function PrivatePage() {
               {
               <button onClick={async () => {
                 try {
-                  sendDataToBackend("Hello from front end");
+                  sendDataToBackend("Original_documents/ICS 202 Incident Objectives FILLABLE.pdf");
                 } catch (error) {
                   await console.error('Error fetching data:', error);
                 }
