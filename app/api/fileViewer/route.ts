@@ -7,26 +7,28 @@ import path from "path";
 export async function POST(req: Request, res: Response) {
     try {
       const body = await req.text(); // Ensure request body is properly read
-  
+      const scriptPath = path.join(process.cwd(), "", "app/dataFiles/fetchFile.py");
+
+
       if (!body) {
         return NextResponse.json({ error: 'Filename required' }, { status: 400 });
       }
       console.log(body)
-      //await new Promise((resolve, reject) =>{
-      /*  exec('py ./app/dataFiles/fetchFile.py', (error, stdout, stderr) => {
-          if (error) {
-            console.log(`error: ${error.message}`);
-          }
-          else if (stderr) {
-            console.log(`stderr: ${stderr}`);
-          }
-          else {
-            console.log(stdout);
-          }
-        })*/
-      //  console.log("resolve: " + resolve)
-      //  console.log("reject: " + reject)
-      //})
+      /*return new Promise((resolve) => {
+        exec(`python "${scriptPath}"`, (error, stdout, stderr) => {
+            if (error) {
+                console.error("Error executing Python script:", error);
+                resolve(NextResponse.json({ error: "Python script execution failed" }, { status: 500 }));
+                return;
+            }
+            if (stderr) {
+                console.error("Python script stderr:", stderr);
+            }
+
+            console.log("Python script output:", stdout);
+            resolve(NextResponse.json({ message: "Python script executed", output: stdout }));
+        });
+    });*/
       return NextResponse.json({ message: 'Data received successfully' });
       
     } catch (error) {

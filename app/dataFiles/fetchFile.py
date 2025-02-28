@@ -23,7 +23,8 @@ def list_files(bucketName, client):
         blobs[i]=blobs[i].name
         i = i+1
     #print(blobs)
-    return(blobs)
+    #return(blobs)
+    return("Python Output")
 list_files("lighthouse_dashboard_data", client)
 def downloadAll(fileNameArray, bucketname, pathToSave, client):
     bucket = client.get_bucket(bucketname)
