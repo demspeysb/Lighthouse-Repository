@@ -25,7 +25,7 @@ export default function PrivatePage() {
                   const response = await fetch('/api/fileViewer'); // Adjust the path as needed
                   const data = await response.json();
                   //alert(data.message);
-                  alert(data.output); // You can do something with the data here
+                  console.log(data.output); // You can do something with the data here
                   //console.log(data)
                 } catch (error) {
                   await console.error('Error fetching data:', error);
