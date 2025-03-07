@@ -1,7 +1,6 @@
 "use client";
-import Map from "./pages/mapComponent/Map";
-import { toggleMarkerGroup } from "./pages/mapComponent/Map";
-import SideNavbar from "./pages/mapComponent/Map";
+import Map from "./pages/mapComponent/legacyMap";
+import { toggleMarkerGroup } from "./pages/mapComponent/legacyMap";
 import Sidebar from "./components/sidebarComponent";
 
 export default function PrivatePage() {
