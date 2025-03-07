@@ -23,9 +23,7 @@ export default function PrivatePage() {
                 try {
                   const response = await fetch('/api/fileViewer'); // Adjust the path as needed
                   const data = await response.json();
-                  //alert(data.message);
-                  alert(data.output); // You can do something with the data here
-                  //console.log(data)
+                  console.log(data.output); // You can do something with the data here
                 } catch (error) {
                   await console.error('Error fetching data:', error);
                 }
@@ -35,7 +33,7 @@ export default function PrivatePage() {
               {
               <button onClick={async () => {
                 try {
-                  sendDataToBackend();
+                  sendDataToBackend("Original_documents/ICS 202 Incident Objectives FILLABLE.pdf");
                 } catch (error) {
                   await console.error('Error fetching data:', error);
                 }
@@ -72,7 +70,7 @@ const sendStringToBackend = async () => {
       console.error("Error sending string:", error);
   }
 };*/
-const sendDataToBackend = async () => {
+const sendDataToBackend = async (filename: string) => {
   try {
     const response = await fetch('../api/fileViewer', {
       method: 'POST',
@@ -80,7 +78,7 @@ const sendDataToBackend = async () => {
         'Content-Type': "text/plain", // specify JSON format
       },
       //body: JSON.stringify({ data: 'Hello from Front end' }), // pass the input data as JSON
-      body: 'Hello from Front end', // pass the input data as JSON
+      body: filename, // pass the input data as JSON
     });
     console.log('We attempt the frontend post')
     const result = await response.json(); // handle backend response if needed

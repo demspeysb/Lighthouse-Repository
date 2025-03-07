@@ -20,12 +20,14 @@ def generate_signed_url(bucket_name, blob_name, expiration_minutes=5):
 def get_auth_url(bucket_name, blob_name):
     bucket_name = bucket_name.replace(" ", "%20")
     blob_name = blob_name.replace(" ", "%20")
+    #return "Hi from python"
+    #print(f"https://storage.cloud.google.com/{bucket_name}/{blob_name}")
     return f"https://storage.cloud.google.com/{bucket_name}/{blob_name}"
 
 # Example usage:
 bucket_name = "client_001"
 blob_name = "Original_documents/ICS 202 Incident Objectives FILLABLE.pdf"
-#signed_url = generate_signed_url(bucket_name, blob_name)
-#print(f"Generated GET signed URL: {signed_url}")
+signed_url = generate_signed_url(bucket_name, blob_name)
+print(f"Generated GET signed URL: {signed_url}")
 #auth_url = get_auth_url(bucket_name, blob_name)
 #print(f"Authenticated URL: {auth_url}")
