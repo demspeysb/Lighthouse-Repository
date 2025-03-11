@@ -73,7 +73,7 @@ export async function GET(req: Request, res: Response) {
         const scriptPath = path.join(process.cwd(), "", "app/dataFiles/listFiles.py"); // Update path accordingly
 
         return new Promise((resolve) => {
-            exec(`python "${scriptPath}"`, (error, stdout, stderr) => {
+            exec(`python "${scriptPath}" --bucket 'client_001'`, (error, stdout, stderr) => {
                 if (error) {
                     console.error("Error executing Python script:", error);
                     resolve(NextResponse.json({ error: "Python script execution failed" }, { status: 500 }));
