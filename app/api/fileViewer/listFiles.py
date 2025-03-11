@@ -2,7 +2,7 @@ from google.cloud import storage
 from datetime import timedelta
 import os 
 import argparse
-from stringToArray import stringToArray 
+#from stringToArray import stringToArray 
 
 
 os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = 'app/dataFiles/LighthouseCollectiveAPIKey.json'
@@ -24,10 +24,10 @@ def list_files(bucketName, client):
     for blob in blobs:
         blobs[i]=blobs[i].name
         i = i+1
-    #print(blobs)
-    print(stringToArray(blob))
-    return(stringToArray(blob))
-    #return(blobs)
+    print(blobs)
+    #print(stringToArray(blobs))
+    #return(stringToArray(blobs))
+    return(blobs)
     #return("Python Output")
 
 if __name__ == "__main__":

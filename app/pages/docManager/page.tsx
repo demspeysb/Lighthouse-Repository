@@ -26,29 +26,49 @@ import { FaFolderClosed } from "react-icons/fa6";
 import { FaFile } from "react-icons/fa";
 
 // Sample dataset representing files and folders in a storage bucket.
-// const bucketArray: string[] = [
-//   "1955-2023_hail.csv",
-//   "MO_Long_Term_Care_Facilities.geojson",
-//   "MO_Primary_Care_Providers.csv",
-//   "MO_Public_Drinking_Water_Districts.geojson",
-//   "MO_Rural_Health_Clinics.csv",
-//   "MO_Townships_Boundaries.geojson",
-//   "fire_data/_variable_descriptions.csv",
-//   "fire_data/data.csv",
-//   "testfolder/",
-//   "testfolder/testNestedFolder/",
-//   "testfolder/testNestedFolder/Example.txt",
-//   "testfolder/testdocviewer.docx",
-//   "tornado/",
-//   "tornado/1950-2023_actual_tornadoes.csv",
-//   "tornado/tornadoCsvInJson.txt",
-// ];
+const bucketArray: string[] = [
+  "1955-2023_hail.csv",
+  "MO_Long_Term_Care_Facilities.geojson",
+  "MO_Primary_Care_Providers.csv",
+  "MO_Public_Drinking_Water_Districts.geojson",
+  "MO_Rural_Health_Clinics.csv",
+  "MO_Townships_Boundaries.geojson",
+  "fire_data/_variable_descriptions.csv",
+  "fire_data/data.csv",
+  "testfolder/",
+  "testfolder/testNestedFolder/",
+  "testfolder/testNestedFolder/Example.txt",
+  "testfolder/testdocviewer.docx",
+  "tornado/",
+  "tornado/1950-2023_actual_tornadoes.csv",
+  "tornado/tornadoCsvInJson.txt",
+];
 
-const fetchFileStructure = async (): Promise<string[] | null> => {
+function stringToArray(input: string): string[] {
+  // Split the input string by commas
+  let output = input.split(',');
+
+  // Iterate through the array and process each item
+  for (let i = 0; i < output.length; i++) {
+      if (i === output.length - 1) {
+          // For the last element, strip two characters
+          output[i] = output[i].slice(2, -2);
+      } else {
+          // For all other elements, strip one character
+          output[i] = output[i].slice(2, -1);
+      }
+  }
+
+  console.log(output);
+  return output;
+}
+
+const fetchFileStructure = async () => {
   try {
     const response = await fetch('/api/fileViewer'); // Adjust the path as needed
     const data = await response.json();
-    return data.output as string[]; // Assuming data.output is a string
+    console.log(data.output);
+    return data.output; // Assuming data.output is a string
 
   } catch (error) {
     console.error('Error fetching data:', error);
@@ -56,7 +76,12 @@ const fetchFileStructure = async (): Promise<string[] | null> => {
   }
 };
 
-const bucketArray: Promise<string[] | null> = fetchFileStructure();
+const bucketArray1: string = JSON.stringify(fetchFileStructure())
+console.log(bucketArray1);
+
+
+// const bucketArray1: string[] = stringToArray(fetchFileStructure());
+// console.log(bucketArray1);
 
 // const bucketArray: string[] = async () => {
 //           try {
