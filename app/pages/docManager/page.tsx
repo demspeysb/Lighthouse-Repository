@@ -26,23 +26,55 @@ import { FaFolderClosed } from "react-icons/fa6";
 import { FaFile } from "react-icons/fa";
 
 // Sample dataset representing files and folders in a storage bucket.
-const bucketArray: string[] = [
-  "1955-2023_hail.csv",
-  "MO_Long_Term_Care_Facilities.geojson",
-  "MO_Primary_Care_Providers.csv",
-  "MO_Public_Drinking_Water_Districts.geojson",
-  "MO_Rural_Health_Clinics.csv",
-  "MO_Townships_Boundaries.geojson",
-  "fire_data/_variable_descriptions.csv",
-  "fire_data/data.csv",
-  "testfolder/",
-  "testfolder/testNestedFolder/",
-  "testfolder/testNestedFolder/Example.txt",
-  "testfolder/testdocviewer.docx",
-  "tornado/",
-  "tornado/1950-2023_actual_tornadoes.csv",
-  "tornado/tornadoCsvInJson.txt",
-];
+// const bucketArray: string[] = [
+//   "1955-2023_hail.csv",
+//   "MO_Long_Term_Care_Facilities.geojson",
+//   "MO_Primary_Care_Providers.csv",
+//   "MO_Public_Drinking_Water_Districts.geojson",
+//   "MO_Rural_Health_Clinics.csv",
+//   "MO_Townships_Boundaries.geojson",
+//   "fire_data/_variable_descriptions.csv",
+//   "fire_data/data.csv",
+//   "testfolder/",
+//   "testfolder/testNestedFolder/",
+//   "testfolder/testNestedFolder/Example.txt",
+//   "testfolder/testdocviewer.docx",
+//   "tornado/",
+//   "tornado/1950-2023_actual_tornadoes.csv",
+//   "tornado/tornadoCsvInJson.txt",
+// ];
+
+const fetchFileStructure = async (): Promise<string[] | null> => {
+  try {
+    const response = await fetch('/api/fileViewer'); // Adjust the path as needed
+    const data = await response.json();
+    return data.output as string[]; // Assuming data.output is a string
+
+  } catch (error) {
+    console.error('Error fetching data:', error);
+    return null; // Return null in case of an error
+  }
+};
+
+const bucketArray: Promise<string[] | null> = fetchFileStructure();
+
+// const bucketArray: string[] = async () => {
+//           try {
+//             const response = await fetch('/api/fileViewer'); // Adjust the path as needed
+//             const data = await response.json();
+//             console.log(data.output); // You can do something with the data here
+//             // Remove the square brackets and trim whitespace
+//             const trimmed = data.output.replace(/\[|\]/g, '').trim();
+//             console.log(trimmed);
+    
+//             // Split by comma and trim spaces from each item
+//             return trimmed.split(',').map(item => item.trim());
+
+//           } catch (error) {
+//             await console.error('Error fetching data:', error);
+//           }
+//         } 
+      
 
 export default function FileManager() {
   // State to store the file structure and navigation status
