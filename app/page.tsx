@@ -1,12 +1,9 @@
 "use client";
-import Map from "./pages/mapComponent/legacyMap";
-import { toggleMarkerGroup } from "./pages/mapComponent/legacyMap";
+import Map from "./pages/mapComponent/Map";
+import { toggleMarkerGroup } from "./pages/mapComponent/Map";
 import Sidebar from "./components/sidebarComponent";
 
 export default function PrivatePage() {
-  const  center = { lat: 38.3853, lng: -91.9099 };
-  const zoom = 10;
-  const mapId = "a9c7951e16e3f5b1";
 
   return (
     <main>
@@ -45,7 +42,7 @@ export default function PrivatePage() {
         </div>
 
         <div className="map-div">
-          {<Map center={center} zoom={zoom} mapId={mapId}/>}
+          {<Map/>}
         </div>
       </div>
     </main>

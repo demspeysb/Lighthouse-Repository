@@ -1,5 +1,5 @@
 import { DataLayer } from "./dataLayer";
-import { toggleLayer } from "./legacyMap";
+import { toggleLayer } from "./Map";
 
 /**
  * Creates a button to toggle the visibility of a data layer on a Google Map.

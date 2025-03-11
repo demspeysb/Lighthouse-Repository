@@ -3,24 +3,16 @@ import PlaneZones from '../../dataFiles/PlaneZones.json';
 import { getDataLayers } from '../../dataFiles/getDataFiles';
 import { createDataLayerCheckbox } from './mapControls';
 
-/**
- * Interface defining the properties required for the Map component.
- */
-interface MapProps {
-  center: google.maps.LatLngLiteral; // Center coordinates of the map
-  zoom: number; // Zoom level
-  mapId: string; // Map ID for customization
-}
-
 // API key reference from Google Cloud Secret Manager
 const mapApiKeyName: string = 'projects/489795191195/secrets/google-maps-api-key/versions/latest';
-let apiKey: string ="";
-
-// Create map source string with API key to access Google Maps
-const mapSource: string = `https://maps.googleapis.com/maps/api/js?key=${apiKey}&loading=async&libraries=maps,marker&v=beta`
 
 // Exported map instance for external access
 export let map: google.maps.Map;
+
+// Default parameters for map instantiation
+const center = { lat: 38.3853, lng: -91.9099 };
+const zoom = 10;
+const mapId = "a9c7951e16e3f5b1";
 
 // Holds marker group for plane landing zones
 const markerGroupOne: google.maps.marker.AdvancedMarkerElement[] = [];
@@ -62,121 +54,117 @@ export function toggleLayer(layer: google.maps.Data) {
   }
 }
 
-/**
- * React functional component representing a Google Map.
- * @param {MapProps} props - The map configuration properties.
- * @returns {JSX.Element} - The rendered map component.
- */
-export const Map: React.FC<MapProps> = ({ center, zoom, mapId }) => {
-  const [apiKey, setApiKey] = useState<string | null>(null);
+declare global {
+  interface Window {
+    initMap: () => void;
+  }
+}
 
-  async function initMap(): Promise<void> {
-    if (!window.google || !window.google.maps) return; // Ensure Maps API is loaded
+// Define globally so callback works
+async function initMap() {
+  if (!window.google || !window.google.maps) {
+    console.error("Google Maps API failed to load.");
+    return;
+  }
 
-    // Import necessary API libraries
-    const { InfoWindow } = await google.maps.importLibrary("maps") as google.maps.MapsLibrary;
-    const { AdvancedMarkerElement, PinElement } = await google.maps.importLibrary("marker") as google.maps.MarkerLibrary;
+  // Import necessary API libraries
+  const { InfoWindow } = await google.maps.importLibrary("maps") as google.maps.MapsLibrary;
+  const { AdvancedMarkerElement, PinElement } = await google.maps.importLibrary("marker") as google.maps.MarkerLibrary;
 
-    // Instantiate the map if not already created
-    if (!map) {
-      const { Map } = await google.maps.importLibrary('maps') as google.maps.MapsLibrary;
-      map = new Map(document.getElementById('map') as HTMLElement, {
-        center: center,
-        zoom: zoom,
-        mapId: mapId,
-        mapTypeId: google.maps.MapTypeId.TERRAIN,
-        fullscreenControlOptions: {
-          position: google.maps.ControlPosition.LEFT_BOTTOM // Position of the fullscreen button
-        }
-      });
-      map = new google.maps.Map(document.getElementById('map') as HTMLElement, {
-        center: center,
-        zoom: zoom,
-        mapId: mapId,
-        mapTypeId: google.maps.MapTypeId.TERRAIN,
-        fullscreenControlOptions: {
-          position: google.maps.ControlPosition.LEFT_BOTTOM // Position of the fullscreen button
-        }
-      });
-      
+  // Instantiate the map
+  const { Map } = await google.maps.importLibrary("maps") as google.maps.MapsLibrary;
+  map = new Map(document.getElementById('map') as HTMLElement, {
+    center: center,
+    zoom: zoom,
+    mapId: mapId,
+    mapTypeId: google.maps.MapTypeId.TERRAIN,
+    fullscreenControlOptions: {
+      position: google.maps.ControlPosition.LEFT_BOTTOM // Position of the fullscreen button
+    }
+  });
+
+  // Create an info window for markers
+  const infoWindow = new InfoWindow();
+
+  // Loop through plane zones and add markers to the map
+  PlaneZones.forEach(({ position, title }, i) => {
+    // Determine background color based on surface type
+    let backgroundColor;
+    switch (true) {
+      case title.includes('Grass'):
+        backgroundColor = '#27d836';
+        break;
+      case title.includes('Concrete'):
+        backgroundColor = '#a9a8ac';
+        break;
+      case title.includes('Gravel'):
+        backgroundColor = '#5d5c61';
+        break;
+      default:
+        backgroundColor = '#1979e6';  // Default color
     }
 
-    // Create an info window for markers
-    const infoWindow = new InfoWindow();
-
-    // Loop through plane zones and add markers to the map
-    PlaneZones.forEach(({ position, title }, i) => {
-      // Determine background color based on surface type
-      let backgroundColor;
-      switch (true) {
-        case title.includes('Grass'):
-          backgroundColor = '#27d836';
-          break;
-        case title.includes('Concrete'):
-          backgroundColor = '#a9a8ac';
-          break;
-        case title.includes('Gravel'):
-          backgroundColor = '#5d5c61';
-          break;
-        default:
-          backgroundColor = '#1979e6';  // Default color
-      }
-
-      // Create custom styled pin for the marker
-      const pin = new PinElement({
-        glyph: `${i + 1}`,
-        glyphColor: '#FFFFFF',
-        background: backgroundColor,
-        borderColor: 'black',
-        scale: 1,
-      });
-
-      // Create marker with custom pin styling
-      const marker = new AdvancedMarkerElement({
-        position,
-        map: null,
-        title: `${i + 1}. ${title}`,
-        content: pin.element,
-        gmpClickable: true,
-      });
-
-      // Add click listener for each marker to display info window
-      marker.addListener('gmp-click', (event: google.maps.MapMouseEvent) => {
-        const latLng = event.latLng;
-        console.log(latLng);
-        infoWindow.close();
-        infoWindow.setContent(marker.title);
-        infoWindow.open(marker.map, marker);
-      });
-
-      markerGroupOne.push(marker);
+    // Create custom styled pin for the marker
+    const pin = new PinElement({
+      glyph: `${i + 1}`,
+      glyphColor: '#FFFFFF',
+      background: backgroundColor,
+      borderColor: 'black',
+      scale: 1,
     });
 
-    const controlsDiv = document.getElementById("checkbox-container");
+    // Create marker with custom pin styling
+    const marker = new AdvancedMarkerElement({
+      position,
+      map: null,
+      title: `${i + 1}. ${title}`,
+      content: pin.element,
+      gmpClickable: true,
+    });
 
-    // Dynamically add data layers with checkboxes
-    getDataLayers().forEach((dataObject) => {
-      const metaData = dataObject.data.metaData;
-      if (metaData.items.length > 0) {
-        dataObject.layer.addListener('click', (event: google.maps.Data.MouseEvent) => {
-          let contentString = "<div>";
-          metaData.items.forEach((item) => {
-            contentString += `<strong>${item.title}: </strong> ${event.feature.getProperty(item.property)}<br/>`
-          });
-          contentString += "</div>";
-          infoWindow.setContent(contentString);
-          infoWindow.setPosition(event.latLng);
-          infoWindow.open(map);
+    // Add click listener for each marker to display info window
+    marker.addListener('gmp-click', (event: google.maps.MapMouseEvent) => {
+      const latLng = event.latLng;
+      console.log(latLng);
+      infoWindow.close();
+      infoWindow.setContent(marker.title);
+      infoWindow.open(marker.map, marker);
+    });
+
+    markerGroupOne.push(marker);
+  });
+
+  const controlsDiv = document.getElementById("checkbox-container");
+
+  // Dynamically add data layers with checkboxes
+  getDataLayers().forEach((dataObject) => {
+    const metaData = dataObject.data.metaData;
+    if (metaData.items.length > 0) {
+      dataObject.layer.addListener('click', (event: google.maps.Data.MouseEvent) => {
+        let contentString = "<div>";
+        metaData.items.forEach((item) => {
+          contentString += `<strong>${item.title}: </strong> ${event.feature.getProperty(item.property)}<br/>`
         });
-      }
-      
-      const checkboxId = `layerCheckbox${metaData.name}`;
-      if (!document.getElementById(checkboxId)) {
-        const checkbox = createDataLayerCheckbox(dataObject);
-        controlsDiv?.appendChild(checkbox);
-      }
-    });
-  }
+        contentString += "</div>";
+        infoWindow.setContent(contentString);
+        infoWindow.setPosition(event.latLng);
+        infoWindow.open(map);
+      });
+    }
+    
+    const checkboxId = `layerCheckbox${metaData.name}`;
+    if (!document.getElementById(checkboxId)) {
+      const checkbox = createDataLayerCheckbox(dataObject);
+      controlsDiv?.appendChild(checkbox);
+    }
+  });
+};
+
+/**
+ * React functional component representing a Google Map.
+ */
+export function Map() {
+  const [apiKey, setApiKey] = useState<string | null>(null);
 
   useEffect(() => {
     async function fetchApiKey() {
@@ -198,17 +186,27 @@ export const Map: React.FC<MapProps> = ({ center, zoom, mapId }) => {
   }, []);
 
   useEffect(() => {
-    if (!apiKey) return; // Wait until the key is available
+    if (!apiKey || typeof window === "undefined") return; // Ensure we have an API key and are in the browser
+
+  window.initMap = async function () {
+    if (!window.google || !window.google.maps) {
+      console.error("Google Maps API failed to load.");
+      return;
+    }
+    initMap();
+  };
 
     const script = document.createElement("script");
-    script.src = `https://maps.googleapis.com/maps/api/js?key=${apiKey}&loading=async&libraries=maps&v=weekly&callback=${initMap},marker&v=beta`;
+    script.src = `https://maps.googleapis.com/maps/api/js?key=${apiKey}&loading=async&libraries=maps,marker&v=weekly&callback=initMap`;
     script.async = true;
     script.defer = true;
     document.body.appendChild(script);
 
-    script.onload = () => {
-      initMap();
-    };
+    console.log("script created")
+
+    // script.onload = () => {
+    //   initMap();
+    // };
 
     return () => {
       document.body.removeChild(script);
