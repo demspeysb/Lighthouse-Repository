@@ -2,6 +2,7 @@ from google.cloud import storage
 from datetime import timedelta
 import os 
 import argparse
+from stringToArray import stringToArray 
 
 
 os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = 'app/dataFiles/LighthouseCollectiveAPIKey.json'
@@ -15,7 +16,7 @@ parser.add_argument("--bucket", type=str)
 # Parse arguments
 args = parser.parse_args()
 
-
+#--bucket 'client_001'
 def list_files(bucketName, client):
     bucket = client.bucket(bucketName)
     blobs = list(bucket.list_blobs())
@@ -23,8 +24,10 @@ def list_files(bucketName, client):
     for blob in blobs:
         blobs[i]=blobs[i].name
         i = i+1
-    print(blobs)
-    return(blobs)
+    #print(blobs)
+    print(stringToArray(blob))
+    return(stringToArray(blob))
+    #return(blobs)
     #return("Python Output")
 
 if __name__ == "__main__":
