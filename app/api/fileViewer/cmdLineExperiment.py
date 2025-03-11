@@ -26,6 +26,17 @@ def generate_signed_url(bucket_name, blob_name, expiration_minutes):
     )
     print(url)
     return url
+
+def list_files(bucketName, client):
+    bucket = client.bucket(bucketName)
+    blobs = list(bucket.list_blobs())
+    i = 0
+    for blob in blobs:
+        blobs[i]=blobs[i].name
+        i = i+1
+    print(blobs)
+    return(blobs)
+    #return("Python Output")
 # Call the function with the parsed arguments
 if __name__ == "__main__":
     generate_signed_url(args.bucket, args.blob, args.expirationMins)

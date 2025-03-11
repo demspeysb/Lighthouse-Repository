@@ -70,7 +70,7 @@ export async function GET(req: Request, res: Response) {
     try {
         console.log("Running Python script...");
 
-        const scriptPath = path.join(process.cwd(), "", "app/dataFiles/cmdLineExperiment.py"); // Update path accordingly
+        const scriptPath = path.join(process.cwd(), "", "app/dataFiles/listFiles.py"); // Update path accordingly
 
         return new Promise((resolve) => {
             exec(`python "${scriptPath}"`, (error, stdout, stderr) => {
