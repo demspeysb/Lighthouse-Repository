@@ -7,8 +7,10 @@
  */
 export class fileCard {
     filename: string;
+    fullPath: string;
 
-    constructor(filename: string) {
+    constructor(filename: string, fullPath: string) {
         this.filename = filename;
+        this.fullPath = fullPath;
     }
 }

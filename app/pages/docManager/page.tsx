@@ -24,82 +24,37 @@ import { buildFileStructure } from "./createFileStructure";
 import { HiDocumentSearch } from "react-icons/hi";
 import { FaFolderClosed } from "react-icons/fa6";
 import { FaFile } from "react-icons/fa";
-
-// Sample dataset representing files and folders in a storage bucket.
-const bucketArray: string[] = [
-  "1955-2023_hail.csv",
-  "MO_Long_Term_Care_Facilities.geojson",
-  "MO_Primary_Care_Providers.csv",
-  "MO_Public_Drinking_Water_Districts.geojson",
-  "MO_Rural_Health_Clinics.csv",
-  "MO_Townships_Boundaries.geojson",
-  "fire_data/_variable_descriptions.csv",
-  "fire_data/data.csv",
-  "testfolder/",
-  "testfolder/testNestedFolder/",
-  "testfolder/testNestedFolder/Example.txt",
-  "testfolder/testdocviewer.docx",
-  "tornado/",
-  "tornado/1950-2023_actual_tornadoes.csv",
-  "tornado/tornadoCsvInJson.txt",
-];
-
+    
 function stringToArray(input: string): string[] {
-  // Split the input string by commas
   let output = input.split(',');
-
-  // Iterate through the array and process each item
   for (let i = 0; i < output.length; i++) {
-      if (i === output.length - 1) {
-          // For the last element, strip two characters
-          output[i] = output[i].slice(2, -2);
-      } else {
-          // For all other elements, strip one character
-          output[i] = output[i].slice(2, -1);
-      }
+    if (i === output.length - 1) {
+      output[i] = output[i].slice(2, -2);
+    } else {
+      output[i] = output[i].slice(2, -1);
+    }
   }
-
-  console.log(output);
   return output;
 }
 
-const fetchFileStructure = async () => {
+const sendDataToBackend = async (filename: string) => {
   try {
-    const response = await fetch('/api/fileViewer'); // Adjust the path as needed
-    const data = await response.json();
-    console.log(data.output);
-    return data.output; // Assuming data.output is a string
+    const response = await fetch('../api/fileViewer', {
+      method: 'POST',
+      headers: {
+        'Content-Type': "text/plain", // specify JSON format
+      },
+      body: filename, // pass the input data as JSON
+    });
+    console.log('We attempt the frontend post')
+    const result = await response.json(); // handle backend response if needed
+    console.log('Backend response:', result);
+    return result.output;
 
   } catch (error) {
-    console.error('Error fetching data:', error);
-    return null; // Return null in case of an error
+    console.error('Error sending data to backend:', error);
   }
 };
-
-const bucketArray1: string = JSON.stringify(fetchFileStructure())
-console.log(bucketArray1);
-
-
-// const bucketArray1: string[] = stringToArray(fetchFileStructure());
-// console.log(bucketArray1);
-
-// const bucketArray: string[] = async () => {
-//           try {
-//             const response = await fetch('/api/fileViewer'); // Adjust the path as needed
-//             const data = await response.json();
-//             console.log(data.output); // You can do something with the data here
-//             // Remove the square brackets and trim whitespace
-//             const trimmed = data.output.replace(/\[|\]/g, '').trim();
-//             console.log(trimmed);
-    
-//             // Split by comma and trim spaces from each item
-//             return trimmed.split(',').map(item => item.trim());
-
-//           } catch (error) {
-//             await console.error('Error fetching data:', error);
-//           }
-//         } 
-      
 
 export default function FileManager() {
   // State to store the file structure and navigation status
@@ -107,13 +62,40 @@ export default function FileManager() {
   const [currentFolder, setCurrentFolder] = useState<fileFolder | null>(null);
   const [filePath, setFilePath] = useState<string[]>(["Documents"]);
   const [searchQuery, setSearchQuery] = useState<string>("");
+  const [bucketArray, setBucketArray] = useState<string[] | null>(null); // Store processed data
 
   useEffect(() => {
-    // Initialize the file structure when the component mounts
-    const rootStructure = buildFileStructure(bucketArray);
-    setFileStructure(rootStructure);
-    setCurrentFolder(rootStructure);
+    const fetchFileStructure = async () => {
+      try {
+        const response = await fetch('/api/fileViewer'); 
+        const data = await response.json();
+        return data.output; 
+      } catch (error) {
+        console.error('Error fetching data:', error);
+        return null;
+      }
+    };
+
+    const processFileStructure = async () => {
+      const bucketString = await fetchFileStructure();
+      if (bucketString) {
+        const processedArray = stringToArray(bucketString);
+        console.log(processedArray);
+        setBucketArray(processedArray); // Update state with processed data
+      }
+    };
+
+    processFileStructure();
   }, []);
+
+  // Rebuild the file structure when bucketArray is updated
+  useEffect(() => {
+    if (bucketArray) {
+      const rootStructure = buildFileStructure(bucketArray);
+      setFileStructure(rootStructure);
+      setCurrentFolder(rootStructure);
+    }
+  }, [bucketArray]); // Runs whenever bucketArray updates
 
   /**
    * Opens a folder by updating the state to reflect the new folder's contents.
@@ -225,13 +207,23 @@ export default function FileManager() {
         <div className="fileContainer doc-flex-item">
           <h2>Files</h2>
           {filteredContents?.filter((item) => "filename" in item).map((file) => (
-            <div className="card" key={(file as fileCard).filename}>
-              <Link href={{ pathname: "pdfViewer", query: { filename: (file as fileCard).filename } }}>
-                {(file as fileCard).filename}
-              </Link>
-            </div>
+            <div
+              className="card"
+              key={(file as fileCard).filename}
+              onClick={async () => {
+                try {
+                  const url: string | null = await sendDataToBackend((file as fileCard).fullPath);
+                  if (url) {
+                    window.open(url, "_blank");
+                  }
+                } catch (error) {
+                  console.error("Error fetching data:", error);
+                }
+              }}
+            >{(file as fileCard).filename}</div>
           ))}
         </div>
+
       </div>
     </main>
   );
