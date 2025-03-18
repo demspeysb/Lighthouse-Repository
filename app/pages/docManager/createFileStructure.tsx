@@ -26,8 +26,8 @@ export function buildFileStructure(bucketArray: string[]): fileFolder {
             const isFile = !path.endsWith("/"); // Determines if the path represents a file
 
             if (isFile && isLast) {
-                // If the last part is a file, add it to the current folder
-                currentFolder.contents.push(new fileCard(part));
+                // If the last part is a file, add it to the current folder with full path
+                currentFolder.contents.push(new fileCard(part, currentPath));
             } else {
                 // If it's a folder, ensure it exists in the structure
                 if (!folderMap.has(currentPath)) {
