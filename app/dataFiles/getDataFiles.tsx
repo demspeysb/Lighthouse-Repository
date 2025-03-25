@@ -3,8 +3,11 @@ import MoTornados from '../dataFiles/tornado_paths.json';
 import townships from '../dataFiles/MO_Townships_Boundaries.json';
 import primaryCare from '../dataFiles/Selected_Counties_Facilities.json';
 import drinkingDistricts from '../dataFiles/MO_Public_Drinking_Water_Districts.json';
+import arcGisUrls from '../api/mapping/arcGisUrls.json';
+import arcgisEmsZones from '../api/mapping/GISDataLayer.json';
 import { DataLayer } from '../pages/mapComponent/dataLayer';
 import { DataObject } from '../Interfaces/DataObject';
+import { fetchEsriData } from '../api/mapping/tsArcFetch';
 
 // Eventually, the files and styles will be stored on the GCP and called in
 const dataObjects: DataObject[] = 
@@ -109,11 +112,40 @@ const dataObjects: DataObject[] =
                 ]
             }
         },
+        {
+            file: arcgisEmsZones,
+            style: {fillOpacity: 0,strokeWeight: 2,strokeColor: 'blue'},
+            metaData: {
+                name: "EMS Zones",
+                items:[]
+            }
+        }
     ];
+
+async function createArcGISLayers() {
+    const layers: DataLayer[] = [];
+    const arcData = arcGisUrls.layers; 
+
+    // Creates DataObjects and DataLayers for each ARCGIS layers in the json file
+    for (let i = 0; i < arcData.length; i++) {
+        const dataObject: DataObject = {        // Creates DataObject used to instantiate a google map layer
+            file: fetchEsriData(arcData[i].url),    // Fetches the geojson data from the ARC server using link
+            style: {fillOpacity: 0,strokeWeight: 4},
+            metaData: {
+                name: arcData[i].name,
+                items:[]
+            }
+        }
+        console.log(arcData[i].name);
+        const layer = new DataLayer(dataObject);
+        layers.push(layer);
+    }
+}
 
 export function getDataLayers(): DataLayer[]  {
     const layers: DataLayer[] = [];
 
+    // Creates DataLayers for each of the custom dataset layers in the datafiles location
     for (let i = 0; i < dataObjects.length; i++) {
         const layer = new DataLayer(dataObjects[i]);
         layers.push(layer);
