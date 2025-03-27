@@ -15,32 +15,7 @@ export async function POST(req: Request, res: Response) {
         return NextResponse.json({ error: 'Filename required' }, { status: 400 });
       }
       console.log("body: " + body);
-      /*try{
-        const result = await spawn("python",
-            ["-c", `import ${scriptPath}; ${scriptPath}.get_auth_url(${body}, "client_001"`]
-        )
-        //result.stdout.pipe(process.stdout);
-        console.log(result.stdout)
-      }catch(error){
-        console.log(error)
-      }*/
-     /*
-        console.log(`py ${scriptPath} get_auth_url client_001 ${body}`)
-        return await new Promise((resolve) => {
-            exec(`py "${scriptPath}" get_auth_url client_001 "${body}"`, (error, stdout, stderr) => {
-                if (error) {
-                    console.error("Error executing Python script:", error);
-                    resolve(NextResponse.json({ error: "Python script execution failed" }, { status: 500 }));
-                    return;
-                }
-                if (stderr) {
-                    console.error("Python script stderr:", stderr);
-                }
-
-                console.log("Python script output:", stdout);
-                resolve(NextResponse.json({ message: "Python script executed", output: stdout }));
-            });
-        });*/
+     
         return await new Promise((resolve) => {
             exec(`py ./app/api/fileViewer/cmdLineExperiment.py --bucket "client_001" --blob "`+ body + `" --expirationMins 5`, (error, stdout, stderr) => {
                 if (error) {
