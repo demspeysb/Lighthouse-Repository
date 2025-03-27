@@ -26,7 +26,7 @@ import { FaFolderClosed } from "react-icons/fa6";
 import { FaFile } from "react-icons/fa";
     
 function stringToArray(input: string): string[] {
-  let output = input.split(',');
+  const output = input.split(',');
   for (let i = 0; i < output.length; i++) {
     if (i === output.length - 1) {
       output[i] = output[i].slice(2, -2);
