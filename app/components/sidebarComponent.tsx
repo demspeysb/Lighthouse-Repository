@@ -1,5 +1,6 @@
 "use client";
 
+import { LucideIcon } from "lucide-react";
 import { useState } from "react";
 import { Map, FileText, Settings, Menu, ChevronLeft } from "lucide-react";
 import Link from "next/link";
@@ -48,7 +49,7 @@ export default function Sidebar() {
 
 // Type definition for SidebarItem component props
 type SidebarItemProps = {
-  icon: any;
+  icon: LucideIcon;
   label: string;
   href: string;
   collapsed: boolean;

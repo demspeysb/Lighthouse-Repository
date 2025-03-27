@@ -12,7 +12,6 @@
             "url" :"https://services2.arcgis.com/bHCR7EW2rtRWmtnn/ArcGIS/rest/services/Fire_Boundary/FeatureServer/22",
             "name" : "Fire_Boundary"
         },
-
         {
             "url" :"https://services2.arcgis.com/bHCR7EW2rtRWmtnn/ArcGIS/rest/services/Soma_Driveways/FeatureServer/1",
             "name" : "Soma_Driveways"
