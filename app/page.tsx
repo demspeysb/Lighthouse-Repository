@@ -16,7 +16,7 @@ export default function PrivatePage() {
             <div id="checkbox-container" className="checkbox-container">
               <input type="checkbox" id="myCheckbox" name="myCheckbox" onChange={() => toggleMarkerGroup()}></input>
               <label htmlFor="myCheckbox">Plane Landing Zones</label>
-              
+              {/*
               <button
                 type="button"
                 onClick={async () => {
@@ -38,7 +38,7 @@ export default function PrivatePage() {
               >
               MappingPost
               </button>
-
+              */}
             </div>
         </div>
         <div className="map-div">
