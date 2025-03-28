@@ -5,7 +5,7 @@ import path from "path";
 //import express, { Request, Response } from 'express';
 
 
-export async function POST(req: Request, res: Response) {
+export async function POST(req: Request, res: Response): Promise<Response> {
     try {
       const body = await req.text(); // Ensure request body is properly read
       const scriptPath = path.join(process.cwd(), "", "./app/api/fileViewer/generateURL.py");
@@ -41,7 +41,7 @@ export async function POST(req: Request, res: Response) {
     }
 }
 
-export async function GET(req: Request, res: Response) {
+export async function GET(req: Request, res: Response): Promise<Response> {
     try {
         console.log("Running Python script...");
 
