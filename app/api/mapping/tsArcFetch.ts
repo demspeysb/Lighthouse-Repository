@@ -24,13 +24,13 @@ async function fetchEsriDataToOutputFile(url: string, outputFile: string) {
          const response = await fetch(`${url}/query?where=1=1&outFields=*&outSR=4326&f=geojson`);
          const data = await response.json();
 
-//          // // Write data to a JSON file
-//          await fs.writeFile(outputFile, JSON.stringify(data, null, 2));
-//          console.log(`Data successfully written to ${outputFile}`);
-//      } catch (error) {
-//         console.error("Error fetching ArcGIS data:", error);
-//      }
-// }
+          // // Write data to a JSON file
+          await fs.writeFile(outputFile, JSON.stringify(data, null, 2));
+          console.log(`Data successfully written to ${outputFile}`);
+      } catch (error) {
+         console.error("Error fetching ArcGIS data:", error);
+     }
+ }
 
 
 // // // Example usage:
