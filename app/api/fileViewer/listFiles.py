@@ -16,6 +16,9 @@ parser.add_argument("--bucket", type=str)
 # Parse arguments
 args = parser.parse_args()
 
+
+#Lists files in a bucket.
+
 #--bucket 'client_001'
 def list_files(bucketName, client):
     bucket = client.bucket(bucketName)

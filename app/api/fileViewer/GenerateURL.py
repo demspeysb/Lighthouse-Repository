@@ -4,6 +4,7 @@ import os
 
 os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = 'app/dataFiles/LighthouseCollectiveAPIKey.json'
 
+#Generates a signed url from which a user can access the file
 def generate_signed_url(bucket_name, blob_name, expiration_minutes=5):
     """Generates a v4 signed URL for accessing a blob."""
     storage_client = storage.Client()
