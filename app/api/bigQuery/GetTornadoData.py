@@ -2,6 +2,12 @@ import os
 from google.cloud import bigquery
 import json
 
+
+
+#holdover from early ideas
+#This method gets tornado data from bigQuery
+#Will help us to understand bigQuery
+
 rev: slice = slice(4, -1, None)
 
 
