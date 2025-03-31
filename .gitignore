@@ -50,3 +50,5 @@ app/dataFiles/fileDump/MO_Rural_Health_Clinics.csv
 app/dataFiles/fileDump/MO_Townships_Boundaries.geojson
 app/dataFiles/fileDump/testdocviewer.docx
 app/dataFiles/fileDump/tornadoCsvInJson.txt
+app/api/mapping/GISDataLayer.json
+

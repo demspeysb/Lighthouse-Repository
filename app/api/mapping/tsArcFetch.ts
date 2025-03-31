@@ -1,4 +1,4 @@
-//const fs = require("fs").promises;
+const fs = require("fs").promises;
 
 
 /*
@@ -18,7 +18,7 @@ fetchEsriData('https://services2.arcgis.com/bHCR7EW2rtRWmtnn/ArcGIS/rest/service
 
 
 // Code for writing the ARCGIS geojson to a file
-/*
+
 async function fetchEsriDataToOutputFile(url: string, outputFile: string) {
      try {
          const response = await fetch(`${url}/query?where=1=1&outFields=*&outSR=4326&f=geojson`);
@@ -37,4 +37,3 @@ async function fetchEsriDataToOutputFile(url: string, outputFile: string) {
  const esriLayerUrl = "https://services2.arcgis.com/bHCR7EW2rtRWmtnn/ArcGIS/rest/services/EMS_BOUNDARIES/FeatureServer/21";
 fetchEsriDataToOutputFile(esriLayerUrl, "./app/api/mapping/GISDataLayer.json");
 
-*/

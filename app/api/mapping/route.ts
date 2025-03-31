@@ -5,34 +5,16 @@ import path from "path";
 import fs from 'fs'
 //import express, { Request, Response } from 'express';
 
-
+//Post route that writes arcGIS data to a file
 export async function POST(req: Request, res: Response) {
     try {
       const body = await req.text(); // Ensure request body is properly read
-      //const scriptPath = path.join(process.cwd(), "", "./app/api/mapping/tsArcFetch.ts");
 
 
       if (!body) {
         return NextResponse.json({ error: 'Filename required' }, { status: 400 });
       }
       console.log("body: " + body);
-        /*
-        return await new Promise((resolve) => {
-            exec(`node ./app/api/mapping/tsArcFetch.js --url "`+ body +`" --outputFile 'GISDataLayer.json'`, (error, stdout, stderr) => {
-                if (error) {
-                    console.error("Error executing JS script:", error);
-                    resolve(NextResponse.json({ error: "JS script execution failed" }, { status: 500 }));
-                    return;
-                }
-                if (stderr) {
-                    console.error("JS script stderr:", stderr);
-                }
-
-                console.log("JS script output:", stdout);
-                resolve(NextResponse.json({ message: "JS script executed", output: stdout }));
-            });
-        });
-        */
        await fetchEsriDataToOutputFile(body, './app/api/mapping/GISDataLayer01.json')
 
     return NextResponse.json({ message: 'Data received successfully' });
@@ -43,7 +25,7 @@ export async function POST(req: Request, res: Response) {
     }
 }
 
-
+//
 async function fetchEsriDataToOutputFile(url: string, outputFile: string) {
     try {
         const response = await fetch(`${url}/query?where=1=1&outFields=*&outSR=4326&f=geojson`);
