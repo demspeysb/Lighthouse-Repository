@@ -29,7 +29,7 @@ export default function Sidebar() {
         {/* Navigation Links */}
         <nav className="flex flex-col space-y-2 mt-4">
           <SidebarItem icon={Map} label="Dashboard" href="/" collapsed={collapsed} />
-          <SidebarItem icon={FileText} label="Documents" href="pages/docManager" collapsed={collapsed} />
+          <SidebarItem icon={FileText} label="Documents" href="/pages/docManager" collapsed={collapsed} />
           <SidebarItem icon={Settings} label="Settings" href="/settings" collapsed={collapsed} />
         </nav>
 
