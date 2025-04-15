@@ -204,10 +204,6 @@ export function Map() {
 
     console.log("script created")
 
-    // script.onload = () => {
-    //   initMap();
-    // };
-
     return () => {
       document.body.removeChild(script);
     };

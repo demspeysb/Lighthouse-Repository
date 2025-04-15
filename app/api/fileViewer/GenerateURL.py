@@ -1,8 +1,25 @@
 from google.cloud import storage
 from datetime import timedelta
-import os 
+import os
+import subprocess
+import tempfile
 
-os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = 'app/dataFiles/LighthouseCollectiveAPIKey.json'
+# Run the Node.js script to get the secret
+result = subprocess.run(
+    ["node", "app/api/apiServiceLoader/getUsingSecret.js"],
+    capture_output=True,
+    text=True,
+)
+
+json_content = result.stdout.strip()
+
+# Create a temporary file for the service account key
+with tempfile.NamedTemporaryFile(mode='w+', delete=False, suffix=".json") as temp_file:
+    temp_file.write(json_content)
+    temp_file_path = temp_file.name
+
+# Set the environment variable
+os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = temp_file_path
 
 #Generates a signed url from which a user can access the file
 def generate_signed_url(bucket_name, blob_name, expiration_minutes=5):
