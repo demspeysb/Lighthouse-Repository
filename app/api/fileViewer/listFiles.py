@@ -35,3 +35,5 @@ def list_files(bucketName, client):
 
 if __name__ == "__main__":
     list_files(args.bucket, client)
+
+#list_files("client_001", client)

@@ -29,9 +29,9 @@ function stringToArray(input: string): string[] {
   const output = input.split(',');
   for (let i = 0; i < output.length; i++) {
     if (i === output.length - 1) {
-      output[i] = output[i].slice(2, -2);
+      output[i] = output[i].slice(3, -3);
     } else {
-      output[i] = output[i].slice(2, -1);
+      output[i] = output[i].slice(3, -1);
     }
   }
   return output;

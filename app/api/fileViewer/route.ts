@@ -21,7 +21,7 @@ export async function POST(req: Request, res: Response): Promise<Response> {
         return await new Promise((resolve) => {
             //Creating a url for a file defined by body
             //Passes arguments via the cmd line arguments are --variable [value]
-            exec(`py ./app/api/fileViewer/cmdLineExperiment.py --bucket "client_001" --blob "`+ body + `" --expirationMins 5`, (error, stdout, stderr) => {
+            exec(`python ./app/api/fileViewer/cmdLineExperiment.py --bucket "client_001" --blob "`+ body + `" --expirationMins 5`, (error, stdout, stderr) => {
                 if (error) {
                     console.error("Error executing Python script:", error);
                     resolve(NextResponse.json({ error: "Python script execution failed" }, { status: 500 }));
