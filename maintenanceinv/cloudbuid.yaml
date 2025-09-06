@@ -1,0 +1,26 @@
+steps:
+  # Build the Docker image
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['build', '-t', '$LOCATION-docker.pkg.dev/$PROJECT_ID/apps/maintenanceinv:$COMMIT_SHA', '.']
+
+  # Push the image to Artifact Registry
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['push', '$LOCATION-docker.pkg.dev/$PROJECT_ID/apps/maintenanceinv:$COMMIT_SHA']
+
+  # Deploy to Cloud Run
+  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+    entrypoint: gcloud
+    args:
+      [
+        'run', 'deploy', '${_SERVICE}',
+        '--image', '$LOCATION-docker.pkg.dev/$PROJECT_ID/apps/maintenanceinv:$COMMIT_SHA',
+        '--region', '$LOCATION',
+        '--allow-unauthenticated'
+      ]
+
+images:
+  - '$LOCATION-docker.pkg.dev/$PROJECT_ID/apps/maintenanceinv:$COMMIT_SHA'
+
+substitutions:
+  _SERVICE: 'maintenance-inventory-test'  # Change per trigger (test, uat, prod)
+  LOCATION: 'us-central1'
