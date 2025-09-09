@@ -1,25 +1,32 @@
 steps:
-  # Build image from this folder
+  # Build the Docker image from this folder
   - name: gcr.io/cloud-builders/docker
-    args: ['build','-t','$LOCATION-docker.pkg.dev/$PROJECT_ID/apps/maintenanceinv:$COMMIT_SHA','.']
+    args: [
+      'build',
+      '-t', 'us-central1-docker.pkg.dev/bethel-maint-inv/apps/maintenanceinv:$COMMIT_SHA',
+      '.'
+    ]
 
-  # Push image to Artifact Registry
+  # Push the image to Artifact Registry
   - name: gcr.io/cloud-builders/docker
-    args: ['push','$LOCATION-docker.pkg.dev/$PROJECT_ID/apps/maintenanceinv:$COMMIT_SHA']
+    args: [
+      'push',
+      'us-central1-docker.pkg.dev/bethel-maint-inv/apps/maintenanceinv:$COMMIT_SHA'
+    ]
 
-  # Deploy to Cloud Run (service name is a substitution per env)
+  # Deploy the image to Cloud Run
   - name: gcr.io/google.com/cloudsdktool/cloud-sdk
     entrypoint: gcloud
     args: [
       'run','deploy','${_SERVICE}',
-      '--image','$LOCATION-docker.pkg.dev/$PROJECT_ID/apps/maintenanceinv:$COMMIT_SHA',
-      '--region','$LOCATION',
-      '--allow-unauthenticated'
+      '--image','us-central1-docker.pkg.dev/bethel-maint-inv/apps/maintenanceinv:$COMMIT_SHA',
+      '--region','us-central1',
+      '--allow-unauthenticated',
+      '--project','bethel-maint-inv'
     ]
 
 images:
-  - '$LOCATION-docker.pkg.dev/$PROJECT_ID/apps/maintenanceinv:$COMMIT_SHA'
+  - 'us-central1-docker.pkg.dev/bethel-maint-inv/apps/maintenanceinv:$COMMIT_SHA'
 
 substitutions:
-  _SERVICE: 'maintenanceinv-test'  # override per trigger for -uat / -prod
-  LOCATION: 'us-central1'
+  _SERVICE: 'maintenanceinv-test'  # override in triggers for UAT/Prod
