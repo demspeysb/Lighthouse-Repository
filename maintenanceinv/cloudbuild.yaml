@@ -1,0 +1,25 @@
+steps:
+  # Build image from this folder
+  - name: gcr.io/cloud-builders/docker
+    args: ['build','-t','$LOCATION-docker.pkg.dev/$PROJECT_ID/apps/maintenanceinv:$COMMIT_SHA','.']
+
+  # Push image to Artifact Registry
+  - name: gcr.io/cloud-builders/docker
+    args: ['push','$LOCATION-docker.pkg.dev/$PROJECT_ID/apps/maintenanceinv:$COMMIT_SHA']
+
+  # Deploy to Cloud Run (service name is a substitution per env)
+  - name: gcr.io/google.com/cloudsdktool/cloud-sdk
+    entrypoint: gcloud
+    args: [
+      'run','deploy','${_SERVICE}',
+      '--image','$LOCATION-docker.pkg.dev/$PROJECT_ID/apps/maintenanceinv:$COMMIT_SHA',
+      '--region','$LOCATION',
+      '--allow-unauthenticated'
+    ]
+
+images:
+  - '$LOCATION-docker.pkg.dev/$PROJECT_ID/apps/maintenanceinv:$COMMIT_SHA'
+
+substitutions:
+  _SERVICE: 'maintenanceinv-test'  # override per trigger for -uat / -prod
+  LOCATION: 'us-central1'
